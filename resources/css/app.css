@@ -1,3 +1,30 @@
+@import '@splidejs/splide/dist/css/splide.min.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+
+.thumbnail_slider {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#primary_slider {
+    margin-bottom: 1rem;
+}
+
+#primary_slider .splide__slide img {
+    width: 100%;
+    height: 400px;
+    /* Adjust height as needed */
+    object-fit: cover;
+}
+
+#thumbnail_slider .splide__slide img {
+    width: 100%;
+    height: 60px;
+    /* Adjust height as needed */
+    object-fit: cover;
+}

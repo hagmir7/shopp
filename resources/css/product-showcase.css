@@ -1,0 +1,25 @@
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+
+.product-thumbnails {
+    --swiper-navigation-size: 20px;
+    --swiper-navigation-color: #2563eb;
+}
+
+.product-thumbnails .swiper-button-next,
+.product-thumbnails .swiper-button-prev {
+    width: var(--swiper-navigation-size);
+    height: var(--swiper-navigation-size);
+    margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
+}
+
+.product-thumbnails .swiper-slide {
+    width: auto;
+    height: 90px;
+}
+
+.product-thumbnails .swiper-slide img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+}
