@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Site;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,10 +16,11 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->string('text_button');
-            $table->string('url');
-            $table->string('image');
-            $table->boolean('status');
+            $table->string('text_button')->nullable();
+            $table->string('url')->nullable();
+            $table->string('image')->nullable();
+            $table->boolean('status')->default(true);
+            $table->foreignIdFor(Site::class);
             $table->timestamps();
         });
     }
