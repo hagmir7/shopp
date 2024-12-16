@@ -7,16 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Site extends Model
 {
     protected $fillable = [
-        'name',
-        'domain',
-        'title',
-        'favicon',
-        'logo',
-        'image',
-        'tags',
-        'description',
-        'email',
-        'phone'
+        'name', 'domain', 'title', 'favicon',
+        'logo', 'image', 'tags', 'description', 'email',
+        'phone', 'currency'
     ];
 
     public function users()

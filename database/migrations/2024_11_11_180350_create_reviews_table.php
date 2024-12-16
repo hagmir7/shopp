@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('full_name');
             $table->string('email');
-            $table->integer('rating')->max(5);
+            $table->integer('rating')->max(5)->min(1);
             $table->text('content');
             $table->foreignIdFor(Product::class);
             $table->boolean('status');
