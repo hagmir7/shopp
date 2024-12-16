@@ -18,17 +18,17 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId(User::class)->nullable();
-            $table->foreignId(Address::class);
+            $table->foreignId(Address::class)->nullable();
             $table->string('full_name');
             $table->integer('status')->default(1);
             $table->decimal('total_amount', 10, 2);
             $table->string('phone');
-            $table->string('email');
-            $table->foreignId(Country::class);
-            $table->string('zip_code');
-            $table->string('region');
-            $table->foreignId(City::class);
-            $table->text('address');
+            $table->string('email')->nullable();
+            $table->foreignId(Country::class)->nullable();
+            $table->string('zip_code')->nullable();
+            $table->string('region')->nullable();
+            $table->foreignId(City::class)->nullable();
+            $table->text('address')->nullable();
             $table->timestamps();
         });
     }

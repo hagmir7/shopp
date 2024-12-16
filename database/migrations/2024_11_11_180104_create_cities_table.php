@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignIdFor(Country::class);
             $table->string('slug');
             $table->timestamps();
-            $table->timestamps();
         });
     }
 

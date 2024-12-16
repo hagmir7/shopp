@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('image')->nullable();
             $table->foreignIdFor(Category::class);
-            $table->boolean('status');
+            $table->integer('status');
             $table->timestamps();
         });
     }
