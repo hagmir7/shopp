@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('sites', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('domain');
+            $table->string('domain')->unique();
             $table->string('title');
             $table->string('favicon')->nullable();
             $table->string('logo')->nullable();
@@ -30,6 +30,8 @@ return new class extends Migration
             $table->json('options')->nullable();
             $table->string("currency")->default("MAD");
             $table->string("currency_code")->default("MAD");
+            $table->longText('header')->nullable();
+            $table->longText('footer')->nullable();
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Site extends Model
 {
@@ -41,6 +42,16 @@ class Site extends Model
     public function country()
     {
         return $this->belongsTo(Country::class);
+    }
+
+    public function urls(): HasMany
+    {
+        return $this->hasMany(Url::class);
+    }
+
+    public function mainUrls(): HasMany
+    {
+        return $this->hasMany(Url::class)->whereNull('parent_id');
     }
 
     public function media()
