@@ -9,7 +9,12 @@ class Site extends Model
     protected $fillable = [
         'name', 'domain', 'title', 'favicon',
         'logo', 'image', 'tags', 'description', 'email',
-        'phone', 'currency'
+        'phone', 'currency',
+        'language_id', 'country_id', 'options'
+    ];
+
+    protected $casts = [
+        'tags' => 'array',
     ];
 
     public function users()
@@ -25,6 +30,17 @@ class Site extends Model
     public function pages()
     {
         return $this->hasMany(Page::class);
+    }
+
+
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
     }
 
     public function media()

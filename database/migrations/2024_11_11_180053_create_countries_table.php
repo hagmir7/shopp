@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('code');
             $table->string('flag');
             $table->string('currency');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

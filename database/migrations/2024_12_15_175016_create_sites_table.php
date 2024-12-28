@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->foreignIdFor(Language::class);
             $table->foreignIdFor(Country::class)->nullable();
+            $table->json('options')->nullable();
             $table->string("currency")->default("MAD");
             $table->string("currency_code")->default("MAD");
             $table->timestamps();

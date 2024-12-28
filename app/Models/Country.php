@@ -3,10 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
 class Country extends Model
 {
+
+    use HasSlug;
+
+
     protected $fillable = [
         'name',
         'code',
@@ -34,9 +39,10 @@ class Country extends Model
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom(['name', 'code'])
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug')
             ->slugsShouldBeNoLongerThan(50)
-            ->doNotGenerateSlugsOnUpdate()
-            ->saveSlugsTo('slug');
+            ->doNotGenerateSlugsOnUpdate();
+
     }
 }

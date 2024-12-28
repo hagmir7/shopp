@@ -3,21 +3,18 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\CountryResource\Pages;
-use App\Filament\Resources\CountryResource\RelationManagers;
 use App\Models\Country;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CountryResource extends Resource
 {
     protected static ?string $model = Country::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-flag';
 
     public static function getModelLabel(): string
     {
@@ -67,6 +64,8 @@ class CountryResource extends Resource
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make('currency')
+                    ->badge()
+                    ->color('success')
                     ->label(__("Currency"))
                     ->searchable(),
             ])
