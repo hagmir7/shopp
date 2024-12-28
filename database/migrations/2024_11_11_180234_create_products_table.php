@@ -29,7 +29,6 @@ return new class extends Migration
             $table->foreignIdFor(Category::class);
             $table->string('slug');
             $table->timestamps();
-            $table->timestamps();
         });
     }
 

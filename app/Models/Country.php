@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sluggable\SlugOptions;
 
 class Country extends Model
 {
@@ -27,5 +28,15 @@ class Country extends Model
     public function orders()
     {
         return $this->hasMany(Order::class);
+    }
+
+
+    public function getSlugOptions(): SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom(['name', 'code'])
+            ->slugsShouldBeNoLongerThan(50)
+            ->doNotGenerateSlugsOnUpdate()
+            ->saveSlugsTo('slug');
     }
 }

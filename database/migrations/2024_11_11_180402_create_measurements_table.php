@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('measurements', function (Blueprint $table) {
             $table->id();
-            $table->int('type');
+            $table->integer('type');
             $table->string('unit');
             $table->foreignIdFor(Language::class);
             $table->timestamps();

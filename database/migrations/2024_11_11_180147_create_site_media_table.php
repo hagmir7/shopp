@@ -19,7 +19,6 @@ return new class extends Migration
             $table->foreignIdFor(Media::class);
             $table->string('url');
             $table->timestamps();
-            $table->timestamps();
         });
     }
 
