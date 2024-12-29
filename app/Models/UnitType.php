@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductMeasurement extends Model
+class UnitType extends Model
 {
     //
 }

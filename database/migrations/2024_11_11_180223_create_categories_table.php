@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('image')->nullable();
             $table->text('description')->nullable();
+            $table->integer('discount')->nullable();
             $table->foreignIdFor(Site::class);
             $table->string('slug');
             $table->timestamps();

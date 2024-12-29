@@ -3,21 +3,21 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Product extends Model
 {
+
+
+    use HasSlug;
+
+
     protected $fillable = [
-        'name',
-        'description',
-        'price',
-        'content',
-        'options',
-        'site_id',
-        'slug',
-        'status',
-        'tags',
-        'old_price',
-        'category_id'
+        'name', 'description', 'discount',
+        'price', 'content', 'options',
+        'site_id', 'slug', 'status',
+        'tags', 'category_id'
     ];
 
     protected $casts = [
@@ -59,5 +59,15 @@ class Product extends Model
     public function orderItems()
     {
         return $this->hasMany(OrderItem::class);
+    }
+
+
+    public function getSlugOptions(): SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom(['name', 'site_id'])
+            ->saveSlugsTo('slug')
+            ->slugsShouldBeNoLongerThan(50)
+            ->doNotGenerateSlugsOnUpdate();
     }
 }

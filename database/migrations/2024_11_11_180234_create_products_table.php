@@ -19,11 +19,11 @@ return new class extends Migration
             $table->text('description');
             $table->integer('status')->default(1);
             $table->string('sku')->nullable();
-            $table->decimal('price', 10, 2);
-            $table->decimal('old_price', 10, 2)->nullable();
+            $table->decimal('price', 10, 2)->nullable();
             $table->string('tags')->nullable();
             $table->text('content')->nullable();
             $table->json('options')->nullable();
+            $table->integer('discount')->nullable();
             $table->integer('stock')->nullable();
             $table->foreignIdFor(Site::class);
             $table->foreignIdFor(Category::class);

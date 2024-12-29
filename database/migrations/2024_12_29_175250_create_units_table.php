@@ -1,7 +1,6 @@
 <?php
 
-use App\Models\Measurement;
-use App\Models\Product;
+use App\Models\UnitType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,11 +12,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_measurements', function (Blueprint $table) {
+        Schema::create('units', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Product::class);
-            $table->unsignedBigInteger(Measurement::class);
-            $table->decimal('value', 10, 2);
+            $table->string('name')->unique(); // e.g. Kilogram..
+            $table->string('abbreviation', 10)->unique(); // e.g. kg..
+            $table->foreignIdFor(UnitType::class);
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_measurements');
+        Schema::dropIfExists('units');
     }
 };

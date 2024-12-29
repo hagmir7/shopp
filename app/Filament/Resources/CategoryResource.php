@@ -57,6 +57,11 @@ class CategoryResource extends Resource
                             ->columns(2),
                         Forms\Components\Section::make()
                             ->schema([
+                                Forms\Components\TextInput::make('discount')
+                                    ->label(__("Discount"))
+                                    ->numeric()
+                                    ->minValue(0)
+                                    ->maxValue(99),
                                 Forms\Components\FileUpload::make('image')
                                     ->label(__("Image"))
                                     ->image(),
@@ -72,8 +77,7 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image')
-                    ->label(__("Image"))
-                    ->thumbnail(),
+                    ->label(__("Image")),
                 Tables\Columns\TextColumn::make('name')
                     ->label(__("Category"))
                     ->searchable(),

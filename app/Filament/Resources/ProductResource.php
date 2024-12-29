@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\ProductStatusEnum;
 use App\Filament\Resources\ProductResource\Pages;
 use App\Filament\Resources\ProductResource\RelationManagers;
 use App\Models\Product;
@@ -45,22 +46,29 @@ class ProductResource extends Resource
                                 Forms\Components\TextInput::make('name')
                                     ->required()
                                     ->maxLength(255),
-                                Forms\Components\TextInput::make('status')
+                                Forms\Components\Select::make('status')
                                     ->required()
-                                    ->numeric()
+                                    ->options(ProductStatusEnum::toArray())
+                                    ->native(false)
                                     ->default(1),
                                 Forms\Components\TextInput::make('sku')
                                     ->label('SKU')
                                     ->maxLength(255),
                                 Forms\Components\TextInput::make('price')
+                                    ->minValue(0)
                                     ->required()
                                     ->numeric()
                                     ->prefix('$'),
-                                Forms\Components\TextInput::make('old_price')
+                                Forms\Components\TextInput::make('discount')
+                                    ->minValue(0)
+                                    ->maxValue(99)
+                                    ->prefix('%')
+                                    ->label(__('Discount'))
                                     ->numeric(),
-                                Forms\Components\TextInput::make('tags')
-                                    ->maxLength(255),
+
                                 Forms\Components\TextInput::make('stock')
+                                    ->label(__("Stock"))
+                                    ->minValue(0)
                                     ->numeric(),
                                 Forms\Components\Select::make('site_id')
                                     ->relationship('site', 'name')
@@ -73,10 +81,28 @@ class ProductResource extends Resource
                                     ->preload()
                                     ->required(),
                                 Forms\Components\Textarea::make('description')
+                                    ->label(__("Description"))
                                     ->required()
                                     ->columnSpanFull(),
                                 Forms\Components\RichEditor::make('content')
+                                    ->label(__("Content"))
                                     ->columnSpanFull(),
+                            Forms\Components\TagsInput::make('tags')
+                                ->label(__("Keywords"))
+                                ->separator(',')
+                                ->color('info')
+                                ->reorderable()
+                                ->nestedRecursiveRules(['min:3', 'max:100'])
+                                ->splitKeys(['Tab', ',', 'Enter', '،'])
+                                ->columnSpan(2),
+
+                            Forms\Components\Select::make('colors')
+                                ->relationship('colors', 'name')
+                                ->multiple()
+                                ->label(__("Colors"))
+                                ->columnSpan(1)
+                                ->searchable()
+                                ->preload(),
 
                             ])->columns(3),
                         Forms\Components\Tabs\Tab::make('Images')
@@ -103,6 +129,8 @@ class ProductResource extends Resource
                                     ->grid(4)
                             ]),
                         Forms\Components\Tabs\Tab::make('Variants')
+                            ->label(__("Variants"))
+                            ->icon('heroicon-o-adjustments-vertical')
                             ->schema([
                                 // ...
                             ]),
@@ -133,9 +161,7 @@ class ProductResource extends Resource
                 Tables\Columns\TextColumn::make('price')
                     ->money()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('old_price')
-                    ->numeric()
-                    ->sortable(),
+
                 Tables\Columns\TextColumn::make('tags')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('stock')
