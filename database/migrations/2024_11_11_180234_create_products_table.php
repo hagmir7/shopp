@@ -2,6 +2,7 @@
 
 use App\Models\Category;
 use App\Models\Site;
+use App\Models\Unit;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -25,9 +26,10 @@ return new class extends Migration
             $table->json('options')->nullable();
             $table->integer('discount')->nullable();
             $table->integer('stock')->nullable();
-            $table->foreignIdFor(Site::class);
-            $table->foreignIdFor(Category::class);
             $table->string('slug');
+            $table->foreignIdFor(Site::class);
+            $table->foreignIdFor(Category::class)->nullable();
+            $table->foreignIdFor(Unit::class)->nullable();
             $table->timestamps();
         });
     }

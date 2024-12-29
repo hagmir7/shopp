@@ -17,7 +17,7 @@ class Product extends Model
         'name', 'description', 'discount',
         'price', 'content', 'options',
         'site_id', 'slug', 'status',
-        'tags', 'category_id'
+        'tags', 'category_id', 'unit_id'
     ];
 
     protected $casts = [
@@ -50,11 +50,10 @@ class Product extends Model
         return $this->hasMany(Review::class);
     }
 
-    public function measurements()
-    {
-        return $this->belongsToMany(Measurement::class, 'product_measurements')
-            ->withPivot('value');
+    public function unit(){
+        return $this->belongsTo(Unit::class);
     }
+
 
     public function orderItems()
     {

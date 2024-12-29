@@ -25,9 +25,16 @@ class CategoryResource extends Resource
     }
 
 
+
     public static function getPluralLabel(): ?string
     {
         return __('Categories');
+    }
+
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->where('site_id', app("site")->id)->latest();
     }
 
     public static function form(Form $form): Form
@@ -43,12 +50,11 @@ class CategoryResource extends Resource
                                     ->label(__("Category"))
                                     ->required()
                                     ->maxLength(255),
-                                Forms\Components\Select::make('site_id')
-                                    ->relationship('site', 'name')
-                                    ->label(__("Store"))
-                                    ->searchable()
-                                    ->preload()
-                                    ->required(),
+                                Forms\Components\TextInput::make('discount')
+                                    ->label(__("Discount"))
+                                    ->numeric()
+                                    ->minValue(0)
+                                    ->maxValue(99),
                                 Forms\Components\Textarea::make('description')
                                     ->label(__("Description"))
                                     ->columnSpanFull(),
@@ -57,11 +63,7 @@ class CategoryResource extends Resource
                             ->columns(2),
                         Forms\Components\Section::make()
                             ->schema([
-                                Forms\Components\TextInput::make('discount')
-                                    ->label(__("Discount"))
-                                    ->numeric()
-                                    ->minValue(0)
-                                    ->maxValue(99),
+
                                 Forms\Components\FileUpload::make('image')
                                     ->label(__("Image"))
                                     ->image(),

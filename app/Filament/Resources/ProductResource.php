@@ -6,8 +6,11 @@ use App\Enums\ProductStatusEnum;
 use App\Filament\Resources\ProductResource\Pages;
 use App\Filament\Resources\ProductResource\RelationManagers;
 use App\Models\Product;
+use App\Models\UnitType;
+use Doctrine\DBAL\Query\From;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -58,13 +61,27 @@ class ProductResource extends Resource
                                     ->minValue(0)
                                     ->required()
                                     ->numeric()
-                                    ->prefix('$'),
+                                    ->prefix(app('site')->currency && '$'),
                                 Forms\Components\TextInput::make('discount')
                                     ->minValue(0)
                                     ->maxValue(99)
                                     ->prefix('%')
                                     ->label(__('Discount'))
                                     ->numeric(),
+
+                                Forms\Components\Select::make('unit_type')
+                                    ->options(UnitType::pluck('name', 'id'))
+                                    ->searchable()
+                                    ->preload(),
+
+                                Forms\Components\Select::make('unit_id')
+                                    ->relationship('unit', 'name', function (Builder $query, Get $get) {
+                                        $query->where('unit_type_id', $get('unit_type'));
+                                    })
+                                    ->searchable()
+                                    ->preload()
+                                    ->live()
+                                    ->label(__("Unit")),
 
                                 Forms\Components\TextInput::make('stock')
                                     ->label(__("Stock"))
@@ -78,31 +95,28 @@ class ProductResource extends Resource
                                 Forms\Components\Select::make('category_id')
                                     ->relationship('category', 'name')
                                     ->searchable()
-                                    ->preload()
-                                    ->required(),
+                                    ->preload(),
                                 Forms\Components\Textarea::make('description')
                                     ->label(__("Description"))
                                     ->required()
                                     ->columnSpanFull(),
-                                Forms\Components\RichEditor::make('content')
-                                    ->label(__("Content"))
-                                    ->columnSpanFull(),
-                            Forms\Components\TagsInput::make('tags')
-                                ->label(__("Keywords"))
-                                ->separator(',')
-                                ->color('info')
-                                ->reorderable()
-                                ->nestedRecursiveRules(['min:3', 'max:100'])
-                                ->splitKeys(['Tab', ',', 'Enter', '،'])
-                                ->columnSpan(2),
 
-                            Forms\Components\Select::make('colors')
-                                ->relationship('colors', 'name')
-                                ->multiple()
-                                ->label(__("Colors"))
-                                ->columnSpan(1)
-                                ->searchable()
-                                ->preload(),
+                                Forms\Components\TagsInput::make('tags')
+                                    ->label(__("Keywords"))
+                                    ->separator(',')
+                                    ->color('info')
+                                    ->reorderable()
+                                    ->nestedRecursiveRules(['min:3', 'max:100'])
+                                    ->splitKeys(['Tab', ',', 'Enter', '،'])
+                                    ->columnSpan(2),
+
+                                Forms\Components\Select::make('colors')
+                                    ->relationship('colors', 'name')
+                                    ->multiple()
+                                    ->label(__("Colors"))
+                                    ->columnSpan(1)
+                                    ->searchable()
+                                    ->preload(),
 
                             ])->columns(3),
                         Forms\Components\Tabs\Tab::make('Images')
@@ -135,6 +149,11 @@ class ProductResource extends Resource
                                 // ...
                             ]),
                     ])->columnSpanFull(),
+
+                Forms\Components\Section::make()
+                    ->schema([Forms\Components\RichEditor::make('content')
+                        ->label(__("Content"))
+                        ->columnSpanFull()]),
                 Forms\Components\Section::make()
                     ->schema([
                         Forms\Components\KeyValue::make('options')
@@ -151,35 +170,24 @@ class ProductResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->label(__("Product"))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('status')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('sku')
-                    ->label('SKU')
-                    ->searchable(),
+
                 Tables\Columns\TextColumn::make('price')
-                    ->money()
+                    ->label(__("Price"))
+                    ->money('MAD')
+                    ->badge()
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('tags')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('stock')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('site_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('category_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('slug')
-                    ->searchable(),
+                Tables\Columns\SelectColumn::make('status')
+                    ->label(__("Status"))
+                    ->options(ProductStatusEnum::toArray()),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__("Created"))
                     ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__("Updated"))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

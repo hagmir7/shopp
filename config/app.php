@@ -39,6 +39,11 @@ return [
     |
     */
 
+
+    'domain' => (string) env('APP_Domain', false),
+
+
+
     'debug' => (bool) env('APP_DEBUG', false),
 
     /*
