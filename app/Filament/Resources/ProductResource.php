@@ -61,7 +61,7 @@ class ProductResource extends Resource
                                     ->minValue(0)
                                     ->required()
                                     ->numeric()
-                                    ->prefix(app('site')->currency && '$'),
+                                    ->prefix(app('site')?->currency),
                                 Forms\Components\TextInput::make('discount')
                                     ->minValue(0)
                                     ->maxValue(99)
@@ -87,11 +87,6 @@ class ProductResource extends Resource
                                     ->label(__("Stock"))
                                     ->minValue(0)
                                     ->numeric(),
-                                Forms\Components\Select::make('site_id')
-                                    ->relationship('site', 'name')
-                                    ->searchable()
-                                    ->preload()
-                                    ->required(),
                                 Forms\Components\Select::make('category_id')
                                     ->relationship('category', 'name')
                                     ->searchable()
@@ -175,7 +170,7 @@ class ProductResource extends Resource
 
                 Tables\Columns\TextColumn::make('price')
                     ->label(__("Price"))
-                    ->money('MAD')
+                    ->money(app('site')?->currency)
                     ->badge()
                     ->sortable(),
 
