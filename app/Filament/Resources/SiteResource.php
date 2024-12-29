@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\SiteResource\Pages;
 use App\Filament\Resources\SiteResource\RelationManagers;
+use App\Filament\Resources\UrlResource\RelationManagers\UrlsRelationManager;
 use App\Models\Site;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -93,7 +94,7 @@ class SiteResource extends Resource
                                     ->label(__("Image"))
                                     ->image(),
                             ])->columns(2),
-                        Tabs\Tab::make('settings')
+                    Forms\Components\Tabs\Tab::make('settings')
                             ->icon('heroicon-o-cog-6-tooth')
                             ->label(__("Settings"))
                             ->schema([
@@ -121,6 +122,14 @@ class SiteResource extends Resource
                                     ->label(__("Logo")),
 
                             ])->columns(3),
+                        Forms\Components\Tabs\Tab::make('Options')
+                            ->label(__("Options"))
+                            ->icon('heroicon-o-ellipsis-horizontal-circle')
+                            ->schema([
+                                Forms\Components\KeyValue::make('options')
+                                    ->label(__("Store options"))
+                                    ->columnSpanFull(),
+                            ]),
                     ])->columnSpanFull(),
 
 
@@ -179,7 +188,7 @@ class SiteResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            UrlsRelationManager::class
         ];
     }
 

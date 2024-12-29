@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreignIdFor(Product::class);
             $table->foreignIdFor(Color::class)->nullable();
             $table->string('path');
+            $table->string('alt')->nullable();
+            $table->integer('order')->default(0);
             $table->timestamps();
         });
     }

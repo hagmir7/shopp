@@ -16,6 +16,7 @@ class Site extends Model
 
     protected $casts = [
         'tags' => 'array',
+        'options' => 'array'
     ];
 
     public function users()
