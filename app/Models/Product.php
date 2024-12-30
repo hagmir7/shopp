@@ -9,15 +9,12 @@ use Spatie\Sluggable\SlugOptions;
 
 class Product extends Model
 {
-
-
     use HasSlug;
-
 
     protected $fillable = [
         'name', 'description', 'discount',
-        'price', 'content', 'options',
-        'site_id', 'slug', 'status',
+        'price', 'content', 'options', 'sku',
+        'stock', 'site_id', 'slug', 'status',
         'tags', 'category_id', 'unit_id'
     ];
 
@@ -25,7 +22,6 @@ class Product extends Model
         'options' => 'array',
         'tags' => 'array',
         'status' => ProductStatusEnum::class
-
     ];
 
     public function site()
