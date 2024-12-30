@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\ProductStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
@@ -22,7 +23,9 @@ class Product extends Model
 
     protected $casts = [
         'options' => 'array',
-        'tags' => 'array'
+        'tags' => 'array',
+        'status' => ProductStatusEnum::class
+
     ];
 
     public function site()

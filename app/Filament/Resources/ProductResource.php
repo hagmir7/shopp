@@ -35,6 +35,11 @@ class ProductResource extends Resource
         return __("Products");
     }
 
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->where('site_id', app("site")->id)->latest();
+    }
+
     public static function form(Form $form): Form
     {
         return $form
