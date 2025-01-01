@@ -55,6 +55,16 @@ class Site extends Model
         return $this->hasMany(Url::class)->whereNull('parent_id');
     }
 
+    public function slides()
+    {
+        return $this->hasMany(Slide::class);
+    }
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
+
     public function media()
     {
         return $this->belongsToMany(Media::class, 'site_media')

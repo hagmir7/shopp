@@ -1,55 +1,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <div class="relative h-96 overflow-hidden">
         <!-- Slide 1 -->
-        <div class="slide absolute w-full h-full opacity-0">
-            <img src="https://floorwarehouse.co.uk/wp-content/uploads/2023/04/Herringbone-Oak-Floor-Pattern.jpg"
-                alt="Slide 1" class="absolute w-full h-full object-cover">
-            <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
-                <div class="slide-content max-w-4xl">
-                    <h2 class="text-5xl md:text-6xl font-bold mb-4 opacity-0 translate-y-10">Welcome to Floor Warehouse</h2>
-                    <p class="text-xl md:text-2xl mb-8 opacity-0 translate-y-10">Discover our premium collection of flooring
-                        solutions</p>
-                    <button
-                        class="opacity-0 translate-y-10 bg-[#cba155] text-white px-8 py-2  rounded-full text-lg font-semibold transform transition-transform duration-300 hover:scale-105">
-                        Shop Now
-                    </button>
+        @foreach (app('site')->slides->where('status', true) as $slide)
+            <div class="slide absolute w-full h-full opacity-0">
+                <img src="{{ Storage::url($slide->image) }}" alt="Slide 1"
+                    class="absolute w-full h-full object-cover">
+                <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
+                    <div class="slide-content max-w-4xl">
+                        <h2 class="text-5xl md:text-6xl font-bold mb-4 opacity-0 translate-y-10">{{ $slide->title }}</h2>
+                        <p class="text-xl md:text-2xl mb-8 opacity-0 translate-y-10">{{ $slide->description }}</p>
+                        <a href="{{ $slide->url }}" class="opacity-0 translate-y-10 bg-[#cba155] text-white px-8 py-2  rounded-full text-lg font-semibold transform transition-transform duration-300 hover:scale-105">
+                            {{ $slide->text_button }}
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="slide absolute w-full h-full opacity-0">
-            <img src="https://floorwarehouse.co.uk/wp-content/uploads/2023/04/Natural-Engineered-Plank-Floor.jpg"
-                alt="Slide 2" class="absolute w-full h-full object-cover">
-            <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
-                <div class="slide-content max-w-4xl">
-                    <h2 class="text-5xl md:text-6xl font-bold mb-4 opacity-0 translate-y-10">Quality Hardwood Flooring</h2>
-                    <p class="text-xl md:text-2xl mb-8 opacity-0 translate-y-10">Transform your space with our exclusive
-                        range</p>
-                    <button
-                        class="opacity-0 translate-y-10 bg-[#cba155] text-white px-8 py-2  rounded-full text-lg font-semibold transform transition-transform duration-300 hover:scale-105">
-                        Explore Collection
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="slide absolute w-full h-full opacity-0">
-            <img src="https://floorwarehouse.co.uk/wp-content/uploads/2023/04/Solid-Parquet-Floor.jpg" alt="Slide 3"
-                class="absolute w-full h-full object-cover">
-            <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
-                <div class="slide-content max-w-4xl">
-                    <h2 class="text-5xl md:text-6xl font-bold mb-4 opacity-0 translate-y-10">Professional Installation</h2>
-                    <p class="text-xl md:text-2xl mb-8 opacity-0 translate-y-10">Expert fitting service available nationwide
-                    </p>
-                    <button
-                        class="opacity-0 translate-y-10 bg-[#cba155] text-white px-8 py-2  rounded-full text-lg font-semibold transform transition-transform duration-300 hover:scale-105">
-                        Learn More
-                    </button>
-                </div>
-            </div>
-        </div>
+        @endforeach
 
         <!-- Navigation Buttons -->
         <button id="left" class="absolute hidden lg:block left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-30 hover:bg-opacity-50 text-white p-4 rounded-full z-20 transition-all duration-300">
@@ -66,10 +32,6 @@
             <div class="w-3 h-3 dots rounded-full bg-white bg-opacity-50 cursor-pointer transition-all duration-300"></div>
         </div>
     </div>
-
-
-
-
 <script>
     let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');

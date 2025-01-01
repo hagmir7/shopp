@@ -18,3 +18,9 @@ Route::get('/product', function(){
 Route::controller(ProductController::class)->prefix('product')->group(function () {
     Route::get('{product:slug}', 'show')->name('product.show');
 });
+
+Route::controller(ProductController::class)->prefix('category')->group(function () {
+    Route::get('{category:slug}', 'show')->name('category.show');
+});
+
+
