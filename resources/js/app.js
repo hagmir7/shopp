@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var main = new Splide('#primary_slider', {
         type: 'loop',
         perPage: 1,
+        // direction: "rtl",
         perMove: 1,
         gap: '1rem',
         pagination: false,
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fixedWidth: 100,
         fixedHeight: 60,
         isNavigation: true,
+        // direction: "rtl",
         gap: 10,
         focus: 'center',
         pagination: false,
