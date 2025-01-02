@@ -9,7 +9,8 @@
             <img src="{{ Storage::url(app("site")->logo) }}" alt="{{  app("site")->name }}" class="h-12">
         </a>
         <!-- Search Bar -->
-        @livewire('product-search')
+        {{-- @livewire('product-search') --}}
+        <livewire:product-search />
         {{-- @livewire('component', ['user' => $user], key($user->id)) --}}
 
 
