@@ -16,6 +16,7 @@ class ProductSearch extends Component
         if (strlen($this->search) >= 2) {
             $results = Product::where('name', 'like', '%' . $this->search . '%')
                 ->orWhere('description', 'like', '%' . $this->search . '%')
+                ->where('site_id', app('site')->id)
                 ->take(10)
                 ->get();
         }

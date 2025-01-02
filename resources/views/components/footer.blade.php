@@ -2,7 +2,7 @@
     <!-- Logo and Social Media Section -->
     <div class="max-w-7xl mx-auto mb-8 grid grid-cols-1 md:grid-cols-2">
         <div class="flex items-center">
-            <img src="https://floorwarehouse.co.uk/wp-content/uploads/2023/04/WHITE-Artwork-COLOUR-72-DPI-300x63.png" alt="Floor Warehouse" class="h-14">
+            <img src="https://floorwarehouse.co.uk/wp-content/uploads/2023/04/WHITE-Artwork-COLOUR-72-DPI-300x63.png" alt="{{ app("site")->name }}" class="h-14">
         </div>
 
         <div class="flex items-center space-x-4 justify-start md:justify-end mt-4 md:mt-0">
@@ -25,67 +25,27 @@
     </div>
 
     <!-- Main Footer Content -->
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-        <!-- Useful links -->
-        <div>
-            <h3 class="text-lg font-bold mb-4">Useful links</h3>
-            <ul class="space-y-2">
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Expert Flooring Advice</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Use of Cookies</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms & Conditions</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Feedback & Corrections</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Our Principles & Policies</a>
+  <footer class="rounded-lg shadow dark:bg-gray-900 m-4">
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <ul class="flex flex-wrap items-center mb-6 text-md font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                <li>
+                    <a href="/" class="hover:underline me-4 md:me-6">{{ __("Home") }}</a>
+                </li>
+                <li>
+                    <a href="/contact" class="hover:underline">{{ __("Contact") }}</a>
                 </li>
             </ul>
         </div>
-
-        <!-- Help & Advice -->
-        <div>
-            <h3 class="text-lg font-bold mb-4">Help & Advice</h3>
-            <ul class="space-y-2">
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Help Centre</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Payments & Finance</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Delivery Information</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Returns</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
-            </ul>
-        </div>
-
-        <!-- Categories -->
-        <div>
-            <h3 class="text-lg font-bold mb-4">Categories</h3>
-            <ul class="space-y-2">
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Plank</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Parquet</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Herringbone</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Chevron</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Versailles Panel</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tiles</a></li>
-            </ul>
-        </div>
-
-        <!-- Shop Categories -->
-        <div>
-            <h3 class="text-lg font-bold mb-4">Shop Categories</h3>
-            <ul class="space-y-2">
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Engineered Wood</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Solid Wood Flooring</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">LVT Vinyl</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">SPC Vinyl</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Laminate</a></li>
-                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Shop All</a></li>
-            </ul>
-        </div>
     </div>
+</footer>
 
     <!-- Footer Bottom -->
     <div class="max-w-7xl mx-auto border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
         <div class="text-sm text-gray-400 mb-4 md:mb-0">
-            2024 © Floor Warehouse LTD. All rights reserved. Brayford Square, London, E1 0SG.
+            20{{ now()->format('y') }} © {{ app('site')->name }}. {{ __("All rights reserved") }}.
             <br>
-            Company Registration: 15436258 VAT No: 460 4697 77
+            {{ app("site")?->address }}
         </div>
 
         <!-- Payment Methods -->
