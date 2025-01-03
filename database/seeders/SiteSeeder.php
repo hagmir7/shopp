@@ -17,7 +17,7 @@ class SiteSeeder extends Seeder
         DB::table('sites')->insert([
             [
                 'name' => 'Amtar',
-                'domain' => 'localhost:8000',
+                'domain' => 'localhost',
                 'title' => 'Amtar - Store Site',
                 'favicon' => 'favicon.ico',
                 'logo' => 'logo.png',

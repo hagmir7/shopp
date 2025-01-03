@@ -20,6 +20,10 @@ class DatabaseSeeder extends Seeder
             CountrySeeder::class,
             SiteSeeder::class,
             CitySeeder::class,
+            CategorySeeder::class,
+            UnitSeeder::class,
+            ColorSeeder::class
+
         ]);
     }
 }

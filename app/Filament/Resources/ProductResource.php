@@ -74,19 +74,6 @@ class ProductResource extends Resource
                                     ->label(__('Discount'))
                                     ->numeric(),
 
-                                Forms\Components\Select::make('unit_type')
-                                    ->options(UnitType::pluck('name', 'id'))
-                                    ->searchable()
-                                    ->preload(),
-
-                                Forms\Components\Select::make('unit_id')
-                                    ->relationship('unit', 'name', function (Builder $query, Get $get) {
-                                        $query->where('unit_type_id', $get('unit_type'));
-                                    })
-                                    ->searchable()
-                                    ->preload()
-                                    ->live()
-                                    ->label(__("Unit")),
 
                                 Forms\Components\TextInput::make('stock')
                                     ->label(__("Stock"))
@@ -146,7 +133,36 @@ class ProductResource extends Resource
                             ->label(__("Variants"))
                             ->icon('heroicon-o-adjustments-vertical')
                             ->schema([
-                                // ...
+                                Forms\Components\Repeater::make('dimensions')
+                                    ->relationship()
+                                    ->schema([
+                                         Forms\Components\Select::make('unit_type')
+                                            ->options(UnitType::pluck('name', 'id')->toArray())
+                                            ->searchable()
+                                            ->preload()
+                                            ->label(__("Unit type")),
+                                        Forms\Components\Select::make('unit_id')
+                                            ->relationship('unit', 'abbreviation', function ($query, Get $get) {
+                                                $query->where('unit_type_id', $get('unit_type'));
+                                            })
+                                            ->searchable()
+                                            ->live()
+                                            ->preload()
+                                            ->label(__("Unit")),
+                                        Forms\Components\TextInput::make('value')
+                                            ->label(__("Value")),
+                                        Forms\Components\TextInput::make('price')
+                                            ->label(__("Price"))
+                                            ->required()
+                                            ->numeric()
+                                            ->prefix(app('site')?->currency),
+                                        Forms\Components\TextInput::make('code')
+                                            ->label("Code")
+                                    ])
+                                    // ->orderColumn('order')
+                                    ->reorderable(true)
+                                    ->defaultItems(1)
+                                    ->columns(3),
                             ]),
                     ])->columnSpanFull(),
 

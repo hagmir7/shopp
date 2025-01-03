@@ -49,7 +49,13 @@ class Product extends Model
         return $this->hasMany(Review::class);
     }
 
-    public function unit(){
+    public function units(){
+        return $this->hasMany(Unit::class);
+    }
+
+
+    public function unit()
+    {
         return $this->belongsTo(Unit::class);
     }
 
@@ -57,6 +63,10 @@ class Product extends Model
     public function orderItems()
     {
         return $this->hasMany(OrderItem::class);
+    }
+
+    public function dimensions(){
+        return $this->hasMany(Dimension::class);
     }
 
 
