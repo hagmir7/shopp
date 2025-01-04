@@ -50,11 +50,12 @@ function initSwiper() {
     thumbnails.mount();
 }
 
-document.addEventListener('DOMContentLoaded', initSwiper);
+initSwiper();
+// document.addEventListener('DOMContentLoaded', initSwiper);
 
-Livewire.hook('morph.updated', ({ el, component }) => {
-    setTimeout(initSwiper, 0);
-});
+// Livewire.hook('morph.updated', ({ el, component }) => {
+//     setTimeout(initSwiper, 0);
+// });
 
 Livewire.start();
 
