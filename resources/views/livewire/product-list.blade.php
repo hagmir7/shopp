@@ -71,7 +71,7 @@
                 </svg>
             </div>
             <div class="mt-4 flex items-center justify-between">
-                <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white flex items-center">
+                <p class="text-2xl font-extrabold leading-tight text-gray-900 flex items-center">
                     <span>{{ app("site")->currency }}&#xa0;</span>
                     <span>{{ intval($product->price) }}</span>
                 </p>

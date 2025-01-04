@@ -10,7 +10,7 @@
         <button type="button" @mouseover="isOpen = true" @keydown.space.prevent="openedWithKeyboard = true"
             @keydown.enter.prevent="openedWithKeyboard = true" @keydown.down.prevent="openedWithKeyboard = true"
             class="inline-flex cursor-pointer py-2 hover:text-gray-600 text-lg gap-2 items-center"
-            :class="isOpen || openedWithKeyboard ? 'text-neutral-900 dark:text-white' : 'text-neutral-600 dark:text-neutral-300'"
+            :class="isOpen || openedWithKeyboard ? 'text-neutral-900' : 'text-neutral-600'"
             :aria-expanded="isOpen || openedWithKeyboard" aria-haspopup="true">
             {{ $name }}
             <svg aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"

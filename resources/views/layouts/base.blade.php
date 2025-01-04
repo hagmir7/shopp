@@ -10,7 +10,7 @@
         <!-- Styles / Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased dark:text-white/50" style="background-image: url('https://floorwarehouse.co.uk/wp-content/uploads/2024/04/wd-furniture-background.jpg');background-repeat: repeat;">
+    <body class="font-sans antialiased" style="background-image: url('https://floorwarehouse.co.uk/wp-content/uploads/2024/04/wd-furniture-background.jpg');background-repeat: repeat;">
         <x-top-nav />
         <x-nav />
         @yield('content')
