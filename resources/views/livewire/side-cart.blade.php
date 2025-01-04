@@ -26,7 +26,7 @@
 
         <!-- Cart Header -->
         <div class="flex items-center justify-between p-4 border-b">
-            <h2 class="text-lg font-semibold">Shopping Cart</h2>
+            <h2 class="text-lg font-semibold">{{ __("Shopping Cart") }}</h2>
             <button @click="isOpen = false" class="text-gray-500 hover:text-gray-700">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -38,19 +38,25 @@
         <div class="p-4">
             <div class="space-y-4">
                 <!-- Sample Cart Item -->
-                <div class="flex items-center space-x-4">
-                    <div class="w-16 h-16 bg-gray-200 rounded"></div>
-                    <div class="flex-1">
-                        <h3 class="text-sm font-medium">Sample Product</h3>
-                        <p class="text-sm text-gray-500">$99.99</p>
+                @foreach (\Cart::getContent() as $product)
+                    <div class="flex items-center space-x-4">
+                        <div class="w-16 h-16 bg-gray-200 rounded">
+                            <img src="{{ Storage::url($product->attributes['image']) }}" alt="">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-sm font-medium">{{ $product->name }}</h3>
+                            <p class="text-sm text-gray-500">{{ $product->price }} {{ app("site")->currency }}</p>
+                            <p class="text-sm text-gray-500">{{ $product->attributes['color'] }}</p>
+                        </div>
+                        <button class="text-red-500 hover:text-red-700">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
                     </div>
-                    <button class="text-red-500 hover:text-red-700">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                        </svg>
-                    </button>
-                </div>
+                @endforeach
+
             </div>
         </div>
 

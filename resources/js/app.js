@@ -10,11 +10,23 @@ Alpine.plugin(focus)
 Alpine.start()
 
 
-document.addEventListener('DOMContentLoaded', function () {
+
+function initSwiper() {
+    // Destroy existing instances if they exist
+    const existingMain = document.querySelector('#primary_slider');
+    const existingThumbs = document.querySelector('#thumbnail_slider');
+
+    if (existingMain?.splide) {
+        existingMain.splide.destroy();
+    }
+    if (existingThumbs?.splide) {
+        existingThumbs.splide.destroy();
+    }
+
+    // Initialize new instances
     var main = new Splide('#primary_slider', {
         type: 'loop',
         perPage: 1,
-        // direction: "rtl",
         perMove: 1,
         gap: '1rem',
         pagination: false,
@@ -26,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
         fixedWidth: 100,
         fixedHeight: 60,
         isNavigation: true,
-        // direction: "rtl",
         gap: 10,
         focus: 'center',
         pagination: false,
@@ -37,4 +48,14 @@ document.addEventListener('DOMContentLoaded', function () {
     main.sync(thumbnails);
     main.mount();
     thumbnails.mount();
+}
+
+document.addEventListener('DOMContentLoaded', initSwiper);
+
+Livewire.hook('morph.updated', ({ el, component }) => {
+    setTimeout(initSwiper, 0);
 });
+
+Livewire.start();
+
+
