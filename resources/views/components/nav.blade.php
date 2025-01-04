@@ -6,7 +6,7 @@
 
         <!-- Logo -->
         <a href="/" class="flex items-center">
-            <img src="{{ Storage::url(app("site")->logo) }}" alt="{{  app("site")->name }}" class="h-12">
+            <img src="{{ Storage::url(app("site")->logo) }}" alt="{{  app("site")->name }}" class="w-32 md:h-12 md:w-auto ">
         </a>
         <!-- Search Bar -->
         {{-- @livewire('product-search') --}}
