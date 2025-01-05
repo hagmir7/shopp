@@ -6,7 +6,7 @@
             <ul class="splide__list">
                 @foreach ($images as $image)
                     <li class="splide__slide">
-                        <img src="{{ Storage::url($image->path) }}">
+                        <img class="h-auto md:h-[400px]" src="{{ Storage::url($image->path) }}">
                     </li>
                 @endforeach
             </ul>
