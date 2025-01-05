@@ -4,17 +4,17 @@
     </button>
     <div x-cloak x-show="modalIsOpen" x-transition.opacity.duration.200ms x-trap.inert.noscroll="modalIsOpen"
         @keydown.esc.window="modalIsOpen = false" @click.self="modalIsOpen = false"
-        class="fixed inset-0 z-30 flex items-end justify-center bg-black/20 p-4 pb-8 backdrop-blur-md sm:items-center lg:p-8"
+        class="fixed inset-0 z-30 md:flex items-end justify-center bg-black/20 p-4 pb-8 backdrop-blur-md sm:items-center lg:p-8"
         role="dialog" aria-modal="true" aria-labelledby="defaultModalTitle">
         <!-- Modal Dialog -->
         <div x-show="modalIsOpen"
             x-transition:enter="transition ease-out duration-200 delay-100 motion-reduce:transition-opacity"
             x-transition:enter-start="opacity-0 scale-50" x-transition:enter-end="opacity-100 scale-100"
-            class="flex flex-col gap-4 overflow-hidden rounded-md border border-neutral-300 bg-white text-neutral-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">
+            class="flex flex-col gap-4 overflow-hidden rounded-md border border-neutral-300 bg-white text-neutral-600">
             <!-- Dialog Header -->
             <div
-                class="flex items-center justify-between border-b border-neutral-300 bg-neutral-50/60 p-4 dark:border-neutral-700 dark:bg-neutral-950/20">
-                <h3 id="defaultModalTitle" class="font-semibold tracking-wide text-neutral-900 dark:text-white">
+                class="flex items-center justify-between border-b border-neutral-300 bg-neutral-50/60 p-4">
+                <h3 id="defaultModalTitle" class="font-semibold tracking-wide text-neutral-900">
                     {{ __("Order information") }}
                 </h3>
                 <button @click="modalIsOpen = false" aria-label="close modal">
@@ -27,17 +27,17 @@
             <!-- Dialog Body -->
             <form class="max-w-7xl px-5">
                 <div>
-                    <label for="full_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __("Full name") }}</label>
+                    <label for="full_name" class="block mb-2 text-sm font-medium text-gray-900">{{ __("Full name") }}</label>
                     <input type="text" id="full_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="{{ __("Your name") }}" required />
                 </div>
                 <div class="grid gap-6 mb-6 md:grid-cols-2 mt-2">
                     <div>
-                        <label for="city" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __("City") }}</label>
+                        <label for="city" class="block mb-2 text-sm font-medium text-gray-900">{{ __("City") }}</label>
                         <input type="text" id="city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             placeholder="{{ __("City") }}" required />
                     </div>
                     <div>
-                        <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __("Phone number") }}</label>
+                        <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">{{ __("Phone number") }}</label>
                         <input type="tel" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="123-45-678" required />
                     </div>
                 </div>
