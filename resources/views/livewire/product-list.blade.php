@@ -25,7 +25,7 @@
     <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-shadow duration-300">
         <div class="relative">
             <a href="{{ route('product.show', $product->slug) }}">
-                <img src="{{ Storage::url($product->images->first()->path) }}" alt="{{ $product->name }}" class="w-full h-48 md:h-64 object-cover">
+                <img src="{{ Storage::url($product->images->first()->path) }}" alt="{{ $product->name }}" class="w-full h-64 object-contain">
             </a>
             @if ($product->discount && ($product->discount > 0))
                 <span class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
