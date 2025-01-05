@@ -1,6 +1,6 @@
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
     <!-- Product Card 1 -->
-    <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-xl transition-shadow duration-300">
+    {{-- <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-xl transition-shadow duration-300">
         <div class="relative">
             <img src="https://floorwarehouse.co.uk/wp-content/uploads/2024/04/deep-grey-oak-plank-brushed-oiled-150mm-x-14mm-engineered-wooden-flooring-350x400.jpg"
                 alt="Wooden Flooring" class="w-full h-48 md:h-64 object-cover">
@@ -19,7 +19,7 @@
                 Add to Cart
             </button>
         </div>
-    </div>
+    </div> --}}
 
     @foreach ($products as $product)
     <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-shadow duration-300">
