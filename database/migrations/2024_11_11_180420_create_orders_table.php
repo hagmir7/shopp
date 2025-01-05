@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('zip_code')->nullable();
             $table->string('region')->nullable();
             $table->foreignId(City::class)->nullable();
+            $table->text('city_name')->nullable();
             $table->text('address')->nullable();
             $table->timestamps();
         });

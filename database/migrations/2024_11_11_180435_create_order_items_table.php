@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Measurement;
+use App\Models\Dimension;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Database\Migrations\Migration;
@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignIdFor(Product::class);
             $table->integer('quantity');
             $table->decimal('total', 10, 2);
-            $table->foreignIdFor(Measurement::class)->nullable();
+            $table->foreignIdFor(Dimension::class)->nullable();
             $table->timestamps();
         });
     }

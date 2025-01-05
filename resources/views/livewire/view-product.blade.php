@@ -130,9 +130,7 @@
                         </svg>
                         <span>{{ __("Add to Cart") }}</span>
                     </button>
-                    <button class="flex items-center justify-center gap-2 rounded-pill text-gray-900 bg-[#e0b15e] py-2 px-4 rounded-full text-sm font-semibold hover:text-gray-600">
-                        <span>{{ __("Buy Now") }}</span>
-                    </button>
+                   @livewire('buy-now', ['product' => $product], key($product->id))
                 </div>
             </div>
     </div>
