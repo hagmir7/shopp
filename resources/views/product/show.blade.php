@@ -1,10 +1,10 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+<div class="min-h-screen md:py-8 md:px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
         <!-- Product Container -->
-        <div class="bg-white rounded-xl shadow-sm border p-4 sm:p-6 lg:p-8">
+        <div class="bg-white md:rounded-xl md:shadow-sm border p-4 sm:p-6 lg:p-8">
             <!-- Product Grid -->
             {{-- <livewire:view-product :product="$product" /> --}}
             @livewire('view-product', ['product' => $product], key($product->id))
