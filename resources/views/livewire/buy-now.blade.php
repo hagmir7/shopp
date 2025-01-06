@@ -1,5 +1,5 @@
 <div x-data="{modalIsOpen: false}" class="w-full">
-    <button @click="modalIsOpen = true" type="button" class="w-full flex items-center justify-center gap-2 rounded-pill text-gray-900 bg-[#e0b15e] py-3 px-4 rounded-full text-sm font-semibold hover:text-gray-600">
+    <button @click="modalIsOpen = true" type="button" class="w-full flex items-center justify-center gap-2 rounded-pill text-gray-900 bg-[#e0b15e] py-3 px-4 rounded-md text-sm font-semibold hover:text-gray-600">
         <span>{{ __("Buy Now") }}</span>
     </button>
     <div x-cloak x-show="modalIsOpen" x-transition.opacity.duration.200ms
