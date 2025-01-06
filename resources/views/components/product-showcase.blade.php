@@ -19,8 +19,8 @@
         <div class="splide__track">
             <ul class="splide__list">
                 @foreach ($images as $image)
-                <li class="splide__slide" style="background-size: contain!important;">
-                    <img src="{{ Storage::url($image->path) }}">
+                <li class="splide__slide border border-1 border-gray-500">
+                    <img class="object-contain " style="border: 1.5px solid #8080804f;" src="{{ Storage::url($image->path) }}">
                 </li>
                 @endforeach
             </ul>

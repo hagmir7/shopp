@@ -36,12 +36,12 @@ function initSwiper() {
     var thumbnails = new Splide('#thumbnail_slider', {
         rewind: true,
         fixedWidth: 100,
-        fixedHeight: 60,
+        fixedHeight: "100%",
         isNavigation: true,
         gap: 10,
         focus: 'center',
         pagination: false,
-        cover: true,
+        cover: false,
         arrows: false,
     });
 
@@ -57,6 +57,6 @@ Livewire.hook('morph.updated', ({ el, component }) => {
     setTimeout(initSwiper, 0);
 });
 
-Livewire.start();
+// Livewire.start();
 
 

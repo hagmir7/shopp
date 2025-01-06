@@ -1,6 +1,6 @@
 <!-- Main Navigation -->
 <nav class="bg-[#fbfaf7] border-b-2 border-[#e0b15e]">
-    <div class="container mx-auto flex flex-wrap items-center justify-between px-4 py-4">
+    <div class="container mx-auto flex flex-wrap items-center justify-between px-4 py-4" x-data="{}">
         <!-- Mobile menu button -->
         <x-mobile-menu />
 
@@ -9,11 +9,7 @@
             <img src="{{ Storage::url(app("site")->logo) }}" alt="{{  app("site")->name }}" class="w-32 md:h-12 md:w-auto ">
         </a>
         <!-- Search Bar -->
-        {{-- @livewire('product-search') --}}
         <livewire:product-search />
-        {{-- @livewire('component', ['user' => $user], key($user->id)) --}}
-
-
         <!-- Icons -->
         <div class="items-center space-x-4 hidden lg:flex" >
             <a href="#" class="hover:text-gray-600 p-2 rounded-full bg-[#efeeeb]">
@@ -35,15 +31,21 @@
 
 
         {{-- Mobile cart --}}
-        <div class="items-center space-x-4 flex lg:hidden">
-            <a href="#" class="hover:bg-amber-800 bg-amber-950 p-2 rounded-full  relative text-white duration-200">
-                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.5 21a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3m-8 0a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3M3.71 5.4h15.214c1.378 0 2.373 1.27 1.995 2.548l-1.654 5.6C19.01 14.408 18.196 15 17.27 15H8.112c-.927 0-1.742-.593-1.996-1.452zm0 0L3 3" />
-                </svg>
-                <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2">
-                    20
-                </div>
-            </a>
+        <div>
+            <!-- Added x-data here -->
+            <div class="items-center space-x-4 flex lg:hidden">
+                <button class="hover:bg-amber-800 bg-amber-950 p-2 rounded-full relative text-white duration-200">
+                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="1.5"
+                            d="M16.5 21a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3m-8 0a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3M3.71 5.4h15.214c1.378 0 2.373 1.27 1.995 2.548l-1.654 5.6C19.01 14.408 18.196 15 17.27 15H8.112c-.927 0-1.742-.593-1.996-1.452zm0 0L3 3" />
+                    </svg>
+                    <div
+                        class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2">
+                        2
+                    </div>
+                </button>
+            </div>
         </div>
     </div>
 
