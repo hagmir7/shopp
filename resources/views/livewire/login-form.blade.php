@@ -9,7 +9,7 @@
         <input type="password" wire:model='password' placeholder="••••••••"
             class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5  "
             required="">
-        @error('password') <span class="text-danger">{{ $message }}</span> @enderror
+        @error('password') <span class="text-danger mb-2">{{ $message }}</span> @enderror
     </div>
     <div class="flex items-center justify-between">
         <div class="flex items-start">
