@@ -3,9 +3,9 @@
     <div class="container mx-auto px-4">
         <div class="flex items-center justify-between py-2 text-sm">
             <div class="flex space-x-4">
-                <a href="#" class="hover:text-gray-600">{{ __("About Us") }}</a>
-                <a href="#" class="hover:text-gray-600">{{ __("Expert Advice") }}</a>
-                <a href="#" class="hover:text-gray-600">{{ __("Help Centre") }}</a>
+                @foreach (app("site")->urls->where("top_nav") as $item)
+                    <a href="{{ $item->path }}" class="hover:text-gray-600">{{ $item->name }}</a>
+                @endforeach
             </div>
             <div class="flex items-center space-x-4">
                 @if (app('site')->phone)

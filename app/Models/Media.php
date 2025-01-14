@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Media extends Model
 {
-    protected $fillable = ['name', 'icon'];
+    protected $fillable = ['name', 'icon', 'color'];
 
     public function sites()
     {

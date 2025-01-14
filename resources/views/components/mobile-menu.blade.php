@@ -27,9 +27,8 @@
             @if (app('site')->logo)
                 <img src="{{ Storage::url(app('site')->logo) }}" alt="{{ app('site')->name }}" class="h-12">
             @else
-                <h2 class="text-lg font-semibold">{{ app('site')->name }}</h2>
+                <h2 class="text-2xl font-semibold">{{ app('site')->name }}</h2>
             @endif
-
 
             <button @click="isOpen = false" class="text-gray-500 hover:text-gray-700">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -53,13 +52,13 @@
             </div>
             <!-- Menu Items -->
             <nav class="divide-y">
-                <a href="#" class="block px-4 py-3 hover:bg-gray-50">Shop All</a>
-                <a href="#" class="block px-4 py-3 hover:bg-gray-50">Help Centre – FAQ</a>
-                <a href="#" class="block px-4 py-3 hover:bg-gray-50">Contact Us</a>
-                <a href="#" class="block px-4 py-3 hover:bg-gray-50">Expert Flooring Advice</a>
-                <a href="#" class="block px-4 py-3 hover:bg-gray-50">About Us</a>
+                @foreach (app("site")->urls->where('mobile_menu') as $item)
+                    <a href="{{ $item->path }}" class="block px-4 py-3 hover:bg-gray-50">{{ $item->name }}</a>
+                @endforeach
+
+
                 <a href="#" class="block px-4 py-3 text-orange-500 hover:bg-gray-50">Home</a>
-                <a href="#" class="block px-4 py-3 hover:bg-gray-50">
+                {{-- <a href="#" class="block px-4 py-3 hover:bg-gray-50">
                     <span class="flex items-center">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -76,7 +75,7 @@
                         </svg>
                         Compare
                     </span>
-                </a>
+                </a> --}}
 
             </nav>
         </div>

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignIdFor(Unit::class);
             $table->string('value')->nullable();
             $table->string('code')->nullable();
+            $table->string('stock')->nullable();
             $table->float('price');
             $table->timestamps();
         });

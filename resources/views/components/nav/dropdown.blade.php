@@ -22,16 +22,11 @@
         <div x-cloak x-show="isOpen || openedWithKeyboard" x-transition x-trap="openedWithKeyboard"
             @click.outside="isOpen = false, openedWithKeyboard = false" @keydown.down.prevent="$focus.wrap().next()"
             @keydown.up.prevent="$focus.wrap().previous()"
-            class="absolute top-12 left-0 flex w-full min-w-96 flex-col overflow-hidden rounded-md border-t-4 border-yellow-600 bg-gray-100 py-1.5"
+            class="absolute top-12 left-0 flex w-full min-w-96 flex-col overflow-hidden rounded-md shadow-lg border-t-4 border-yellow-600 bg-gray-100 py-1.5"
             role="menu">
-
-
             @foreach ($items as $item)
             <x-nav.dropdown-item name="{{ $item['name'] }}" url="{{ $item['url'] }}" />
             @endforeach
-
-
-
         </div>
     </div>
 </li>

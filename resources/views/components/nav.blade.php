@@ -6,8 +6,11 @@
 
         <!-- Logo -->
         <a href="/" class="flex items-center">
-            <img src="{{ Storage::url(app("site")->logo) }}" alt="{{ app("site")->name }}" class="w-32 md:h-12
-            md:w-auto ">
+            @if (app("site")->logo)
+                <img src="{{ Storage::url(app(" site")->logo) }}" alt="{{ app("site")->name }}" class="w-32 md:h-12 md:w-auto ">
+            @else
+                <div class="text-3xl font-bold">{{ app("site")->name }}</div>
+            @endif
         </a>
         <!-- Search Bar -->
         <livewire:product-search />
@@ -21,8 +24,18 @@
                 </svg>
             </a>
 
-            <x-nav-profile-icon />
+            @auth
+                <a href="/profile" class="hover:text-gray-600 p-2 rounded-full bg-[#efeeeb]">
+                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M15 7.5a3 3 0 1 1-6 0a3 3 0 0 1 6 0m4.5 13c-.475-9.333-14.525-9.333-15 0" />
+                    </svg>
+                </a>
+            @endauth
 
+            @guest
+                <x-nav-profile-icon />
+            @endguest
             <livewire:side-cart>
         </div>
 
@@ -51,29 +64,32 @@
         <div class="container mx-auto px-4 flex justify-between items-center">
             <ul class="flex flex-col lg:flex-row space-x-10 py-2 text-sm font-medium">
                 <li>
-                    <a href="/" class="inline-flex cursor-pointer py-2 hover:text-gray-600 gap-2 items-center text-[17px] text-neutral-600">
+                    <a href="/"
+                        class="inline-flex cursor-pointer py-2 hover:text-gray-600 gap-2 items-center text-[17px] text-neutral-600">
                         {{ __("Home") }}
                     </a>
                 </li>
-                @foreach (app('site')->urls->where('header', true) as $item)
-                <li>
-                    <a href="/" class="inline-flex cursor-pointer py-2 hover:text-gray-600 gap-2 items-center text-[17px] text-neutral-600">
-                        {{ __("Home") }}
-                    </a>
-                </li>
-                @endforeach
-                @foreach (app('site')->urls->whereNull('parent_id')->load('children')->all() as $item)
-                <x-nav.dropdown name="{{ $item->name }}" :items="$item->children->map(function($child) {
-                        return [
-                            'name' => $child->name,
-                            'url' => $child->path
-                        ];
-                    })->toArray()" />
+                @foreach (app('site')->urls->where('header', true)->load('children')->sortBy('order')->all() as $item)
+                    @if (count($item->children) == 0)
+                    <li>
+                        <a href="{{ $item->path }}" class="inline-flex cursor-pointer py-2 hover:text-gray-600 gap-2 items-center text-[17px] text-neutral-600">
+                            {{ $item->name }}
+                        </a>
+                    </li>
+                    @else
+                    <x-nav.dropdown name="{{ $item->name }}" :items="$item->children->map(function($child) {
+                            return [
+                                'name' => $child->name,
+                                'url' => $child->path
+                            ];
+                        })->toArray()" />
+                    @endif
                 @endforeach
 
             </ul>
             <div>
-                <a href="" class="rounded-pill text-gray-900 bg-[#e0b15e] py-2 px-4 rounded-full text-sm font-semibold hover:text-white">
+                <a href=""
+                    class="rounded-pill text-gray-900 bg-[#e0b15e] py-2 px-4 rounded-full text-sm font-semibold hover:text-white">
                     We'll Beat Any Price!
                 </a>
             </div>

@@ -21,6 +21,14 @@ class UrlResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->where('site_id', app("site")->id)
+            ->orderBy('order')
+            ->whereNull('parent_id');
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -77,9 +85,6 @@ class UrlResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('site.name')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('parent.name')
                     ->numeric()
                     ->sortable(),
@@ -87,9 +92,6 @@ class UrlResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('path')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('order')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\IconColumn::make('top_nav')
                     ->boolean(),
                 Tables\Columns\IconColumn::make('header')
@@ -107,6 +109,7 @@ class UrlResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->reorderable('order')
             ->filters([
                 //
             ])

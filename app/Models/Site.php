@@ -68,7 +68,7 @@ class Site extends Model
     public function media()
     {
         return $this->belongsToMany(Media::class, 'site_media')
-            ->withPivot('url')
+            ->withPivot(['url'])
             ->withTimestamps();
     }
 }

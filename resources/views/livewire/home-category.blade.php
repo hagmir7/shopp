@@ -1,7 +1,7 @@
 <section class="max-w-7xl mx-auto px-4 py-12">
-    <h1 class="text-3xl font-bold text-gray-900 mb-4">{{ __("Browse Categories") }}</h1>
+    <h1 class="text-xl font-bold text-gray-900 mb-2">{{ __("Browse Categories") }}</h1>
 
-    <p class="text-gray-600 mb-8">
+    <p class="text-gray-600 mb-4">
         Explore Floor Warehouse's premium selection of Solid & Engineered Wood, Luxury Vinyl Tiles, and Laminate
         Flooring, sourced from top suppliers to ensure quality and innovation at unbeatable prices. Discover your
         perfect floor and order free samples today!
