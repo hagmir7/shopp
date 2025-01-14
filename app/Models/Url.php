@@ -8,7 +8,17 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Url extends Model
 {
-    protected $fillable = ['site_id', 'parent_id', 'name', 'path', 'order'];
+    protected $fillable = [
+        'site_id',
+        'parent_id',
+        'name',
+        'top_nav',
+        'header',
+        'footer',
+        'mobile_menu',
+        'path',
+        'order'
+    ];
 
     public function site(): BelongsTo
     {

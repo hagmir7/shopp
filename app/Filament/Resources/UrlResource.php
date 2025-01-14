@@ -12,6 +12,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Icetalker\FilamentTableRepeater\Forms\Components\TableRepeater;
+use Illuminate\Support\Arr;
 
 class UrlResource extends Resource
 {
@@ -23,21 +25,51 @@ class UrlResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('site_id')
-                    ->relationship('site', 'name')
-                    ->required(),
-                Forms\Components\Select::make('parent_id')
-                    ->relationship('parent', 'name'),
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('path')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('order')
-                    ->required()
-                    ->numeric()
-                    ->default(0),
+                Forms\Components\Section::make()
+                    ->schema([
+                        Forms\Components\TextInput::make('name')
+                            ->label(__("Name"))
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\Select::make('parent_id')
+                            ->searchable()
+                            ->preload()
+                            ->relationship('parent', 'name'),
+                        Forms\Components\TextInput::make('path')
+                            ->label(__("Url"))
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\Toggle::make('top_nav')
+                            ->required(),
+                        Forms\Components\Toggle::make('header')
+                            ->required(),
+                        Forms\Components\Toggle::make('footer')
+                            ->required(),
+                        Forms\Components\Toggle::make('mobile_menu')
+                            ->required(),
+                    ])->columns(3),
+            TableRepeater::make('children')
+
+                ->relationship()
+                ->schema([
+                    Forms\Components\TextInput::make('name')
+                        ->label(__("Name"))
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('path')
+                        ->label(__("Url"))
+                        ->required()
+                        ->maxLength(255),
+                ])
+                ->mutateRelationshipDataBeforeCreateUsing(function (array $data): array {
+                    $data['site_id'] = app('site')->id;
+                    return $data;
+                })
+                ->cloneable()
+                ->collapsible()
+                ->maxItems(5)
+                ->columnSpan('full')
+
             ]);
     }
 
@@ -58,6 +90,14 @@ class UrlResource extends Resource
                 Tables\Columns\TextColumn::make('order')
                     ->numeric()
                     ->sortable(),
+                Tables\Columns\IconColumn::make('top_nav')
+                    ->boolean(),
+                Tables\Columns\IconColumn::make('header')
+                    ->boolean(),
+                Tables\Columns\IconColumn::make('footer')
+                    ->boolean(),
+                Tables\Columns\IconColumn::make('mobile_menu')
+                    ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

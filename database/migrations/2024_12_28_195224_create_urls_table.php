@@ -23,6 +23,7 @@ return new class extends Migration
             $table->boolean('top_nav')->default(false);
             $table->boolean('header')->default(false);
             $table->boolean('footer')->default(false);
+            $table->boolean('mobile_menu')->default(false);
             $table->timestamps();
         });
     }
