@@ -8,8 +8,6 @@
     </p>
 
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-        <!-- Engineered Wood Flooring -->
-
         @foreach (app("site")->categories as $category)
             <x-category-item
                 image="https://floorwarehouse.co.uk/wp-content/uploads/2024/04/Engineered-Wood-Flooring-Category-Thumbnail.jpg"
