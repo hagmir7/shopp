@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('path');
             $table->integer('order')->default(0);
-            $table->boolean('to_nav')->default(false);
+            $table->boolean('top_nav')->default(false);
             $table->boolean('header')->default(false);
             $table->boolean('footer')->default(false);
             $table->timestamps();

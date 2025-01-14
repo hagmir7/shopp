@@ -44,7 +44,7 @@
                         </div>
                         <div class="flex-1">
                             <h3 class="text-sm font-medium">{{ $product->name }}</h3>
-                            <p class="text-sm text-gray-500">{{ $product->price }} {{ app("site")->currency }}</p>
+                            <p class="text-sm text-gray-500">{{ $product->price }} {{ app("site")->currency }} x {{ $product->quantity }}</p>
                             <p class="text-sm text-gray-500">{{ $product->attributes['color'] }}</p>
                         </div>
                         <button class="text-red-500 hover:text-red-700">

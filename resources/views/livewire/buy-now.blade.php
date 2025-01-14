@@ -10,7 +10,7 @@
         <div x-show="modalIsOpen"
             x-transition:enter="transition ease-out duration-200 delay-100 motion-reduce:transition-opacity"
             x-transition:enter-start="opacity-0 scale-50" x-transition:enter-end="opacity-100 scale-100"
-            class="flex flex-col gap-4 overflow-hidden rounded-md border border-neutral-300 bg-white text-neutral-600">
+            class="flex flex-col gap-4 overflow-hidden md:min-w-[500px] rounded-md border border-neutral-300 bg-white text-neutral-600">
             <!-- Dialog Header -->
             <div
                 class="flex items-center justify-between border-b border-neutral-300 bg-neutral-50/60 p-4">

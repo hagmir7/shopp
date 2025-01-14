@@ -6,20 +6,22 @@
 
         <!-- Logo -->
         <a href="/" class="flex items-center">
-            <img src="{{ Storage::url(app("site")->logo) }}" alt="{{  app("site")->name }}" class="w-32 md:h-12 md:w-auto ">
+            <img src="{{ Storage::url(app("site")->logo) }}" alt="{{ app("site")->name }}" class="w-32 md:h-12
+            md:w-auto ">
         </a>
         <!-- Search Bar -->
         <livewire:product-search />
         <!-- Icons -->
-        <div class="items-center space-x-4 hidden lg:flex" >
+        <div class="items-center space-x-4 hidden lg:flex">
             <a href="#" class="hover:text-gray-600 p-2 rounded-full bg-[#efeeeb]">
                 <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="1.5"
                         d="M7.75 3.5C5.127 3.5 3 5.76 3 8.547C3 14.125 12 20.5 12 20.5s9-6.375 9-11.953C21 5.094 18.873 3.5 16.25 3.5c-1.86 0-3.47 1.136-4.25 2.79c-.78-1.654-2.39-2.79-4.25-2.79" />
                 </svg>
             </a>
 
-           <x-nav-profile-icon />
+            <x-nav-profile-icon />
 
             <livewire:side-cart>
         </div>
@@ -48,35 +50,32 @@
     <div class="hidden w-full lg:block" id="navbar-default">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <ul class="flex flex-col lg:flex-row space-x-10 py-2 text-sm font-medium">
-                <a href="#" class="inline-flex cursor-pointer py-2 hover:text-gray-600 text-lg gap-2 items-center">
-                    Home
-                </a>
-            <x-nav.dropdown name="Electronic" :items="[
-                [
-                    'name' => 'Home',
-                    'url' => '/'
-                ],
-                [
-                    'name' => 'About',
-                    'url' => '/about'
-                ]
-            ]" />
-
-            <x-nav.dropdown name="Categories" :items="[
-                [
-                    'name' => 'Electronic',
-                    'url' => '/'
-                ],
-                [
-                    'name' => 'Home',
-                    'url' => '/about'
-                ]
-            ]" />
+                <li>
+                    <a href="/" class="inline-flex cursor-pointer py-2 hover:text-gray-600 gap-2 items-center text-[17px] text-neutral-600">
+                        {{ __("Home") }}
+                    </a>
+                </li>
+                @foreach (app('site')->urls->where('header', true) as $item)
+                <li>
+                    <a href="/" class="inline-flex cursor-pointer py-2 hover:text-gray-600 gap-2 items-center text-[17px] text-neutral-600">
+                        {{ __("Home") }}
+                    </a>
+                </li>
+                @endforeach
+                @foreach (app('site')->urls->whereNull('parent_id')->load('children')->all() as $item)
+                <x-nav.dropdown name="{{ $item->name }}" :items="$item->children->map(function($child) {
+                        return [
+                            'name' => $child->name,
+                            'url' => $child->path
+                        ];
+                    })->toArray()" />
+                @endforeach
 
             </ul>
-
             <div>
-                <a href="" class="rounded-pill text-gray-900 bg-[#e0b15e] py-2 px-4 rounded-full text-sm font-semibold hover:text-white"> We'll Beat Any Price!</a>
+                <a href="" class="rounded-pill text-gray-900 bg-[#e0b15e] py-2 px-4 rounded-full text-sm font-semibold hover:text-white">
+                    We'll Beat Any Price!
+                </a>
             </div>
         </div>
     </div>

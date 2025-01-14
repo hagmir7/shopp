@@ -53,7 +53,7 @@ class ViewProduct extends Component
         }
 
         \Cart::add([
-            'id' => $this->product->id.'-'.($this->color ?? $this->color->id ).'-'.($this->dimension ?? $this->dimension->id),
+            'id' => $this->product?->id.'-'.($this->color ?? $this?->color?->id ).'-'.($this?->dimension ?? $this?->dimension?->id),
             'name' => $this->product->name,
             'price' => $this->price,
             'quantity' => $this->quantity,
@@ -63,7 +63,7 @@ class ViewProduct extends Component
                 'image' => $this->product->images?->first()?->path,
                 'dimension' => $dimension ? $dimension->value : false,
                 'slug' => $this->product->slug,
-                'product_id' => $this->product->id,
+                'product_id' => $this->product?->id,
                 'dimension_id' => $dimension?->id,
             ]
         ]);
