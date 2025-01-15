@@ -26,6 +26,38 @@
             </div>
             <!-- Dialog Body -->
             <form class="max-w-7xl px-5">
+                @if ($product->colors->count() > 0)
+                <div class="mb-3">
+                    <h2 class="font-semibold text-gray-900 mb-3">{{ __("Select Color") }}</h2>
+                    <div class="flex flex-wrap gap-3">
+                        @foreach ($product->colors as $color)
+                        <label class="block">
+                            <input wire:model.live='color' type="radio" name="color-choice" value="{{  $color->id }}"
+                                class="sr-only peer">
+                            <span style="background-color: {{ $color->name }}!important"
+                                class="w-8 h-8 rounded-full ring-2 ring-offset-2 ring-gray-200 transition-all hover:ring-gray-300 peer-focus:ring-gray-400 peer-focus:ring-offset-4 peer-checked:ring-gray-900 block cursor-pointer"></span>
+                        </label>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+                @if ($product->dimensions->count() > 0)
+                    <div class="mb-3">
+                        <h2 class="font-semibold text-gray-900 mb-3">{{ __("Other options") }}</h2>
+                        <div class="flex flex-wrap gap-3">
+                            @foreach ($product->dimensions as $dimension)
+                            <label class="block">
+                                <input wire:model.live='dimension' type="radio" name="dimension" value="{{ $dimension->id }}"
+                                    class="sr-only peer">
+                                <span
+                                    class="px-4 py-2 text-sm font-medium rounded-full bg-gray-100 text-gray-900 hover:bg-gray-200 transition-colors peer-checked:bg-gray-900 peer-checked:text-white block cursor-pointer">
+                                    {{ $dimension->value }}
+                                </span>
+                            </label>
+                            @endforeach
+                        </div>
+                    </div>
+                 @endif
                 <div>
                     <label for="full_name" class="block mb-2 text-sm font-medium text-gray-900">{{ __("Full name") }}</label>
                     <input type="text" id="full_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="{{ __("Your name") }}" required />
@@ -40,6 +72,29 @@
                         <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">{{ __("Phone number") }}</label>
                         <input type="tel" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="123-45-678" required />
                     </div>
+                </div>
+
+                <div class="grid gap-6 mb-6 md:grid-cols-2 mt-2">
+                    <div>
+                        <label for="zip_code" class="block mb-2 text-sm font-medium text-gray-900">{{ __("Zip Code") }}</label>
+                        <input type="text" id="zip_code"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            placeholder="{{ __("Zip Code") }}" required />
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900">{{ __("Email") }}</label>
+                        <input type="email" id="email"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            placeholder="{{ __("Yur email") }}" required />
+                    </div>
+
+                </div>
+
+                <div>
+                    <label for="address" class="block mb-2 text-sm font-medium text-gray-900">{{ __("Address") }}</label>
+                    <input type="text" id="address"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        placeholder="{{ __(" Your address") }}" required />
                 </div>
                 <button type="button" class="cursor-pointer whitespace-nowrap rounded-md bg-black px-4 py-2 my-3 w-full text-center text-sm font-medium tracking-wide text-neutral-100 transition hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black active:opacity-100 active:outline-offset-0">
                     {{ __("Order Now") }}
