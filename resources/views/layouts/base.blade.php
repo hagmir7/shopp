@@ -9,6 +9,12 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <!-- Styles / Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <style>
+            [x-cloak] {
+                display: none !important;
+            }
+        </style>
     </head>
     <body class="font-sans antialiased" style="background-image: url('https://floorwarehouse.co.uk/wp-content/uploads/2024/04/wd-furniture-background.jpg');background-repeat: repeat;">
         <x-top-nav />

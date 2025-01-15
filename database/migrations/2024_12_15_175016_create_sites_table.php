@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('domain')->unique();
             $table->string('title');
             $table->string('favicon')->nullable();
+            $table->string('dark_logo')->nullable();
             $table->string('logo')->nullable();
             $table->string('image')->nullable();
             $table->text('tags')->nullable();

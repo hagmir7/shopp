@@ -42,7 +42,7 @@
 
     <!-- Footer Bottom -->
     <div class="max-w-7xl mx-auto border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-        <div class="text-sm text-gray-400 mb-4 md:mb-0">
+        <div class="text-md text-gray-400 mb-4 md:mb-0">
             20{{ now()->format('y') }} © {{ app('site')->name }}. {{ __("All rights reserved") }}.
             <br>
             {{ app("site")?->address }}
