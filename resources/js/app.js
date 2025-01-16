@@ -51,12 +51,4 @@ function initSwiper() {
 }
 
 initSwiper();
-document.addEventListener('DOMContentLoaded', initSwiper);
-
-Livewire.hook('morph.updated', ({ el, component }) => {
-    setTimeout(initSwiper, 0);
-});
-
-// Livewire.start();
-
 

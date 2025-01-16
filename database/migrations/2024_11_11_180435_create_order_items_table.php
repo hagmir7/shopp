@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Color;
 use App\Models\Dimension;
 use App\Models\Order;
 use App\Models\Product;
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->decimal('total', 10, 2);
             $table->foreignIdFor(Dimension::class)->nullable();
+            $table->foreignIdFor(Color::class)->nullable();
             $table->timestamps();
         });
     }

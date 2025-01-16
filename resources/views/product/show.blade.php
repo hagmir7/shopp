@@ -3,17 +3,19 @@
 @section('content')
 <div class="min-h-screen md:py-8 md:px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
-        <!-- Product Container -->
         <div class="bg-white md:rounded-xl md:shadow-sm border p-4 sm:p-6 lg:p-8">
-            <!-- Product Grid -->
-            {{-- <livewire:view-product :product="$product" /> --}}
-            @livewire('view-product', ['product' => $product], key($product->id))
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="w-full">
+                    <div class="rounded-lg overflow-hidden">
+                        <x-product-showcase :images="$product->images" />
+                    </div>
+                </div>
+                @livewire('view-product', ['product' => $product], key($product->id))
+            </div>
         </div>
         <div class="bg-white rounded-xl shadow-sm border p-4 sm:p-6 lg:p-8 mt-6">
-            <!-- Product Grid -->
             <h2 class="text-2xl mb-3 text-black">{{ __("Product description") }}</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
-                <!-- Product Description and options -->
                 <div class="flex flex-col space-y-6">
                     {!! $product->content !!}
                 </div>
@@ -37,11 +39,5 @@
         </div>
     </div>
 </div>
-
-
 <x-feature />
-
-
-{{--
-<x-cover /> --}}
 @endsection

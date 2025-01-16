@@ -15,11 +15,14 @@ class BuyNow extends Component
     public $city;
     public $address;
     public $zip_code;
-    public $quantity;
+    public $quantity = 1;
 
     public $price;
 
 
+
+
+    public $color;
     public $dimension;
 
     public Product $product;
@@ -31,7 +34,6 @@ class BuyNow extends Component
             'city_name' => $this->city,
             'full_name' => $this->full_name,
             'zip_code' => $this->zip_code,
-            'total_amount',
             'phone' => $this->phone,
             'email' => $this->email,
             'address' => $this->address,
@@ -42,6 +44,7 @@ class BuyNow extends Component
             'product_id' => $this->product->id,
             'dimension_id' => $this->dimension,
             'quantity' => $this->quantity,
+            'color_id' => $this->color,
             'totla' => intval($this->quantity) * $this->price
         ]);
     }
