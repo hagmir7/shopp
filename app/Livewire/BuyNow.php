@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
 use Livewire\Component;
@@ -30,22 +31,23 @@ class BuyNow extends Component
     public function save()
     {
         $order = Order::create([
-            'user_id' => auth()?->id(),
+            // 'user_id' => auth()?->id(),
             'city_name' => $this->city,
             'full_name' => $this->full_name,
             'zip_code' => $this->zip_code,
             'phone' => $this->phone,
             'email' => $this->email,
+            'total_amount' => $this->product->price * intval($this->quantity),
             'address' => $this->address,
         ]);
 
-        $orderItem = OrderItem::craete([
+        OrderItem::create([
             'order_id' => $order->id,
             'product_id' => $this->product->id,
             'dimension_id' => $this->dimension,
             'quantity' => $this->quantity,
             'color_id' => $this->color,
-            'totla' => intval($this->quantity) * $this->price
+            'total' => intval($this->quantity) * $this->product->price
         ]);
     }
 

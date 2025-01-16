@@ -78,12 +78,11 @@
                         </div>
                     </div>
                 </div>
-
-
                 <div>
                     <div>
                         <label for="full_name" class="block mb-2 text-sm font-medium text-gray-900">{{ __("Full name") }}</label>
-                        <input type="text" id="full_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="{{ __(" Your name") }}" required />
+                        <x-forms.input type="text" wire:model='full_name' placeholder="{{ __('Full name') }}" />
+                        @error('full_name') <span class="text-red-700 my-2">{{ $message }}</span> @enderror
                     </div>
                     <div class="grid gap-6 mb-6 md:grid-cols-2 mt-2">
                         <div>
@@ -117,7 +116,7 @@
                         <x-forms.input type="text" maxLength="30" wire:model='address' placeholder="{{ __('Address') }}" />
                         @error('address') <span class="text-red-700 my-2">{{ $message }}</span> @enderror
                     </div>
-                    <button type="button" class="cursor-pointer whitespace-nowrap rounded-md bg-black px-4 py-2 my-3 w-full text-center text-sm font-medium tracking-wide text-neutral-100 transition hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black active:opacity-100 active:outline-offset-0">
+                    <button type="button" wire:click='save()' class="cursor-pointer whitespace-nowrap rounded-md bg-black px-4 py-2 my-3 w-full text-center text-sm font-medium tracking-wide text-neutral-100 transition hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black active:opacity-100 active:outline-offset-0">
                         {{ __("Order Now") }}
                     </button>
                 </div>
