@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="min-h-screen md:py-8 md:px-4 sm:px-6 lg:px-8">
+<div class="md:py-8 md:px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
         <!-- Product Container -->
         <div class="bg-white md:rounded-xl md:shadow-sm border p-4 sm:p-6 lg:p-8">

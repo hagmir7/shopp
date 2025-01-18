@@ -63,9 +63,48 @@
         </div>
 
         <div class="grid grid-cols-2 gap-4">
-            @livewire('buy-now', ['product' => $product], key($product->id))
-            <button wire:click='add()'
-                class="flex items-center justify-center gap-2 text-[#a17933] border-2 border-[#e0b15e] py-2 px-4 rounded-md text-sm font-semibold hover:text-gray-600">
+            {{-- Buy model --}}
+            <div x-data="{modalIsOpen: false}" class="w-full">
+                <button @click="modalIsOpen = true" type="button"
+                    class="w-full flex items-center justify-center gap-2 rounded-lg bg-amber-400 px-4 py-3 text-sm font-semibold text-gray-900 shadow-sm transition-all duration-200 hover:bg-amber-500 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 active:translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
+                    :aria-expanded="modalIsOpen" :aria-controls="modalId">
+                    <span class="relative">
+                        {{ __("Buy Now") }}
+                        <span class="absolute -right-1 -top-1 flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-600 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                        </span>
+                    </span>
+                </button>
+                <div x-cloak x-show="modalIsOpen" x-transition.opacity.duration.200ms @keydown.esc.window="modalIsOpen = false"
+                    @click.self="modalIsOpen = false"
+                    class="fixed inset-0 z-30 md:flex items-end justify-center bg-black/20 p-4 pb-8 backdrop-blur-md sm:items-center lg:p-8"
+                    role="dialog" aria-modal="true" aria-labelledby="defaultModalTitle">
+                    <!-- Modal Dialog -->
+                    <div x-show="modalIsOpen"
+                        x-transition:enter="transition ease-out duration-200 delay-100 motion-reduce:transition-opacity"
+                        x-transition:enter-start="opacity-0 scale-50" x-transition:enter-end="opacity-100 scale-100"
+                        class="flex flex-col gap-4 overflow-hidden md:min-w-[500px] rounded-md border border-neutral-300 bg-white text-neutral-600">
+                        <!-- Dialog Header -->
+                        <div class="flex items-center justify-between border-b border-neutral-300 bg-neutral-50/60 p-4">
+                            <h3 id="defaultModalTitle" class="font-semibold tracking-wide text-neutral-900">
+                                {{ __("Order information") }}
+                            </h3>
+                            <button @click="modalIsOpen = false" aria-label="close modal">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" stroke="currentColor"
+                                    fill="none" stroke-width="1.4" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                        <!-- Dialog Body -->
+                        @livewire('buy-now', ['product' => $product], key($product->id))
+                    </div>
+                </div>
+            </div>
+
+            <button wire:click='add()' type="button" class="flex items-center justify-center gap-2 text-[#a17933] border-2 border-[#e0b15e] py-2 px-4 rounded-md text-sm font-semibold hover:text-gray-600">
                 <svg wire:loading.remove wire:target="add" class="stroke-[#a17933] transition-all duration-500 group-hover:red-red-600" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10.7394 17.875C10.7394 18.6344 10.1062 19.25 9.32511 19.25C8.54402 19.25 7.91083 18.6344 7.91083 17.875M16.3965 17.875C16.3965 18.6344 15.7633 19.25 14.9823 19.25C14.2012 19.25 13.568 18.6344 13.568 17.875M4.1394 5.5L5.46568 12.5908C5.73339 14.0221 5.86724 14.7377 6.37649 15.1605C6.88573 15.5833 7.61377 15.5833 9.06984 15.5833H15.2379C16.6941 15.5833 17.4222 15.5833 17.9314 15.1605C18.4407 14.7376 18.5745 14.0219 18.8421 12.5906L19.3564 9.84059C19.7324 7.82973 19.9203 6.8243 19.3705 6.16215C18.8207 5.5 17.7979 5.5 15.7522 5.5H4.1394ZM4.1394 5.5L3.66797 2.75" stroke="" stroke-width="1.6" stroke-linecap="round">
                     </path>
