@@ -5,19 +5,22 @@ namespace App\Livewire;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class BuyNow extends Component
 {
 
+    #[Validate('required|min:10|max:150')]
     public $full_name;
+
+    #[Validate('required|min:9|max:100')]
     public $phone;
     public $email;
     public $city;
     public $address;
     public $zip_code;
     public $quantity = 1;
-
     public $price;
 
 
@@ -30,6 +33,7 @@ class BuyNow extends Component
 
     public function save()
     {
+        $this->validate();
         $order = Order::create([
             // 'user_id' => auth()?->id(),
             'city_name' => $this->city,

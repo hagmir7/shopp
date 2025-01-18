@@ -35,11 +35,6 @@ class ViewProduct extends Component
 
     public function add()
     {
-        // $this->validate([
-        //     'quantity' => 'required|numeric|min:1|max:100'
-        // ]);
-
-
         if($this->color){
             $color = Color::find($this->color);
         }else{
@@ -51,6 +46,7 @@ class ViewProduct extends Component
         }else{
             $dimension = null;
         }
+
 
         \Cart::add([
             'id' => $this->product?->id.'-'.($this->color ?? $this?->color?->id ).'-'.($this?->dimension ?? $this?->dimension?->id),
