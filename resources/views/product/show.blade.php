@@ -3,6 +3,7 @@
 @section('content')
 <div class="min-h-screen md:py-8 md:px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
+        {{-- Product  --}}
         <div class="bg-white md:rounded-xl md:shadow-sm border p-4 sm:p-6 lg:p-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div class="w-full">
@@ -13,6 +14,12 @@
                 @livewire('view-product', ['product' => $product], key($product->id))
             </div>
         </div>
+        {{-- Mobile buy now form --}}
+        <div class="bg-white rounded-xl shadow-sm border p-4 sm:p-6 lg:p-8 mt-6 md:hidden">
+            <h2 class="text-2xl mb-3 text-black">{{ __("Order info") }}</h2>
+            @livewire('buy-now', ['product' => $product], key($product->id))
+        </div>
+        {{-- Product Description and Options --}}
         <div class="bg-white rounded-xl shadow-sm border p-4 sm:p-6 lg:p-8 mt-6">
             <h2 class="text-2xl mb-3 text-black">{{ __("Product description") }}</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
@@ -37,6 +44,8 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 </div>
 <x-feature />

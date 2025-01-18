@@ -1,5 +1,5 @@
 
-<form class="max-w-7xl px-5 grid grid-cols-1 lg:grid-cols-2 gap-8">
+<form class="max-w-7xl px-5 grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-8">
     <div>
         @if ($product->colors->count() > 0)
         <div class="mb-3">
