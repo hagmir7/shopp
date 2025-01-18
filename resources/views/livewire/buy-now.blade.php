@@ -32,7 +32,7 @@
                 </button>
             </div>
             <!-- Dialog Body -->
-            <form class="max-w-7xl px-5 grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <form class="max-w-7xl px-5 grid grid-cols-1 lg:grid-cols-2 gap-8 overflow-auto max-h-screen pb-24 md:mb-0">
                 <div>
                     {{-- <div>
                         <img class="w-36" src="{{ Storage::url($product->images->first()?->path) }}" alt="">
