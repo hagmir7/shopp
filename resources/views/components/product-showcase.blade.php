@@ -14,7 +14,9 @@
     </div>
 
     <!-- Thumbnail Slider -->
+
     <div id="thumbnail_slider" class="splide">
+        @if ($images->count() > 1)
         <!-- Added splide class -->
         <div class="splide__track">
             <ul class="splide__list">
@@ -25,5 +27,7 @@
                 @endforeach
             </ul>
         </div>
+        @endif
     </div>
+
 </div>

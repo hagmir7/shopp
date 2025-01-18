@@ -1,7 +1,14 @@
 <div x-data="{modalIsOpen: false}" class="w-full">
     <button @click="modalIsOpen = true" type="button"
-        class="w-full flex items-center justify-center gap-2 rounded-pill text-gray-900 bg-[#e0b15e] py-3 px-4 rounded-md text-sm font-semibold hover:text-gray-600">
-        <span>{{ __("Buy Now") }}</span>
+        class="w-full flex items-center justify-center gap-2 rounded-lg bg-amber-400 px-4 py-3 text-sm font-semibold text-gray-900 shadow-sm transition-all duration-200 hover:bg-amber-500 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 active:translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
+        :aria-expanded="modalIsOpen" :aria-controls="modalId">
+        <span class="relative">
+            {{ __("Buy Now") }}
+            <span class="absolute -right-1 -top-1 flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-600 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+            </span>
+        </span>
     </button>
     <div x-cloak x-show="modalIsOpen" x-transition.opacity.duration.200ms @keydown.esc.window="modalIsOpen = false"
         @click.self="modalIsOpen = false"
@@ -62,7 +69,7 @@
                         @error('dimension') <span class="text-red-700 my-2">{{ $message }}</span> @enderror
                     </div>
                     @endif
-                    <div class="mb-6" x-data="{ quantity: @entangle('quantity') }">
+                    <div class="md:mb-6" x-data="{ quantity: @entangle('quantity') }">
                         <div class="">
                             <span class="text-md font-bold">{{ __("Quantity") }}</span>
                             <div class="flex items-center border border-gray-300 w-full rounded-md">
