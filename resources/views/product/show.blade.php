@@ -15,7 +15,7 @@
             </div>
         </div>
         {{-- Mobile buy now form --}}
-        <div class="bg-white rounded-xl shadow-sm border p-4 sm:p-6 lg:p-8 mt-6 md:hidden">
+        <div id="buy-now" class="bg-white rounded-xl shadow-sm border p-4 sm:p-6 lg:p-8 mt-6 md:hidden">
             <h2 class="text-2xl mb-3 text-black">{{ __("Order info") }}</h2>
             @livewire('buy-now', ['product' => $product], key($product->id))
         </div>

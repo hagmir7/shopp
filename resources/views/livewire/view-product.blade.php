@@ -64,7 +64,16 @@
 
         <div class="grid grid-cols-2 gap-4">
             {{-- Buy model --}}
-            <div x-data="{modalIsOpen: false}" class="w-full">
+            <a href="#buy-now" class="w-full flex items-center justify-center gap-2 rounded-lg bg-amber-400 px-4 py-3 text-sm font-semibold text-gray-900 shadow-sm transition-all duration-200 hover:bg-amber-500 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 active:translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed md:hidden">
+                <span class="relative">
+                    {{ __("Buy Now") }}
+                    <span class="absolute -right-1 -top-1 flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-600 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                    </span>
+                </span>
+            </a>
+            <div x-data="{modalIsOpen: false}" class="w-full hidden md:block">
                 <button @click="modalIsOpen = true" type="button"
                     class="w-full flex items-center justify-center gap-2 rounded-lg bg-amber-400 px-4 py-3 text-sm font-semibold text-gray-900 shadow-sm transition-all duration-200 hover:bg-amber-500 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 active:translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
                     :aria-expanded="modalIsOpen" :aria-controls="modalId">
