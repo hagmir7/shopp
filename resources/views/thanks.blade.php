@@ -15,10 +15,7 @@
         </svg>
     </div>
     <div class="relative flex flex-1 flex-col items-center justify-center pt-12 pb-16">
-
-
         <img class="mx-auto mb-10 h-20 w-auto text-slate-900" src="{{ asset("assets/images/check-icon.png") }}" alt="Thank you for you order">
-
         <div class="max-w-2xl text-center">
             <h1 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Thank You for Your Order!</h1>
             <div class="mt-6 text-base/7 text-slate-600">{{ __('We’ve received your order and are preparing it for shipment') }}
@@ -44,7 +41,7 @@
                     stroke-linejoin="round"></path>
             </svg>
             <p class="ml-6 max-w-lg flex-auto text-md text-gray-600"><strong class="font-semibold text-gray-900">
-                If you have any question you canc contact as at</strong> {{ app("site")->email }}</p>
+               {{ __('If you have any question you can contact as at') }}</strong> {{ app("site")->email }}</p>
         </div>
     </footer>
 </main>
