@@ -1,5 +1,5 @@
 
-<form class="max-w-7xl px-5 grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-8">
+<form class="max-w-7xl md:px-5 grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-8">
     <div>
         @if ($product->colors->count() > 0)
         <div class="mb-3">
@@ -87,12 +87,12 @@
 
         <div>
             <label for="address" class="block mb-2 text-sm font-medium text-gray-900">{{ __("Address") }}</label>
-            <x-forms.input type="text" maxLength="30" wire:model='address' placeholder="{{ __('Address') }}" />
+
+            <x-forms.textarea type="text" maxLength="100" wire:model='address' placeholder="{{ __('Address') }}" />
             @error('address') <span class="text-red-700 my-2">{{ $message }}</span> @enderror
         </div>
-        <button type="button" wire:click='save()'
-            class="cursor-pointer whitespace-nowrap rounded-md bg-black px-4 py-2 my-3 w-full text-center text-sm font-medium tracking-wide text-neutral-100 transition hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black active:opacity-100 active:outline-offset-0">
-            {{ __("Order Now") }}
+        <button type="button" wire:click='save()' class="w-full mt-4 flex items-center justify-center gap-2 rounded-lg bg-amber-400 px-4 py-3 text-sm font-semibold text-gray-900 shadow-sm transition-all duration-200 hover:bg-amber-500 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 active:translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed md:hidden">
+            {{ __("Send order") }}
         </button>
     </div>
 </form>

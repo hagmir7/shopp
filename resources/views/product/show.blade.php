@@ -16,12 +16,12 @@
         </div>
         {{-- Mobile buy now form --}}
         <div id="buy-now" class="bg-white rounded-xl shadow-sm border p-4 sm:p-6 lg:p-8 mt-6 md:hidden">
-            <h2 class="text-2xl mb-3 text-black">{{ __("Order info") }}</h2>
+            <h2 class="text-2xl mb-3 font-black">{{ __("Please enter your information to complete the order.") }}</h2>
             @livewire('buy-now', ['product' => $product], key($product->id))
         </div>
         {{-- Product Description and Options --}}
         <div class="bg-white rounded-xl shadow-sm border p-4 sm:p-6 lg:p-8 mt-6">
-            <h2 class="text-2xl mb-3 text-black">{{ __("Product description") }}</h2>
+            <h2 class="text-2xl mb-3">{{ __("Product description") }}</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
                 <div class="flex flex-col space-y-6">
                     {!! $product->content !!}
