@@ -91,7 +91,7 @@
             <x-forms.textarea type="text" maxLength="100" wire:model='address' placeholder="{{ __('Address') }}" />
             @error('address') <span class="text-red-700 my-2">{{ $message }}</span> @enderror
         </div>
-        <button type="button" wire:click='save()' class="w-full mt-4 flex items-center justify-center gap-2 rounded-lg bg-amber-400 px-4 py-3 text-sm font-semibold text-gray-900 shadow-sm transition-all duration-200 hover:bg-amber-500 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 active:translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed md:hidden">
+        <button type="button" wire:click='save()' class="w-full mt-4 flex items-center justify-center gap-2 rounded-lg bg-amber-400 px-4 py-3 text-sm font-semibold text-gray-900 shadow-sm transition-all duration-200 hover:bg-amber-500 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 active:translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed mb-4">
             {{ __("Send order") }}
         </button>
     </div>
