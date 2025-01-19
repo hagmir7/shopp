@@ -87,7 +87,6 @@
 
         <div>
             <label for="address" class="block mb-2 text-sm font-medium text-gray-900">{{ __("Address") }}</label>
-
             <x-forms.textarea type="text" maxLength="100" wire:model='address' placeholder="{{ __('Address') }}" />
             @error('address') <span class="text-red-700 my-2">{{ $message }}</span> @enderror
         </div>
