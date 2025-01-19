@@ -12,6 +12,14 @@ Route::get('/product', function(){
     return view('product');
 });
 
+Route::view('thanks', 'thanks')->name('thanks');
+
+
+
+Route::get('shop', function(){
+
+})->name('shop');
+
 
 
 

@@ -53,6 +53,9 @@ class BuyNow extends Component
             'color_id' => $this->color,
             'total' => intval($this->quantity) * $this->product->price
         ]);
+
+
+        return redirect(route('thanks'));
     }
 
     public function render()
