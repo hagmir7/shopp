@@ -1,4 +1,4 @@
-<aside id="cta-button-sidebar" class=" left-0 z-40 w-64 transition-transform -translate-x-full sm:translate-x-0"
+<aside id="cta-button-sidebar" class="w-64 transition-transform -translate-x-full sm:translate-x-0"
     aria-label="Sidebar">
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
         <ul class="space-y-2 font-medium">
@@ -15,7 +15,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('profile') }}"
+                <a href="#!"
                     class="flex items-center p-2 text-primary rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
                         <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -26,7 +26,7 @@
             </li>
 
             <li>
-                <a href="{{ route('profile') }}"
+                <a href="{{ route('auth.logout') }}"
                     class="flex items-center p-2 text-primary rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
                         <g fill="currentColor">

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
 
 Route::get('/product', function(){
@@ -56,8 +56,11 @@ Route::controller(CategoryController::class)->prefix('category')->group(function
 });
 
 Route::controller(AuthController::class)->prefix('auth')->group(function () {
+    Route::get('login', 'login')->name('auth.login');
     Route::get('register', 'register')->name('auth.register');
-    // Route::get('{category:slug}', 'show')->name('category.show');
+    Route::get('logout', 'logout')->name('auth.logout');
+    Route::get('forgot-password', 'forgot')->name('auth.forgot');
+    Route::get('reset-password/{token}', 'reset')->middleware('guest')->name('password.reset');
 });
 
 
