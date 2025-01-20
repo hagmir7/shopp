@@ -41,4 +41,8 @@
     .text-primary{
         @apply text-amber-600;
     }
+
+    .input-primary{
+        @apply border-2 border-amber-400 w-full p-2 rounded-lg focus:border-amber-800
+    }
 }
