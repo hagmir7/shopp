@@ -1,33 +1,11 @@
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
     <!-- Product Card 1 -->
-    {{-- <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-xl transition-shadow duration-300">
-        <div class="relative">
-            <img src="https://floorwarehouse.co.uk/wp-content/uploads/2024/04/deep-grey-oak-plank-brushed-oiled-150mm-x-14mm-engineered-wooden-flooring-350x400.jpg"
-                alt="Wooden Flooring" class="w-full h-48 md:h-64 object-cover">
-            <span class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                SALE
-            </span>
-        </div>
-        <div class="p-2">
-            <h3 class="text-md md:text-lg font-bold text-gray-900 mb-2">Natural Oak Laminate Flooring</h3>
-            <div class="flex items-center mb-4">
-                <span class="text-md font-bold text-gray-900">24.99MAD</span>
-                <span class="ml-2 line-through text-gray-400">£29.99</span>
-            </div>
-            <button
-                class="rounded-pill w-full text-gray-900 bg-[#e0b15e] py-2 px-4 rounded-full text-sm font-semibold hover:text-white bg-opacity-50">
-                Add to Cart
-            </button>
-        </div>
-    </div> --}}
-
     @foreach ($products as $product)
     <div class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
         <!-- Image Container -->
         <div class="relative overflow-hidden">
             <a href="{{ route('product.show', $product->slug) }}" class="block">
-                <img src="{{ Storage::url($product->images->first()->path) }}" alt="{{ $product->name }}"
-                    class="w-full h-72 object-cover object-center transform group-hover:scale-105 transition-transform duration-300">
+                <img src="{{ Storage::url($product->images->first()->path) }}" alt="{{ $product->name }}" class="w-full h-72 md:h-60 object-cover md:object-center transform group-hover:scale-105 transition-transform duration-300">
             </a>
 
             <!-- Discount Badge -->
@@ -37,26 +15,6 @@
                 -{{ $product->discount }}%
             </span>
             @endif
-
-            <!-- Quick Actions -->
-            <div class="absolute top-4 right-4 space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <button class="bg-white p-2 rounded-full shadow-md hover:bg-gray-50 transition-colors duration-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                    </svg>
-                </button>
-                <a href="{{ route("product.show", $product->slug) }}" class="bg-white p-2 rounded-full shadow-md hover:bg-gray-50 transition-colors duration-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg>
-                </a>
-            </div>
         </div>
 
         <!-- Product Info -->
@@ -96,15 +54,8 @@
                     </span>
                     @endif
                 </div>
-
-                <button type="button"
-                    class="inline-flex items-center px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                    {{ __("Add to Cart") }}
+                <button class="inline-flex justify-center rounded-lg text-sm font-semibold py-2.5 px-4 bg-slate-900 text-white hover:bg-slate-700">
+                    <span>{{ __("Add to Cart") }}</span>
                 </button>
             </div>
         </div>

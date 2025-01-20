@@ -50,5 +50,9 @@ function initSwiper() {
     thumbnails.mount();
 }
 
+Livewire.on('reloadPage', () => {
+    location.reload();
+});
+
 initSwiper();
 
