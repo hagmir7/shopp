@@ -14,6 +14,7 @@
                 name="{{ $category->name }}"
                 url="{{ route('category.show', $category->slug) }}"
                 products="{{ $category->products->count() }}"
+                description="{{ $category->description }}"
 
             />
         @endforeach
@@ -26,6 +27,7 @@
             name="{{ $category->name }}"
             url="{{ route('category.show', $category->slug) }}"
             products="{{ $category->products->count() }}"
+            description="{{ $category->description }}"
          />
 
         @endforeach
