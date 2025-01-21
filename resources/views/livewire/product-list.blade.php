@@ -1,7 +1,7 @@
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
     <!-- Product Card 1 -->
     @foreach ($products as $product)
-    <div class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+    <div class="group bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
         <!-- Image Container -->
         <div class="relative overflow-hidden">
             <a href="{{ route('product.show', $product->slug) }}" class="block">
