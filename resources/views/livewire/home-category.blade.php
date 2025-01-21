@@ -1,4 +1,4 @@
-<section class="max-w-6xl mx-auto px-4 py-12">
+<section class="max-w-6xl mx-auto px-4 pt-6 mb-4">
     <h1 class="text-xl font-bold text-gray-900 mb-2">{{ __("Browse Categories") }}</h1>
 
     <p class="text-gray-600 mb-4">
