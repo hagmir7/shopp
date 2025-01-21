@@ -2,7 +2,7 @@
 <div class="relative h-[280px] group overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-all duration-500">
     <!-- Background with overlay -->
     <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700"
-        style="background-image: url({{ __($image) }});">
+        style="background-image: url({{ $image }});">
     </div>
 
     <!-- Gradient overlay for better text visibility -->
@@ -19,15 +19,13 @@
                {{ $name }}
             </h2>
             <p class="text-white/90 max-w-[200px] text-sm">
-                {{ __("Discover our latest collection for your active lifestyle") }}
+                {{ Str::limit($description, 60, '...') }}
             </p>
         </div>
 
         <!-- Button with enhanced hover effect -->
         <a href="{{ $url }}" class="inline-block group/btn mt-4">
-            <button class="px-6 py-2.5 bg-white text-gray-800 hover:bg-gray-800 hover:text-white
-                          flex items-center gap-2 rounded-md transition-all duration-300
-                          transform group-hover/btn:translate-x-2">
+            <button class="px-6 py-2.5 bg-white text-gray-800 hover:bg-gray-800 hover:text-white flex items-center gap-2 rounded-md transition-all duration-300 transform group-hover/btn:translate-x-2">
                 {{ __("Shop Now") }}
                 <svg class="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none"
                     stroke="currentColor" viewBox="0 0 24 24">
