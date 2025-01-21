@@ -20,7 +20,7 @@ class ContactForm extends Component
 
     public function store()
     {
-        $this->validate($this->rules, $this->messages);
+        $this->validate($this->rules);
 
         Contact::create([
             'full_name' => $this->full_name,

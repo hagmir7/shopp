@@ -1,4 +1,4 @@
-<form action="#" class="space-y-4">
+<form class="space-y-4">
     @if (session()->has('message'))
     <div class="bg-green-500 text-white p-2 mt-3 rounded">
         {{ session('message') }}
@@ -55,7 +55,7 @@
 
     <div class="mt-4">
         <div class="mt-3">
-            <button type="submit" class="w-full btn btn-primary rounded-lg">
+            <button type="button" class="w-full btn btn-primary rounded-lg" wire:click.prevent='store'>
                 <svg wire:loading aria-hidden="true" role="status" class="inline w-4 h-4 me-3 text-red animate-spin"
                     viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
