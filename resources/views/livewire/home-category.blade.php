@@ -8,12 +8,31 @@
     </p>
 
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-        @foreach (app("site")->categories as $category)
+        @foreach ($categories as $category)
             <x-category-item
                 image="{{ Storage::url($category->image) }}"
                 name="{{ $category->name }}"
                 url="{{ route('category.show', $category->slug) }}"
+                products="{{ $category->products->count() }}"
+
             />
         @endforeach
     </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <!-- Headphones Category -->
+        @foreach ($categories as $category)
+        <x-category.primary
+            image="{{ Storage::url($category->image) }}"
+            name="{{ $category->name }}"
+            url="{{ route('category.show', $category->slug) }}"
+            products="{{ $category->products->count() }}"
+         />
+
+        @endforeach
+    </div>
 </section>
+
+
+
+
+

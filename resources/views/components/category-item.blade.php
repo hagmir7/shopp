@@ -1,4 +1,4 @@
-<a href="{{ $url }} " class="group">
+<a href="{{ $url }}" class="group">
     <div class="relative group">
         <div class="rounded-full overflow-hidden aspect-square">
             <img src="{{ $image }}" alt="Engineered Wood Flooring" class="w-full h-full object-cover">
