@@ -65,4 +65,8 @@ Route::controller(AuthController::class)->prefix('auth')->group(function () {
 
 
 
+Route::get('checkout', function(){
+    return view('checkout');
+});
+
 
