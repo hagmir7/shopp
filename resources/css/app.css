@@ -43,6 +43,6 @@
     }
 
     .input-primary{
-        @apply border-2 border-amber-400 w-full p-2 rounded-lg focus:border-amber-800
+        @apply border border-gray-900 w-full py-3 px-2 rounded-lg focus:border-amber-800
     }
 }

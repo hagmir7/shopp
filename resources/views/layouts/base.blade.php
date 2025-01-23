@@ -16,6 +16,11 @@
             display: none !important;
         }
 
+        .sticky {
+        position: sticky;
+        top: 20px;
+        }
+
         .notification-animation {
             animation: slideIn 0.5s ease-out forwards;
         }

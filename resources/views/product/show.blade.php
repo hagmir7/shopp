@@ -6,7 +6,7 @@
         {{-- Product  --}}
         <div class="bg-white md:rounded-xl md:shadow-sm border p-4 sm:p-6 lg:p-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="w-full">
+                <div class="w-full sticky top-5 lg:sticky lg:top-20">
                     <div class="rounded-lg overflow-hidden">
                         <x-product-showcase :images="$product->images" />
                     </div>
