@@ -122,7 +122,7 @@
                     {{ __("Checkout") }}
                 </button>
                 @else
-                <a href="" class="inline-block text-center w-full bg-blue-500 text-white py-2 px-4 rounded-lg transition-colors hover:bg-blue-600">
+                <a href="{{ route('checkout') }}" class="inline-block text-center w-full bg-blue-500 text-white py-2 px-4 rounded-lg transition-colors hover:bg-blue-600">
                     {{ __("Checkout") }}
                 </a>
             @endif

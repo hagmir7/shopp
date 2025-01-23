@@ -23,13 +23,18 @@ class AppServiceProvider extends ServiceProvider
     {
         Model::preventLazyLoading(! app()->isProduction()); // For N+ error
 
-        $domain = str_replace('www.', '', request()->getHost());
-        // dd($domain);
-        $site = Site::where('domain', $domain)->first();
-        if (!$site) {
-            abort(404, message: $domain . " Is not registerd");
+        try {
+            $domain = str_replace('www.', '', request()->getHost());
+            // dd($domain);
+            $site = Site::where('domain', $domain)->first();
+            if (!$site) {
+                abort(404, message: $domain . " Is not registerd");
+            }
+            app()->instance('site', $site);
+        } catch (\Throwable $th) {
+            //throw $th;
         }
-        app()->instance('site', $site);
+
 
     }
 }
