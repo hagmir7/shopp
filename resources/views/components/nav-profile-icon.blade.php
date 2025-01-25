@@ -1,5 +1,5 @@
-<div x-data="{modalIsOpen: false}">
-    <button @click="modalIsOpen = true" type="button" class="hover:text-gray-600 p-2 rounded-full bg-[#efeeeb]">
+<div x-data="{modalIsOpen: false}" class="p-2">
+    <button @click="modalIsOpen = true" type="button" class="hover:text-gray-600  rounded-full bg-[#efeeeb]">
         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                 d="M15 7.5a3 3 0 1 1-6 0a3 3 0 0 1 6 0m4.5 13c-.475-9.333-14.525-9.333-15 0" />

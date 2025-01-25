@@ -23,12 +23,12 @@
   <footer class="rounded-lg shadow">
     <div class="w-full max-w-screen-xl mx-auto md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
-            <ul class="flex flex-wrap items-center mb-6 text-md font-medium text-gray-500 sm:mb-0 space-x-3">
+            <ul class="flex flex-wrap items-center mb-6 text-md font-medium text-gray-500 sm:mb-0 gap-3">
                 <li>
                     <a href="/" class="hover:underline">{{ __("Home") }}</a>
                 </li>
                 <li>
-                    <a href="/contact" class="hover:underline">{{ __("Contact") }}</a>
+                    <a href="/contact" class="hover:underline">{{ __("Contact Us") }}</a>
                 </li>
                 @foreach (app('site')->urls->where('footer') as $item)
                 <li>

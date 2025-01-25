@@ -29,6 +29,7 @@ function initSwiper() {
         perPage: 1,
         perMove: 1,
         gap: '1rem',
+        direction: "rtl",
         pagination: false,
         arrows: true,
     });
@@ -40,6 +41,7 @@ function initSwiper() {
         isNavigation: true,
         gap: 10,
         focus: 'center',
+        direction: "rtl",
         pagination: false,
         cover: false,
         arrows: false,
