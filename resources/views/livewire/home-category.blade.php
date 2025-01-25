@@ -1,5 +1,5 @@
 <section class="max-w-6xl mx-auto px-4 pt-6 mb-4">
-    <h1 class="text-xl font-bold text-gray-900 mb-2">{{ __("Browse Categories") }}</h1>
+    <h1 class="text-xl font-bold text-gray-900 mb-2">{{ __("Categories list") }}</h1>
 
     <p class="text-gray-600 mb-4">
         Explore Floor Warehouse's premium selection of Solid & Engineered Wood, Luxury Vinyl Tiles, and Laminate
