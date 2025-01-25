@@ -11,7 +11,7 @@ use RegexIterator;
 class ExtractArabeTranslations extends Command
 {
     protected $signature = 'translations:extract-ar';
-    protected $description = 'Extract translations from views and PHP files';
+    protected $description = 'Extract translations from views, PHP files, and Livewire components';
 
     public function handle()
     {
@@ -24,7 +24,10 @@ class ExtractArabeTranslations extends Command
         $patterns = [
             '/(?:__|trans)\([\'"](.+?)[\'"]\)/',  // __() and trans()
             '/@lang\([\'"](.+?)[\'"]\)/',         // Blade @lang directive
-            '/@choice\([\'"](.+?)[\'"]\,/'        // @choice translations
+            '/@choice\([\'"](.+?)[\'"]\,/',       // @choice translations
+            '/wire:message=[\'"](.+?)[\'"]\s*/',  // Livewire wire:message attribute
+            '/\$this->dispatch\([\'"](.+?)[\'"]\)/', // Livewire dispatch method
+            '/\$this->emit\([\'"](.+?)[\'"]\)/',  // Livewire legacy emit method
         ];
 
         $newTranslations = $this->scanForTranslations($patterns, $existingTranslations);
@@ -51,6 +54,7 @@ class ExtractArabeTranslations extends Command
         $newTranslations = [];
         $directories = [
             resource_path('views'),
+            app_path('Livewire'),  // Add Livewire components directory
             app_path(),
             resource_path('js'),
             // Add more directories to scan
@@ -63,7 +67,7 @@ class ExtractArabeTranslations extends Command
                 new RecursiveDirectoryIterator($directory)
             );
 
-            $phpFiles = new RegexIterator($files, '/\.(php|vue|js)$/');
+            $phpFiles = new RegexIterator($files, '/\.(php|vue|js|blade\.php|livewire\.php)$/');
 
             foreach ($phpFiles as $file) {
                 $content = file_get_contents($file->getPathname());
@@ -83,6 +87,7 @@ class ExtractArabeTranslations extends Command
                             !empty($key)
                             && !isset($existingTranslations[$key])
                             && !isset($newTranslations[$key])
+                            && !is_numeric($key)  // Exclude numeric keys
                         ) {
                             $newTranslations[$key] = $key; // Default to English key
                         }

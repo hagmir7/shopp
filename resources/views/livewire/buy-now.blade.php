@@ -15,27 +15,27 @@
     </div>
     <div class="grid md:grid-cols-2 gap-4">
         <div>
-            <input type="text" wire:model="full_name" class="input-primary" placeholder="{{ __(" Full name") }}">
+            <input type="text" wire:model="full_name" class="input-primary" placeholder="{{ __("Full name") }}">
             @error('full_name') <span class="text-red-600 mt-2">{{ $message }}</span> @enderror
         </div>
         <div>
-            <input type="tel" wire:model="phone" class="input-primary" placeholder="{{ __(" Phone") }}">
+            <input type="tel" wire:model="phone" class="input-primary" placeholder="{{ __("Phone") }}">
             @error('phone') <span class="text-red-600 mt-2">{{ $message }}</span> @enderror
         </div>
     </div>
 
     <div>
-        <input type="email" wire:model="email" class="input-primary" placeholder="{{  __(" Email") }}">
+        <input type="email" wire:model="email" class="input-primary" placeholder="{{  __("Email") }}">
         @error('email') <span class="text-red-600 mt-2">{{ $message }}</span> @enderror
     </div>
 
     <div>
-        <input type="text" wire:model="address" class="input-primary mb-3" placeholder="{{ __(" Street Address") }}">
+        <input type="text" wire:model="address" class="input-primary mb-3" placeholder="{{ __("Street Address") }}">
         @error('address') <span class="text-red-600 mt-2">{{ $message }}</span> @enderror
         <div class="grid grid-cols-2 gap-4">
-            <input type="text" wire:model="city" class="input-primary" placeholder="{{ __(" City") }}">
+            <input type="text" wire:model="city" class="input-primary" placeholder="{{ __("City") }}">
             @error('city') <span class="text-red-600 mt-2">{{ $message }}</span> @enderror
-            <input type="text" wire:model="zip" class="input-primary" placeholder="{{ __(" ZIP Code") }}">
+            <input type="text" wire:model="zip" class="input-primary" placeholder='{{ __("ZIP Code") }}'>
             @error('zip') <span class="text-red-600 mt-2">{{ $message }}</span> @enderror
         </div>
     </div>

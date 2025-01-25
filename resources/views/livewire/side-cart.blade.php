@@ -118,7 +118,7 @@
            <div class="w-full">
                 @if(\Cart::isEmpty())
                 <button disabled
-                    class="opacity-50 cursor-not-allowed w-full bg-blue-500 text-white py-2 px-4 rounded-lg transition-colors">
+                    class="opacity-50 cursor-not-allowed text-center w-full bg-blue-500 text-white py-2 px-4 rounded-lg transition-colors">
                     {{ __("Checkout") }}
                 </button>
                 @else
