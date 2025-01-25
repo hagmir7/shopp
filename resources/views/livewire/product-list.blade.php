@@ -26,7 +26,7 @@
             </a>
 
             <!-- Rating -->
-            <div class="flex items-center mt-2">
+            {{-- <div class="flex items-center mt-2">
                 <div class="flex items-center">
                     @for ($i = 1; $i <= 5; $i++) <svg class="w-4 h-4 {{ $i <= 4 ? 'text-yellow-400' : 'text-gray-300' }}"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -36,27 +36,27 @@
                         @endfor
                 </div>
                 <span class="text-sm text-gray-500 ml-2">(4.0)</span>
-            </div>
+            </div> --}}
 
             <!-- Price and Add to Cart -->
             <div class="mt-4 flex items-center justify-between">
                 <div class="flex flex-col">
                     @if ($product->discount && ($product->discount > 0))
-                    <span class="text-sm text-gray-500 line-through">
+                    <span class="text-md text-gray-500 line-through">
                         {{ app("site")->currency }} {{ number_format($product->price, 2) }}
                     </span>
-                    <span class="text-md font-bold text-gray-900">
+                    <span class="text-xl font-bold text-gray-900">
                         {{ app("site")->currency }} {{ number_format($product->price * (1 - $product->discount/100), 2) }}
                     </span>
                     @else
-                    <span class="text-md font-bold text-gray-900">
+                    <span class="text-xl font-bold text-gray-900">
                         {{ app("site")->currency }} {{ number_format($product->price, 2) }}
                     </span>
                     @endif
                 </div>
-                <button class="inline-flex justify-center rounded-lg text-sm font-semibold py-2.5 px-4 bg-slate-900 text-white hover:bg-slate-700">
+                {{-- <button class="inline-flex justify-center rounded-lg text-sm font-semibold py-2.5 px-4 bg-slate-900 text-white hover:bg-slate-700">
                     <span>{{ __("Add to Cart") }}</span>
-                </button>
+                </button> --}}
             </div>
         </div>
     </div>

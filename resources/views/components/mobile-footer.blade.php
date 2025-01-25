@@ -1,12 +1,12 @@
-<nav class="fixed lg:hidden bottom-0 left-0 right-0 w-full bg-white border-t border-gray-300 shadow-md rounded-t-xl">
-    @if (Str::contains(request()->fullUrl(), 'product'))
+<nav class="fixed lg:hidden bottom-0 z-50 left-0 right-0 w-full bg-white border-t border-gray-300 shadow-md rounded-t-xl">
+    {{-- @if (Str::contains(request()->fullUrl(), 'product'))
     <div class="px-4 mb-3">
         <a href="#buy-now"
             class="w-full mt-4 flex items-center justify-center gap-2 rounded-lg bg-amber-400 px-4 py-3 text-sm font-semibold text-gray-900 shadow-sm transition-all duration-200 hover:bg-amber-500 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 active:translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed md:hidden">
             {{ __("Buy Now") }}
         </a>
     </div>
-    @endif
+    @endif --}}
     <div class="flex justify-around items-center py-2">
         <!-- Shop -->
         <a href="{{ route("shop") }}" class="flex flex-col items-center justify-center text-gray-600 hover:text-black">
@@ -27,7 +27,7 @@
         </a>
 
         <!-- Cart -->
-        <a href="#" class="relative flex flex-col items-center justify-center text-gray-600 hover:text-black">
+        <a href="{{  route('cart') }}" class="relative flex flex-col items-center justify-center text-gray-600 hover:text-black">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1 font-bold" viewBox="0 0 24 24">
                 <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                     d="M16.5 21a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3m-8 0a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3M3.71 5.4h15.214c1.378 0 2.373 1.27 1.995 2.548l-1.654 5.6C19.01 14.408 18.196 15 17.27 15H8.112c-.927 0-1.742-.593-1.996-1.452zm0 0L3 3" />

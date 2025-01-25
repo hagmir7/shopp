@@ -70,3 +70,9 @@ Route::get('checkout', function(){
 })->name('checkout');
 
 
+
+Route::get('cart', function () {
+    return view('cart');
+})->name('cart');
+
+

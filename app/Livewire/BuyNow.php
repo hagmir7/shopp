@@ -11,20 +11,20 @@ use Livewire\Component;
 class BuyNow extends Component
 {
 
-    #[Validate('required|min:10|max:150')]
+    #[Validate('required|min:4|max:150', as:"Full name")]
     public $full_name;
-
-    #[Validate('required|min:9|max:100')]
+    #[Validate('required|min:4|max:100', as: "Phone")]
     public $phone;
+    #[Validate('nullable|email|min:4|max:100', as: "Eamil")]
     public $email;
+    #[Validate('nullable|min:3|max:100', as: "City")]
     public $city;
+    #[Validate('nullable|min:9|max:150', as: "Address")]
     public $address;
+    #[Validate('nullable|min:3|max:100', as: "Zip Code")]
     public $zip_code;
     public $quantity = 1;
     public $price;
-
-
-
 
     public $color;
     public $dimension;
