@@ -21,7 +21,7 @@ Route::view('thanks', 'thanks')->name('thanks');
 
 
 Route::get('shop', function(){
-
+    return view('shop');
 })->name('shop');
 
 // Route::get('category/{category:slug}', function(Category $category){

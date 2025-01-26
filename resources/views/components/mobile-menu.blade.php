@@ -69,9 +69,9 @@
 
         <!-- Menu Footer -->
         <div class="absolute bottom-0 left-0 right-0 p-4 border-t bg-white">
-            <button class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors">
-                Login / Register
-            </button>
+            <a href="{{ route("auth.login") }}" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors">
+                {{ __("Login / Register") }}
+            </a>
         </div>
     </div>
 </div>
