@@ -17,13 +17,11 @@
     <div class="relative flex flex-1 flex-col items-center justify-center pt-12 pb-16">
         <img class="mx-auto mb-10 h-20 w-auto text-slate-900" src="{{ asset("assets/images/check-icon.png") }}" alt="Thank you for you order">
         <div class="max-w-2xl text-center">
-            <h1 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Thank You for Your Order!</h1>
-            <div class="mt-6 text-base/7 text-slate-600">{{ __('We’ve received your order and are preparing it for shipment') }}
-                <!-- --> <strong class="font-semibold text-slate-900">{{ __('click the “Confirm your subscription”') }}
-                    </strong> <!-- -->{{ __("Our team is getting your order ready.") }}
-            </div><a
-                class="inline-flex justify-center rounded-lg text-sm font-semibold py-2.5 px-4 bg-slate-900 text-white hover:bg-slate-700 mt-6"
-                href="/"><span>{{ __("Back to Products") }}</span></a>
+            <h1 class="text-3xl font-extrabold text-slate-900 text-center sm:text-4xl">{{ __("Thank You for Your Order!") }}</h1>
+            <div class="mt-6 text-base/7 text-slate-600">{{ __("We have received your request, and we will contact you as soon as possible to confirm the order.") }}
+            </div>
+            <a class="inline-flex justify-center rounded-lg text-sm font-semibold py-2.5 px-4 bg-slate-900 text-white hover:bg-slate-700 mt-6"
+                href="{{ route("shop") }}"><span>{{ __("Back to Products") }}</span></a>
         </div>
     </div>
     <footer class="relative shrink-0">
@@ -40,7 +38,7 @@
                     stroke-linejoin="round"></path>
             </svg>
             <p class="ml-6 max-w-lg flex-auto text-md text-gray-600"><strong class="font-semibold text-gray-900">
-               {{ __('If you have any question you can contact as at') }}</strong> {{ app("site")->email }}</p>
+               {{ __('If you have any question you can contact as at') }}</strong> <a class="hover:text-orange-500" href="milto:{{ app("site")->email }}">{{ app("site")->email }}</a></p>
         </div>
     </footer>
 </main>

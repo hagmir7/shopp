@@ -9,12 +9,14 @@ class AuthController extends Controller
 
     public function login()
     {
-        return view("auth.login");
+        $title = __("Login");
+        return view("auth.login", compact('title'));
     }
 
 
     public function register(){
-        return view("auth.register");
+        $title = __("Register");
+        return view("auth.register", compact('title'));
     }
 
     public function logout(){
@@ -24,7 +26,7 @@ class AuthController extends Controller
 
     public function forgot()
     {
-        $title = "Mot de passe oublié";
+        $title = __("Forgot Password");
         return view("auth.forgot", compact('title'));
     }
 

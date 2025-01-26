@@ -60,7 +60,9 @@
                 </x-nav.mobile-link>
                 {{-- <a href="" class="" :active="request()->routeIs('home')">{{ __("Home") }}</a> --}}
                 @foreach (app("site")->urls->where('mobile_menu') as $item)
-                <a href="{{ $item->path }}" class="block px-4 py-3 hover:bg-gray-50">{{ $item->name }}</a>
+                <x-nav.mobile-link href="{{ $itme->path }}" :active="request()->path() === $item->path">
+                    {{ __('Home') }}
+                </x-nav.mobile-link>
                 @endforeach
 
 

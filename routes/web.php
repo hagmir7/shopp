@@ -28,7 +28,8 @@ Route::view('thanks', 'thanks')->name('thanks');
 
 
 Route::get('shop', function(){
-    return view('shop');
+    $title = __("Products");
+    return view('shop', compact('title'));
 })->name('shop');
 
 // Route::get('category/{category:slug}', function(Category $category){
@@ -39,7 +40,8 @@ Route::get('shop', function(){
 
 
 Route::get('contact', function(){
-    return view('contact');
+    $title = __("Contact Us");
+    return view('contact', compact('title'));
 })->name('contact');
 
 
@@ -49,6 +51,7 @@ Route::get('products-1', function(){
 });
 
 Route::get('menu', function(){
+    $title = __("Menu");
     return view('menu');
 })->name('menu');
 
@@ -57,7 +60,8 @@ Route::get('profile', function(){
     if(!auth()->check()){
         return redirect()->route('auth.login');
     }
-    return view('profile');
+    $title = auth()->user()->first_name . " " . auth()->user()->last_name;
+    return view('profile', compact('title'));
 })->name('profile');
 
 Route::controller(ProductController::class)->prefix('product')->group(function () {

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ isset($title) ? $title : config("app.name") }}</title>
+    <title>{{ isset($title) ? $title : app("site")->title }}</title>
     <meta name="description" content="{{ isset($description) ? Str::limit($description, 160) : Str::limit(app('site')?->description, 160) }}">
     <meta name="keywords" content="{{ isset($tags) ? $tags :  app('site')?->keywords }}">
     <link rel="icon" type="image/png" href="{{ Storage::url(app('site')?->favicon) }}" />
