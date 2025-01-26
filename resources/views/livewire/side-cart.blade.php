@@ -116,7 +116,7 @@
         <div class="absolute bottom-0 left-0 right-0 p-4 border-t bg-white">
             <div class="flex justify-between mb-4">
                 <span class="font-medium">{{ __("Total") }}</span>
-                <span class="font-bold">{{ app("site")->currency }} {{ \Cart::getTotal() }}</span>
+                <span class="font-bold">{{ \Cart::getTotal() }} {{ app("site")->currency }}</span>
             </div>
            <div class="w-full">
                 @if(\Cart::isEmpty())

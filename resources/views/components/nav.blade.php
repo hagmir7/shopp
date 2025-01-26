@@ -62,7 +62,7 @@
     <!-- Categories Menu -->
     <div class="hidden w-full lg:block" id="navbar-default">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <ul class="flex flex-col lg:flex-row space-x-10 py-2 text-sm font-medium">
+            <ul class="flex flex-col lg:flex-row gap-5 py-2 text-sm font-medium">
                 <li>
                     <a href="/"
                         class="inline-flex cursor-pointer py-2 hover:text-gray-600 gap-2 items-center text-[17px] text-neutral-600">

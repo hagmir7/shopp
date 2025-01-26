@@ -23,7 +23,7 @@
         @if (count($results) > 0)
         <div class="absolute z-50 w-full mt-1 bg-white rounded-lg shadow-lg border border-gray-200 max-h-96 overflow-y-auto">
             @foreach($results as $result)
-            <a href="{{ route('product.show', $result->slug) }}" class="flex items-center p-4 hover:bg-gray-50 border-b border-gray-100 last:border-0">
+            <a href="{{ route('product.show', $result->slug) }}" class="flex items-center p-4 hover:bg-gray-50 border-b border-gray-100 last:border-0 gap-3">
                 <img src="{{ Storage::url($result->images->first()?->path) }}" alt="{{ $result->name }}" class="w-16 h-16 object-cover rounded">
                 <div class="ml-4">
                     <h4 class="font-medium text-gray-900">{{ $result->name }}</h4>

@@ -27,6 +27,9 @@
     /* Adjust height as needed */
     object-fit: contain;
 }
+.attachment__caption{
+    display: none!important;
+}
 
 
 @layer components {
