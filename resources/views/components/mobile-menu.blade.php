@@ -45,7 +45,7 @@
             <!-- Search Bar -->
             <div class="p-4 border-b">
                 <div class="relative">
-                    <input type="text" placeholder="Search for products" class="w-full p-2 pl-10 border rounded-lg">
+                    <input type="text" placeholder="{{ __("Search for products") }}" class="w-full p-2 pl-10 border rounded-lg">
                     <svg class="absolute left-3 top-3 w-4 h-4 text-gray-500" fill="none" stroke="currentColor"
                         viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -55,11 +55,15 @@
             </div>
             <!-- Menu Items -->
             <nav class="divide-y">
+                <x-nav.mobile-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                    {{ __('Home') }}
+                </x-nav.mobile-link>
+                {{-- <a href="" class="" :active="request()->routeIs('home')">{{ __("Home") }}</a> --}}
                 @foreach (app("site")->urls->where('mobile_menu') as $item)
                 <a href="{{ $item->path }}" class="block px-4 py-3 hover:bg-gray-50">{{ $item->name }}</a>
                 @endforeach
 
-                <a href="#" class="block px-4 py-3 text-orange-500 hover:bg-gray-50">Home</a>
+
             </nav>
         </div>
 

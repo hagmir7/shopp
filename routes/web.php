@@ -41,6 +41,10 @@ Route::get('products-1', function(){
     return view("product.list-1");
 });
 
+Route::get('menu', function(){
+    return view('menu');
+})->name('menu');
+
 
 Route::get('profile', function(){
     if(!auth()->check()){
