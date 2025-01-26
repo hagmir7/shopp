@@ -26,10 +26,11 @@
         </button>
 
         <!-- Navigation Dots -->
+
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
-            <div class="w-3 h-3 dots rounded-full bg-white bg-opacity-50 cursor-pointer transition-all duration-300"></div>
-            <div class="w-3 h-3 dots rounded-full bg-white bg-opacity-50 cursor-pointer transition-all duration-300"></div>
-            <div class="w-3 h-3 dots rounded-full bg-white bg-opacity-50 cursor-pointer transition-all duration-300"></div>
+            @foreach (app('site')->slides->where('status', true) as $slide)
+           <div class="w-3 h-3 dots rounded-full bg-white bg-opacity-50 cursor-pointer transition-all duration-300"></div>
+            @endforeach
         </div>
     </div>
 <script>
