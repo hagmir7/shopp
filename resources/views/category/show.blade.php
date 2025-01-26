@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="max-w-6xl mx-auto mt-3 px-2 mb-9">
-    <h2 class="text-lg md:text-xl py-4 font-bold">{{ __("Discover our latest") }} {{ $category->name }} {{ __("collection") }}</h2>
+    <h2 class="text-lg md:text-xl py-4 font-bold">{{ __("Collection") }} {{ $category->name }}</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         @foreach ($category->products as $product)
         <div class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">

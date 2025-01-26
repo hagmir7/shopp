@@ -14,8 +14,8 @@ class CategoryController extends Controller
     }
 
     public function list(){
-
         $categories = Category::with('products')->get();
-        return view("category.list", compact('categories'));
+        $title = __("Categories");
+        return view("category.list", compact('categories', 'title'));
     }
 }
