@@ -43,6 +43,9 @@ Route::get('products-1', function(){
 
 
 Route::get('profile', function(){
+    if(!auth()->check()){
+        return redirect()->route('auth.login');
+    }
     return view('profile');
 })->name('profile');
 

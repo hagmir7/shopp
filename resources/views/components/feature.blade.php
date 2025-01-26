@@ -38,7 +38,7 @@
                         alt="Returns icon" class="w-full h-full object-contain">
                 </div>
                 <h2 class="text-lg font-semibold mb-2">{{ __("Hassle-Free Returns") }}</h2>
-                <p class="text-gray-600 text-center">{{ __("Return items within 28 days!") }}</p>
+                <p class="text-gray-600 text-center">{{ __("Return items within 2 days!") }}</p>
             </div>
         </div>
     </div>

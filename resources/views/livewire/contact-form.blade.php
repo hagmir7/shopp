@@ -1,53 +1,52 @@
 <form class="space-y-4">
     @if (session()->has('message'))
-    <div class="bg-green-500 text-white p-2 mt-3 rounded">
+    <div class="bg-green-500 text-red-600 p-2 mt-3 rounded">
         {{ session('message') }}
     </div>
     @endif
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
-            <label class="sr-only" for="full_name">Nom et Prénom</label>
-            <input wire:model='full_name' class="input-primary" placeholder="Nom et Prénom" type="text" id="full_name" full_name="name">
+            <label class="sr-only" for="full_name">{{ __("Full name") }}</label>
+            <input wire:model='full_name' class="input-primary" placeholder="{{ __("Full name") }}" type="text" id="full_name" full_name="name">
             <!-- Error area -->
             @error('full_name')
-            <span class="text-white text-sm">{{ $message }}</span>
+            <span class="text-red-600 text-sm">{{ $message }}</span>
             @enderror
         </div>
         <div>
-            <label class="sr-only" for="email">Adresse e-mail</label>
-            <input wire:model='email' class="input-primary" placeholder="Adresse e-mail"
-                type="email" id="email" name="email">
+            <label class="sr-only" for="email">{{ __("E-mail address") }}</label>
+            <input wire:model='email' class="input-primary" placeholder="{{ __("E-mail address") }}" type="email" id="email" name="email">
             <!-- Error area -->
             @error('email')
-            <span class="text-white text-sm">{{ $message }}</span>
+            <span class="text-red-600 text-sm">{{ $message }}</span>
             @enderror
         </div>
     </div>
 
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
-            <label class="sr-only" for="phone">Téléphone</label>
-            <input wire:model='phone' class="input-primary" placeholder="Numéro de téléphone" type="tel" id="phone" name="phone">
+            <label class="sr-only" for="phone">{{ __("Phone") }}</label>
+            <input wire:model='phone' class="input-primary" placeholder="{{ __("Number phone") }}" type="tel" id="phone" name="phone">
             @error('phone')
-            <span class="text-white text-sm">{{ $message }}</span>
+            <span class="text-red-600 text-sm">{{ $message }}</span>
             @enderror
         </div>
 
         <div>
-            <label class="sr-only" for="subject">Sujet</label>
-            <input wire:model='subject' class="input-primary" placeholder="Sujet" type="text" id="subject" name="subject">
+            <label class="sr-only" for="subject">{{ __("Subject") }}</label>
+            <input wire:model='subject' class="input-primary" placeholder="{{ __("Subject") }}" type="text" id="subject" name="subject">
             @error('subject')
-            <span class="text-white text-sm">{{ $message }}</span>
+            <span class="text-red-600 text-sm">{{ $message }}</span>
             @enderror
         </div>
     </div>
 
     <div>
-        <label class="sr-only" for="message">Message</label>
-        <textarea wire:model='message' class="input-primary" placeholder="Message" rows="8" id="message" name="message"></textarea>
+        <label class="sr-only" for="message">{{ __("Message") }}</label>
+        <textarea wire:model='message' class="input-primary" placeholder="{{ __("Message") }}" rows="8" id="message" name="message"></textarea>
         <!-- Error area -->
         @error('message')
-        <span class="text-white text-sm">{{ $message }}</span>
+        <span class="text-red-600 text-sm">{{ $message }}</span>
         @enderror
     </div>
 

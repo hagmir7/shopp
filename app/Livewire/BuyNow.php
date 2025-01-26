@@ -11,9 +11,9 @@ use Livewire\Component;
 class BuyNow extends Component
 {
 
-    #[Validate('required|min:4|max:150', as:"Full name")]
+    #[Validate('required|min:2|max:150', as:"Full name")]
     public $full_name;
-    #[Validate('required|min:4|max:100', as: "Phone")]
+    #[Validate('required|min:2|max:100', as: "Phone")]
     public $phone;
     #[Validate('nullable|email|min:4|max:100', as: "Eamil")]
     public $email;
@@ -35,7 +35,7 @@ class BuyNow extends Component
     {
         $this->validate();
         $order = Order::create([
-            // 'user_id' => auth()?->id(),
+            'user_id' => auth()->id() ?? null,
             'city_name' => $this->city,
             'full_name' => $this->full_name,
             'zip_code' => $this->zip_code,

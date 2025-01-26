@@ -18,7 +18,7 @@
                                     d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                             </svg>
                         </div>
-                        <div>
+                        <div class="px-3">
                             <h2 class="text-xl font-bold text-gray-800">
                                 {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}
                             </h2>
@@ -30,7 +30,7 @@
                     <div class="p-6">
                         <div class="grid md:grid-cols-3 gap-4 text-sm mx-4">
                             <!-- Organisation -->
-                            <div class="flex items-center space-x-3">
+                            <div class="flex items-center gap-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500"
                                     viewBox="0 0 24 24">
                                     <g fill="none">
@@ -53,7 +53,7 @@
                             </div>
 
                             <!-- First Name -->
-                            <div class="flex items-center space-x-3">
+                            <div class="flex items-center gap-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500"
                                     viewBox="0 0 24 24">
                                     <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -70,7 +70,7 @@
                                 </div>
                             </div>
                             <!-- Phone -->
-                            <div class="flex items-center space-x-3">
+                            <div class="flex items-center gap-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" width="32"
                                     height="32" viewBox="0 0 24 24">
                                     <path fill="none" stroke="currentColor" stroke-width="1.5"
@@ -79,12 +79,12 @@
                                 </svg>
                                 <div class="flex-1">
                                     <div class="font-semibold text-gray-600">{{ __("Phone") }}</div>
-                                    <div class="text-gray-800">{{ auth()->user()->phone }}</div>
+                                    <div class="text-gray-800">{{ auth()->user()->phone ?? "__" }}</div>
                                 </div>
                             </div>
 
                             <!-- Address -->
-                            <div class="flex items-center space-x-3">
+                            <div class="flex items-center gap-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500"
                                     viewBox="0 0 24 24">
                                     <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -97,12 +97,12 @@
                                 </svg>
                                 <div class="flex-1">
                                     <div class="font-semibold text-gray-600">{{ __("Address") }}</div>
-                                    <div class="text-gray-800">Selouane Nador</div>
+                                    <div class="text-gray-800">__</div>
                                 </div>
                             </div>
 
                             <!-- Gender -->
-                            <div class="flex items-center space-x-3">
+                            <div class="flex items-center gap-3">
 
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink-500"
                                     viewBox="0 0 24 24">
@@ -113,11 +113,11 @@
                                 </svg>
                                 <div class="flex-1">
                                     <div class="font-semibold text-gray-600">{{ __("Gender") }}</div>
-                                    <div class="text-gray-800">Mâle</div>
+                                    <div class="text-gray-800">__</div>
                                 </div>
                             </div>
 
-                            <div class="flex items-center space-x-3">
+                            <div class="flex items-center gap-3">
 
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" viewBox="0 0 24 24">
                                     <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
@@ -151,7 +151,7 @@
                                 </path>
                             </g>
                         </svg>
-                        <h2 class="text-lg font-bold text-gray-800">{{ __("Latest Orders") }}</h2>
+                        <h2 class="text-md font-semibold px-3 text-gray-800">{{ __("Latest Orders") }}</h2>
                     </div>
 
                     <!-- Desktop Table -->
@@ -159,63 +159,59 @@
                         <table class="w-full text-sm">
                             <thead class="bg-gray-100 border-b border-gray-200">
                                 <tr>
+                                    <th class="px-6 py-3 text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        {{ __("Order ID") }}
+                                    </th>
                                     <th
-                                        class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                        Référence</th>
-                                    <th
-                                        class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                        Montant Total</th>
-                                    <th
-                                        class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                        Produits</th>
-                                    <th
-                                        class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                        Statut</th>
-                                    <th
-                                        class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                        Créé le</th>
+                                        class="px-6 py-3 text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                       {{ __("Total") }}
+                                    </th>
+                                    <th class="px-6 py-3 text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        {{ __("Product") }}
+                                    </th>
+                                    {{-- <th class="px-6 py-3 text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        {{ __("State") }}
+                                    </th> --}}
+                                    <th class="px-6 py-3 text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        {{ __("Sended at") }}
+                                    </th>
                                     <th class="px-6 py-3"></th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200">
-                                <tr class="hover:bg-gray-50 transition-colors duration-200">
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <span class="text-sm font-medium text-gray-900">INTER-0oW4TDGi2bkzDFh</span>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <span class="text-sm text-gray-700 font-semibold">5744.51 MAD</span>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <span
-                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                                            11 articles
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="inline-flex items-center text-nowrap px-2.5 py-0.5 rounded-full text-xs font-semibold
-                                                                                                bg-red-100 text-red-800
-                                                                                                    bg-gray-100 text-gray-800
-                                                                                    ">
-                                            Annulé
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        26 Dec 2024
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <a href="https://www.intercocina.com/order/INTER-0oW4TDGi2bkzDFh"
-                                            class="text-blue-600 hover:text-blue-900 transition-colors">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
-                                                </path>
-                                            </svg>
-                                        </a>
-                                    </td>
-                                </tr>
+                                @foreach (auth()->user()->orders as $order)
+                                    <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="text-sm font-medium text-gray-900">{{ $order->id }}</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="text-sm text-gray-700 font-semibold">{{ $order->total_amount }} {{ app('site')->currency }}</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                                {{ $order->items->count() }} {{ __("Product") }}
+                                            </span>
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                           {{ $order->created_at->locale(app()->getLocale())->translatedFormat('M d, Y') }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <a href="https://www.intercocina.com/order/INTER-0oW4TDGi2bkzDFh"
+                                                class="text-blue-600 hover:text-blue-900 transition-colors">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                                    stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                                                    </path>
+                                                </svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+
                             </tbody>
                         </table>
 

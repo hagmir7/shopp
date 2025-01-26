@@ -7,20 +7,38 @@ use App\Models\Contact;
 
 class ContactForm extends Component
 {
-    public $full_name, $phone, $email, $message, $status, $subject, $contact_id;
+    public $full_name;
+    public $phone;
+    public $email;
+    public $message;
+    public $subject;
+    public $contact_id;
 
-    protected $rules = [
-        'full_name' => 'required|string|max:255',
-        'phone' => 'required|string|max:20',
-        'email' => 'required|email|max:255',
-        'message' => 'required|string',
-        'subject' => 'required|string|max:255',
-    ];
+    public function rules(): array
+    {
+        return [
+            'full_name' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:20'],
+            'email' => ['required', 'email', 'max:255'],
+            'message' => ['required', 'string'],
+            'subject' => ['required', 'string', 'max:255'],
+        ];
+    }
 
+    public function validationAttributes(): array
+    {
+        return [
+            'full_name' => __('Full Name'),
+            'phone' => __('Phone'),
+            'email' => __('Email'),
+            'message' => __('Message'),
+            'subject' => __('Subject'),
+        ];
+    }
 
     public function store()
     {
-        $this->validate($this->rules);
+        $this->validate();
 
         Contact::create([
             'full_name' => $this->full_name,
@@ -28,10 +46,10 @@ class ContactForm extends Component
             'email' => $this->email,
             'message' => $this->message,
             'subject' => $this->subject,
-            'site_id' => app("site")->id
+            'site_id' => app('site')->id,
         ]);
 
-        session()->flash('message', __("Your message has been sent successfully"));
+        session()->flash('message', __('Your message has been sent successfully'));
         $this->reset();
     }
 

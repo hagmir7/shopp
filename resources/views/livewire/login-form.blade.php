@@ -15,7 +15,7 @@
         <div class="flex items-start">
             <div class="flex items-center h-5 my-3 gap-2">
                 <input id="remember" wire:model="remamber" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-red-300">
-                <label for="remember" class="text-gray-500">{{ __("Souviens-toi de moi") }}</label>
+                <label for="remember" class="text-gray-500">{{ __("Remember me") }}</label>
             </div>
 
         </div>
