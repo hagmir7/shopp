@@ -31,6 +31,11 @@ class SlideResource extends Resource
         return __("Slides");
     }
 
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->where('site_id', app("site")->id)->latest();
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -73,26 +78,14 @@ class SlideResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('image')
+                    ->label(__("Image")),
                 Tables\Columns\TextColumn::make('title')
+                    ->label(__("Title"))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('text_button')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('url')
-                    ->searchable(),
-                Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\IconColumn::make('status')
-                    ->boolean(),
-                Tables\Columns\TextColumn::make('site_id')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('site.name')
+                    ->label(__("Site"))
                     ->sortable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

@@ -19,7 +19,7 @@
             />
         @endforeach
     </div> --}}
-    {{-- <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         <!-- Headphones Category -->
         @foreach ($categories as $category)
         <x-category.primary
@@ -31,9 +31,9 @@
          />
 
         @endforeach
-    </div> --}}
+    </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {{-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach ($categories as $category)
         <x-category.secondary
             image="{{ Storage::url($category->image) }}"
@@ -43,7 +43,7 @@
             description="{{ $category->description }}"
          />
          @endforeach
-    </div>
+    </div> --}}
 </section>
 
 
