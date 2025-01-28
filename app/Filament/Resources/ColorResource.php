@@ -19,6 +19,21 @@ class ColorResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public static function getModelLabel(): string
+    {
+        return __("Color");
+    }
+
+    public static function getPluralLabel(): ?string
+    {
+        return __("Colors");
+    }
+
+    // public static function getEloquentQuery(): Builder
+    // {
+    //     return parent::getEloquentQuery()->where('');
+    // }
+
     public static function form(Form $form): Form
     {
         return $form
