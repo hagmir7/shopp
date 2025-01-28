@@ -14,6 +14,8 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Tabs;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class SiteResource extends Resource
 {
@@ -177,6 +179,21 @@ class SiteResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\ReplicateAction::make()
+                    ->beforeReplicaSaved(function (array $data): array {
+                        do {
+                            $domain = Str::random(10) . '.com';
+                            $exists = DB::table('sites')
+                            ->where('domain', $domain)
+                            ->exists();
+                        } while ($exists);
+
+                        $data['domain'] = $domain;
+                        return $data;
+                    })
+
+
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
