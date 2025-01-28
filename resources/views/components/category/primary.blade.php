@@ -5,6 +5,6 @@
         </a>
     </div>
     <h3 class="text-lg font-semibold text-gray-800"><a href="{{ $url }}">{{ $name }}</a></h3>
-    {{-- <p class="text-sm text-gray-600"> {{ $products }} {{ __("products") }}</p> --}}
+    <p class="text-sm text-gray-600"> {{ $products }} {{ __("products") }}</p>
 </div>
 
