@@ -10,7 +10,7 @@ class Site extends Model
     protected $fillable = [
         'name', 'domain', 'title', 'favicon',
         'logo', 'image', 'tags', 'description', 'email',
-        'phone', 'currency',
+        'phone', 'currency', 'dark_logo',
         'language_id', 'country_id', 'options'
     ];
 

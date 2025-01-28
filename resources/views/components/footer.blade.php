@@ -3,7 +3,7 @@
     <div class="max-w-7xl mx-auto mb-8 grid grid-cols-1 md:grid-cols-2">
         <div class="flex items-center">
             @if (app("site")->logo)
-                 <img src="{{ Storage::url(app("site")->logo) }}" alt="{{ app("site")->name }}" class="h-14">
+                 <img src="{{ Storage::url(app("site")->dark_logo) }}" alt="{{ app("site")->name }}" class="h-14">
             @else
                 <div class="text-3xl text-white font-bold">{{ app("site")->name }}</div>
             @endif

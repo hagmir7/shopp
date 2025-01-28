@@ -116,12 +116,17 @@ class SiteResource extends Resource
                                     ->required()
                                     ->maxLength(255)
                                     ->default('MAD'),
+
                                 Forms\Components\FileUpload::make('favicon')
                                     ->label(__("Favicon"))
                                     ->image(),
                                 Forms\Components\FileUpload::make('logo')
                                     ->image()
                                     ->label(__("Logo")),
+
+                                Forms\Components\FileUpload::make('dark_logo')
+                                    ->label(__("Dark Logo"))
+                                    ->image(),
 
                             ])->columns(3),
                         Forms\Components\Tabs\Tab::make('Options')
@@ -133,9 +138,6 @@ class SiteResource extends Resource
                                     ->columnSpanFull(),
                             ]),
                     ])->columnSpanFull(),
-
-
-
 
             ]);
     }
