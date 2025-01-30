@@ -1,4 +1,5 @@
 <div class="space-y-4">
+    <h3 class="text-md bg-orange-200 rounded-md p-2">{{ __("Please enter your information to complete the order.") }}</h3>
     <div class="mb-6" x-data="{ quantity: @entangle('quantity') }">
         <div class="flex items-cente w-full input-primary py-2">
             <button @click='quantity > 1 ? quantity-- : null'

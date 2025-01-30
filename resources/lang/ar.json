@@ -64,6 +64,7 @@
     "Créer un nouveau compte !": "إنشاء حساب جديد!",
     "Currency": "العملة",
     "Currency Code": "رمز العملة",
+    "Dark Logo": "شعار داكن",
     "Delete": "حذف",
     "Deleted at": "تاريخ الحذف",
     "Description": "الوصف",
@@ -208,6 +209,7 @@
     "Sign in": "تسجيل الدخول",
     "Sign out": "تسجيل الخروج",
     "Sign up": "إنشاء حساب",
+    "Site": "Site",
     "Site map": "خريطة الموقع",
     "Site name": "اسم الموقع",
     "Size": "الحجم",
@@ -268,6 +270,7 @@
     "View details": "عرض التفاصيل",
     "Votre email": "بريدك الإلكتروني",
     "Warehouse to Door": "من المستودع إلى الباب",
+    "We are happy to hear from you! Whether you have questions about our store, want to suggest a topic, or need help with a request, we are here to assist you.": "نحن سعداء بالاستماع إليك! سواء كان لديك أسئلة حول متجرنا، أو ترغب في اقتراح موضوع، أو تحتاج إلى مساعدة في طلب، نحن هنا لمساعدتك.",
     "We have received your request, and we will contact you as soon as possible to confirm the order.": "لقد استلمنا طلبك وسنتواصل معك في أقرب وقت لتأكيد الطلب.",
     "Weight": "الوزن",
     "Welcome": "مرحباً",
@@ -285,7 +288,5 @@
     "click the “Confirm your subscription”": "إضغط على “تأكيد اشتراكك”",
     "collection": "collection",
     "products": "منتجات",
-    "reloadPage": "reloadPage",
-    "Dark Logo": "شعار داكن",
-    "We are happy to hear from you! Whether you have questions about our store, want to suggest a topic, or need help with a request, we are here to assist you.": "نحن سعداء بالاستماع إليك! سواء كان لديك أسئلة حول متجرنا، أو ترغب في اقتراح موضوع، أو تحتاج إلى مساعدة في طلب، نحن هنا لمساعدتك."
+    "reloadPage": "reloadPage"
 }
