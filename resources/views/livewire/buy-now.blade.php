@@ -24,20 +24,24 @@
         </div>
     </div>
 
-    <div>
+    {{-- <div>
         <input type="email" wire:model="email" class="input-primary" placeholder="{{  __("Email") }}">
         @error('email') <span class="text-red-600 mt-2">{{ $message }}</span> @enderror
-    </div>
+    </div> --}}
 
     <div>
-        <input type="text" wire:model="address" class="input-primary mb-3" placeholder="{{ __("Street Address") }}">
+        <input type="text" wire:model="city" class="input-primary mb-3" placeholder="{{ __("City") }}">
         @error('address') <span class="text-red-600 mt-2">{{ $message }}</span> @enderror
-        <div class="grid grid-cols-2 gap-4">
+        <input type="text" wire:model="address" class="input-primary mb-3" placeholder="{{ __("Address") }}">
+        @error('address') <span class="text-red-600 mt-2">{{ $message }}</span> @enderror
+
+
+        {{-- <div class="grid grid-cols-2 gap-4">
             <input type="text" wire:model="city" class="input-primary" placeholder="{{ __("City") }}">
             @error('city') <span class="text-red-600 mt-2">{{ $message }}</span> @enderror
             <input type="text" wire:model="zip" class="input-primary" placeholder='{{ __("ZIP Code") }}'>
             @error('zip') <span class="text-red-600 mt-2">{{ $message }}</span> @enderror
-        </div>
+        </div> --}}
     </div>
 
     <button type="submit" wire:click='save()' class="btn btn-primary w-full rounded-md">
