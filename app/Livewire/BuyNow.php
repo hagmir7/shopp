@@ -43,6 +43,7 @@ class BuyNow extends Component
             'email' => $this->email,
             'total_amount' => $this->product->price * intval($this->quantity),
             'address' => $this->address,
+            'site_id' => app("site")->id
         ]);
 
         OrderItem::create([
