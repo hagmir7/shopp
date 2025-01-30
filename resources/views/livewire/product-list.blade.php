@@ -12,7 +12,7 @@
             @if ($product->discount && ($product->discount > 0))
             <span
                 class="absolute top-4 left-4 bg-red-500 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md">
-                -{{ $product->discount }}%
+                %{{ $product->discount }}-
             </span>
             @endif
         </div>
@@ -39,18 +39,18 @@
             </div> --}}
 
             <!-- Price and Add to Cart -->
-            <div class="mt-4 flex items-center justify-between">
-                <div class="flex flex-col">
+            <div class="mt-4 flex items-center justify-between ">
+                <div class="flex flex-col text-primary">
                     @if ($product->discount && ($product->discount > 0))
-                    <span class="text-md text-gray-500 line-through">
-                        {{ app("site")->currency }} {{ number_format($product->price, 2) }}
+                    <span class="text-md line-through text-gray-500">
+                        {{ number_format($product->price, 2) }} {{ app("site")->currency }}
                     </span>
-                    <span class="text-xl font-bold text-gray-900">
-                        {{ app("site")->currency }} {{ number_format($product->price * (1 - $product->discount/100), 2) }}
+                    <span class="text-xl font-bold">
+                        {{ number_format($product->price * (1 - $product->discount/100), 2) }} {{ app("site")->currency }}
                     </span>
                     @else
-                    <span class="text-xl font-bold text-gray-900">
-                        {{ app("site")->currency }} {{ number_format($product->price, 2) }}
+                    <span class="text-xl font-bold">
+                        {{ number_format($product->price, 2) }} {{ app("site")->currency }}
                     </span>
                     @endif
                 </div>
