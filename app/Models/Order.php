@@ -20,6 +20,7 @@ class Order extends Model
         'zip_code',
         'region',
         'city_id',
+        'site_id',
         'address'
     ];
 
