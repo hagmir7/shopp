@@ -19,7 +19,7 @@ class BuyNow extends Component
     public $email;
     #[Validate('nullable|min:3|max:100', as: "City")]
     public $city;
-    #[Validate('nullable|min:9|max:150', as: "Address")]
+    #[Validate('nullable|min:2|max:150', as: "Address")]
     public $address;
     #[Validate('nullable|min:3|max:100', as: "Zip Code")]
     public $zip_code;

@@ -34,7 +34,7 @@
         <input type="text" wire:model="city" class="input-primary mb-3" placeholder="{{ __("City") }}">
         @error('address') <span class="text-red-600 mt-2">{{ $message }}</span> @enderror
         <input type="text" wire:model="address" class="input-primary mb-3" placeholder="{{ __("Address") }}">
-        @error('address') <span class="text-red-600 mt-2">{{ $message }}</span> @enderror
+        @error('city') <span class="text-red-600 mt-2">{{ $message }}</span> @enderror
 
 
         {{-- <div class="grid grid-cols-2 gap-4">
