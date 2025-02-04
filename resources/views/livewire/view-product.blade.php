@@ -14,7 +14,7 @@
         <div class="flex flex-wrap gap-3">
             @foreach ($product->colors as $color)
                 <input wire:model.live='color' type="radio" name="color-choice" value="{{ $color->id }}" class="sr-only peer">
-                <span style="background-color: {{ $color->name }}!important" class="w-8 h-8 rounded-full ring-2 ring-offset-2 ring-gray-200 transition-all hover:ring-gray-300 peer-focus:ring-gray-400 peer-focus:ring-offset-4 peer-checked:ring-gray-900 block cursor-pointer"></span>
+                <span style="background-color: {{ $color->code }}!important" class="w-8 h-8 rounded-full ring-2 ring-offset-2 ring-gray-200 transition-all hover:ring-gray-300 peer-focus:ring-gray-400 peer-focus:ring-offset-4 peer-checked:ring-gray-900 block cursor-pointer"></span>
             </label>
             @endforeach
         </div>
