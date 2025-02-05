@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class OrderItem extends Model
 {
 
-    protected $fillable = ['order_id', 'product_id', 'dimension_id', 'quantity', 'total'];
+    protected $fillable = ['order_id', 'product_id', 'dimension_id', 'quantity', 'total', 'color_id'];
 
 
     public function product(){
@@ -21,5 +21,9 @@ class OrderItem extends Model
 
     public function dimension(){
         return $this->belongsTo(Dimension::class);
+    }
+
+    public function color(){
+        return $this->belongsTo(Color::class);
     }
 }

@@ -38,39 +38,101 @@ class OrderResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('user_id')
-                    ->numeric(),
-                Forms\Components\TextInput::make('address_id')
-                    ->numeric(),
-                Forms\Components\TextInput::make('full_name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('status')
-                    ->required()
-                    ->numeric()
-                    ->default(1),
-                Forms\Components\TextInput::make('total_amount')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('phone')
-                    ->tel()
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('email')
-                    ->email()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('country_id')
-                    ->numeric(),
-                Forms\Components\TextInput::make('zip_code')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('region')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('city_id')
-                    ->numeric(),
-                Forms\Components\Textarea::make('city_name')
-                    ->columnSpanFull(),
-                Forms\Components\Textarea::make('address')
-                    ->columnSpanFull(),
+                Forms\Components\Section::make()
+                    ->schema([
+                        Forms\Components\Select::make('user_id')
+                            ->label(__("Customer"))
+                            ->preload()
+                            ->searchable()
+                            ->relationship('user', 'name'),
+
+                        Forms\Components\Select::make('address_id')
+                            ->label(__("Address"))
+                            ->relationship('address', 'address')
+                            ->preload()
+                            ->searchable(),
+                        Forms\Components\TextInput::make('full_name')
+                            ->label(__("Full name"))
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('status')
+                            ->label(__("Status"))
+                            ->required()
+                            ->numeric()
+                            ->default(1),
+                        Forms\Components\TextInput::make('total_amount')
+                            ->label(__("Total amount"))
+                            ->required()
+                            ->numeric(),
+                        Forms\Components\TextInput::make('phone')
+                            ->label(__("Phone"))
+                            ->tel()
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('email')
+                            ->label(__("Email"))
+                            ->email()
+                            ->maxLength(255),
+                        Forms\Components\Select::make('country_id')
+                            ->relationship('country', 'name')
+                            ->label(__("Country")),
+                        Forms\Components\TextInput::make('zip_code')
+                            ->label(__("Zip code"))
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('region')
+                            ->label(__("Region"))
+                            ->maxLength(255),
+                        Forms\Components\Select::make('city_id')
+                            ->relationship('city', 'name')
+                            ->preload()
+                            ->searchable()
+                            ->label(__("City")),
+                        Forms\Components\Grid::make(2)
+                            ->schema([
+                                Forms\Components\Textarea::make('city_name')
+                                    ->label(__("City name"))
+                                    ->columnSpan(1),
+                                Forms\Components\Textarea::make('address')
+                                    ->label(__("Address"))
+                                    ->columnSpan(1),
+                            ]),
+                    ])->columns(3),
+                Forms\Components\Grid::make()
+                    ->schema([
+                        Forms\Components\Repeater::make('items')
+                            ->relationship('items')
+                            ->label(__("Items"))
+                            ->schema([
+                                Forms\Components\Grid::make(3)  // Add Grid here for 2 columns inside repeater
+                                    ->schema([
+                                        Forms\Components\Select::make('product_id')
+                                            ->label(__("Product"))
+                                            ->relationship('product', 'name')
+                                            ->preload()
+                                            ->searchable(),
+                                        Forms\Components\Select::make('dimension_id')
+                                            ->label(__("Dimension"))
+                                            ->relationship('dimension', 'value')
+                                            ->preload()
+                                            ->searchable(),
+                                        Forms\Components\Select::make('color_id')
+                                            ->label(__("Color"))
+                                            ->relationship('color', 'name')
+                                            ->preload()
+                                            ->searchable(),
+                                        Forms\Components\TextInput::make('quantity')
+                                            ->label(__("Quantity"))
+                                            ->numeric()
+                                            ->required(),
+                                        Forms\Components\TextInput::make('total')
+                                            ->label(__("Total"))
+                                            ->numeric()
+                                            ->required(),
+                                    ])
+                            ])
+                            ->columnSpanFull()
+                    ])
+
             ]);
     }
 
