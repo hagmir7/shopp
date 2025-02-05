@@ -12,6 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         App\Http\Middleware\SiteMiddleware::class;
+        $middleware->append(App\Http\Middleware\TrackVisitors::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
