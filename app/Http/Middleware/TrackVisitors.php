@@ -14,7 +14,7 @@ class TrackVisitors
         VisitorLog::firstOrCreate(
             ['ip_address' => $request->ip()], // Search attributes
             [
-                'url' => $request->fullUrl(),
+                'url' => $request->url(),
                 'user_agent' => $request->userAgent(),
                 'referrer' => $request->header('referer'),
                 'visited_at' => now()

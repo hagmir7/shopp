@@ -19,6 +19,17 @@ class VisitorLogResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+
+    public static function getModelLabel(): string
+    {
+        return __("Visitor Log");
+    }
+
+    public static function getPluralLabel(): ?string
+    {
+        return __("Visitor Logs");
+    }
+
     public static function form(Form $form): Form
     {
         return $form
