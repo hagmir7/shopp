@@ -18,7 +18,7 @@
             <h2 class="text-3xl font-bold text-white max-w-[240px] leading-tight drop-shadow-md">
                {{ $name }}
             </h2>
-            <p class="text-white/90 max-w-[200px] text-sm">
+            <p class="text-white/90 w-full text-sm">
                 {{ Str::limit($description, 60, '...') }}
             </p>
         </div>
