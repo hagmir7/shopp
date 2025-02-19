@@ -83,6 +83,12 @@ class ProductResource extends Resource
                                     ->relationship('category', 'name')
                                     ->searchable()
                                     ->preload(),
+
+                                Forms\Components\Toggle::make('buy_now')
+                                    ->label(__("Buy now"))
+                                    ->inline(false)
+                                    ->default(0),
+
                                 Forms\Components\Textarea::make('description')
                                     ->label(__("Description"))
                                     ->required()

@@ -15,7 +15,7 @@ class Product extends Model
         'name', 'description', 'discount',
         'price', 'content', 'options', 'sku',
         'stock', 'site_id', 'slug', 'status',
-        'tags', 'category_id', 'unit_id'
+        'tags', 'category_id', 'unit_id', 'buy_now'
     ];
 
     protected $casts = [

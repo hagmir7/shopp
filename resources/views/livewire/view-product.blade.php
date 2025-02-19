@@ -9,5 +9,7 @@
         <p class="mt-2 text-gray-600">{{ $product->description }}</p>
     </div>
 
-    @livewire('buy-now', ['product' => $product], key($product->id))
+    @if ($product->buy_now)
+        @livewire('buy-now', ['product' => $product], key($product->id))
+    @endif
 </div>
