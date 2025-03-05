@@ -11,7 +11,8 @@ class Site extends Model
         'name', 'domain', 'title', 'favicon',
         'logo', 'image', 'tags', 'description', 'email',
         'phone', 'currency', 'dark_logo',
-        'language_id', 'country_id', 'options'
+        'language_id', 'country_id', 'options',
+        'header', 'footer'
     ];
 
     protected $casts = [
