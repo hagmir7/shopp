@@ -128,6 +128,13 @@ class SiteResource extends Resource
                                     ->label(__("Dark Logo"))
                                     ->image(),
 
+                                Forms\Components\Textarea::make('header')
+                                    ->label(__("Header"))
+                                    ->columnSpanFull(),
+                                Forms\Components\Textarea::make('footer')
+                                    ->label(__("Footer"))
+                                    ->columnSpanFull(),
+
                             ])->columns(3),
                         Forms\Components\Tabs\Tab::make('Options')
                             ->label(__("Options"))
