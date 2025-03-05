@@ -10,9 +10,12 @@
     <meta itemprop="image" content="{{ isset($image) ? Storage::url($image)  : Storage::url(app('site')?->image) }}">
     <link rel='canonical' href='{{ request()->fullUrl() }}' />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    {!! app('site')->header !!}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     @if (app()->getLocale() == 'ar')
     <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap" rel="stylesheet">
+
     <style>
         * {
             text-align: right;
@@ -79,6 +82,7 @@
     @yield('content')
     <x-mobile-footer />
     <x-footer />
+    {!! app('site')->footer !!}
 </body>
 
 </html>
