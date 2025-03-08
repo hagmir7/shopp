@@ -1,7 +1,9 @@
 <div class="flex-1 max-w-xl mx-4 hidden lg:block">
     <div class="relative">
-        <!-- Button with aria-label for accessibility -->
-        <button class="absolute left-3 top-1/2 -translate-y-1/2" aria-label="Search button">
+        <!-- Button with increased size for better touch target area -->
+        <button
+            class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 p-3 rounded-full flex justify-center items-center"
+            aria-label="Search button">
             <svg wire:loading.remove class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
                 viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -22,9 +24,9 @@
             </div>
         </button>
 
-        <!-- Search input field with aria-label for better accessibility -->
-        <input type="text" wire:model.debounce.500ms="search" placeholder="{{ __('Search for products') }}"
-            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-200"
+        <!-- Search input field with padding and spacing adjustments for better touch target -->
+        <input type="text" wire:model.debounce.500ms="search" placeholder="Search for products"
+            class="w-full pl-14 pr-4 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-200"
             aria-label="Search for products">
 
         <!-- Search results dropdown with aria-live and role attributes for better accessibility -->
