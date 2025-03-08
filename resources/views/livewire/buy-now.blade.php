@@ -50,12 +50,12 @@
     @endif
     <div class="mb-6" x-data="{ quantity: @entangle('quantity') }">
         <div class="flex items-center w-full input-primary py-2">
-            <button @click="if(quantity > 1) quantity--" class="px-4 py-1 text-gray-600 hover:bg-gray-100 text-xl font-bold overflow-hidden">
+            <button @click="if(quantity > 1) quantity--" class="px-4 py-1 text-gray-600 hover:bg-gray-100 text-xl font-bold overflow-hidden" aria-labelledby="temperature low">
                 -
             </button>
             <label for="quantity" class="hidden">{{ __("Quantity") }}</label>
             <input type="number" x-model="quantity" min="1" name="quantity" class="w-full text-center border-x border-gray-300 py-1 overflow-hidden" />
-            <button @click="quantity++" class="px-4 py-1 text-gray-600 hover:bg-gray-100 text-xl font-bold overflow-hidden">
+            <button @click="quantity++" class="px-4 py-1 text-gray-600 hover:bg-gray-100 text-xl font-bold overflow-hidden" aria-labelledby="temperature high">
                 +
             </button>
         </div>
