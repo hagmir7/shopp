@@ -8,7 +8,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div class="w-full md:sticky top-5">
                     <div class="rounded-lg overflow-hidden">
-                        <x-product-showcase :images="$product->images" />
+                        <x-product-showcase :images="$product->images" :name="$product->name" />
                     </div>
                 </div>
                 @livewire('view-product', ['product' => $product], key($product->id))

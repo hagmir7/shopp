@@ -1,5 +1,5 @@
 <div class="space-y-4" id="buy-now">
-    <h3 class="text-md bg-orange-200 rounded-md p-2">{{ __("Please enter your information to complete the order.") }}</h3>
+    <p class="text-md bg-orange-200 rounded-md p-2">{{ __("Please enter your information to complete the order.") }}</p>
     @if ($product->colors->count() > 0)
     <div>
         <h2 class="font-semibold text-gray-900 mb-3">{{ __("Select Color") }}</h2>
@@ -49,15 +49,12 @@
     </div>
     @endif
     <div class="mb-6" x-data="{ quantity: @entangle('quantity') }">
-        <div class="flex items-cente w-full input-primary py-2">
-            <button @click='quantity > 1 ? quantity-- : null'
-                class="px-4 py-1 text-gray-600 hover:bg-gray-100 text-xl font-bold overflow-hidden">
+        <div class="flex items-center w-full input-primary py-2">
+            <button @click="if(quantity > 1) quantity--" class="px-4 py-1 text-gray-600 hover:bg-gray-100 text-xl font-bold overflow-hidden">
                 -
             </button>
-            <input type="number" x-model="quantity"
-                class="w-full text-center border-x border-gray-300 py-1 overflow-hidden" />
-            <button @click="quantity++"
-                class="px-4 py-1 text-gray-600 hover:bg-gray-100 text-xl font-bold overflow-hidden">
+            <input type="number" x-model="quantity" min="1" class="w-full text-center border-x border-gray-300 py-1 overflow-hidden" />
+            <button @click="quantity++" class="px-4 py-1 text-gray-600 hover:bg-gray-100 text-xl font-bold overflow-hidden">
                 +
             </button>
         </div>
