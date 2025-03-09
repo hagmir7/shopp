@@ -179,7 +179,7 @@
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200">
-                                @foreach (auth()->user()->orders as $order)
+                                @foreach ($orders as $order)
                                     <tr class="hover:bg-gray-50 transition-colors duration-200">
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <span class="text-sm font-medium text-gray-900">{{ $order->id }}</span>
@@ -189,7 +189,7 @@
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                                                {{ $order->items->count() }} {{ __("Product") }}
+                                                {{ $order?->orderItems?->count() }} {{ __("Product") }}
                                             </span>
                                         </td>
 

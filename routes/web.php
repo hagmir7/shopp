@@ -61,7 +61,8 @@ Route::get('profile', function(){
         return redirect()->route('auth.login');
     }
     $title = auth()->user()->first_name . " " . auth()->user()->last_name;
-    return view('profile', compact('title'));
+    $orders = auth()->user()->with('orders')->get();
+    return view('profile', compact('title', 'orders'));
 })->name('profile');
 
 Route::controller(ProductController::class)->prefix('product')->group(function () {
