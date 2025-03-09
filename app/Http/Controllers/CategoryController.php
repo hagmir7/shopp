@@ -10,6 +10,7 @@ class CategoryController extends Controller
     public function show(Category $category){
         $title = $category->name;
         $image = $category->image;
+        $category->load('products');
         return view('category.show', compact('category', 'title', 'image'));
     }
 
