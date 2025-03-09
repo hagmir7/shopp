@@ -7,7 +7,7 @@
         <!-- Logo -->
         <a href="/" class="flex items-center">
             @if (app("site")->logo)
-            <img src="{{ Storage::url(app(" site")->logo) }}" alt="{{ app("site")->name }}" class="w-32 md:h-12
+            <img src="{{ Storage::url(app("site")->logo) }}" alt="{{ app("site")->name }}" class="w-32 md:h-12
             md:w-auto ">
             @else
             <div class="text-3xl font-bold">{{ app("site")->name }}</div>
