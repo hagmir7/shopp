@@ -1,109 +1,47 @@
-<!-- Main Navigation -->
-<nav class="bg-[#fbfaf7] border-b-2 border-[#e0b15e]">
-    <div class="container mx-auto flex flex-wrap items-center justify-between px-4 py-4" x-data="{}">
-        <!-- Mobile menu button -->
-        <x-mobile-menu />
-
-        <!-- Logo -->
-        <a href="/" class="flex items-center">
-            @if (app("site")->logo)
-            <img src="{{ Storage::url(app("site")->logo) }}" alt="{{ app("site")->name }}" class="w-32 md:h-12
-            md:w-auto ">
-            @else
-            <div class="text-3xl font-bold">{{ app("site")->name }}</div>
-            @endif
-        </a>
-        <!-- Search Bar -->
-        <livewire:product-search />
-        <!-- Icons -->
-        <div class="items-center space-x-4 hidden lg:flex">
-            <a href="#" class="hover:text-gray-600 p-2 rounded-full bg-[#efeeeb] me-3">
-                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="1.5"
-                        d="M7.75 3.5C5.127 3.5 3 5.76 3 8.547C3 14.125 12 20.5 12 20.5s9-6.375 9-11.953C21 5.094 18.873 3.5 16.25 3.5c-1.86 0-3.47 1.136-4.25 2.79c-.78-1.654-2.39-2.79-4.25-2.79" />
+<div class="flex-1 max-w-xl mx-4 hidden lg:block">
+    <div class="relative">
+        <button class="absolute left-3 top-1/2 -translate-y-1/2">
+            <svg wire:loading.remove class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <div wire:loading role="status">
+                <svg aria-hidden="true"
+                    class="w-6 h-6 mt-2 [animation:spin_0.5s_linear_infinite] text-gray-600 fill-blue-600"
+                    viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                        fill="currentColor" />
+                    <path
+                        d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                        fill="currentFill" />
                 </svg>
-            </a>
-
-            @auth
-            <a href="/profile" class="hover:text-gray-600 p-2 rounded-full bg-[#efeeeb]">
-                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="1.5"
-                        d="M15 7.5a3 3 0 1 1-6 0a3 3 0 0 1 6 0m4.5 13c-.475-9.333-14.525-9.333-15 0" />
-                </svg>
-            </a>
-            @endauth
-
-            @guest
-            <x-nav-profile-icon />
-            @endguest
-            <livewire:side-cart>
-        </div>
-
-
-        {{-- Mobile cart --}}
-        <div>
-            <!-- Added x-data here -->
-            <div class="items-center space-x-4 flex lg:hidden">
-                <a href="{{ route(" cart") }}"
-                    class="hover:bg-amber-800 bg-amber-950 p-2 rounded-full relative text-white duration-200">
-                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="M16.5 21a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3m-8 0a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3M3.71 5.4h15.214c1.378 0 2.373 1.27 1.995 2.548l-1.654 5.6C19.01 14.408 18.196 15 17.27 15H8.112c-.927 0-1.742-.593-1.996-1.452zm0 0L3 3" />
-                    </svg>
-                    <div
-                        class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2">
-                        @livewire('cart-counter')
+                <span class="sr-only">Loading...</span>
+            </div>
+        </button>
+        <input type="text" wire:model.live="search" placeholder="{{ __('Search for products') }}"
+            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-200">
+        @if (count($results) > 0)
+        <div
+            class="absolute z-50 w-full mt-1 bg-white rounded-lg shadow-lg border border-gray-200 max-h-96 overflow-y-auto">
+            @foreach($results as $result)
+            <a href="{{ route('product.show', $result->slug) }}"
+                class="flex items-center p-4 hover:bg-gray-50 border-b border-gray-100 last:border-0 gap-3">
+                <img src="{{ Storage::url($result->images->first()?->path) }}" alt="{{ $result->name }}"
+                    class="w-16 h-16 object-cover rounded">
+                <div class="ml-4">
+                    <h4 class="font-medium text-gray-900">{{ $result->name }}</h4>
+                    <div class="flex items-center mt-1">
+                        <span class="text-lg font-bold text-orange-500">
+                            {{ app("site")->currency }}{{ number_format($result->price, 2) }}
+                        </span>
                     </div>
-                </a>
-            </div>
+                </div>
+            </a>
+            @endforeach
         </div>
-    </div>
+        @endif
 
-    <!-- Categories Menu -->
-    <div class="hidden w-full lg:block" id="navbar-default">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <ul class="flex flex-col lg:flex-row gap-5 py-2 text-sm font-medium">
-                <li>
-                    <a href="/"
-                        class="inline-flex cursor-pointer py-2 hover:text-gray-600 gap-2 items-center text-[17px] text-neutral-600">
-                        {{ __("Home") }}
-                    </a>
-                </li>
-                @foreach (app('site')->urls->where('header', true)->load('children')->sortBy('order')->all() as $item)
-                @if (count($item->children) == 0)
-                <li>
-                    <a href="{{ $item->path }}"
-                        class="inline-flex cursor-pointer py-2 hover:text-gray-600 gap-2 items-center text-[17px] text-neutral-600">
-                        {{ $item->name }}
-                    </a>
-                </li>
-                @else
-                <x-nav.dropdown name="{{ $item->name }}" :items="$item->children->map(function($child) {
-                            return [
-                                'name' => $child->name,
-                                'url' => $child->path
-                            ];
-                        })->toArray()" />
-                @endif
-                @endforeach
-
-            </ul>
-            <div>
-                <a href="{{ route('contact') }}"
-                    class="rounded-pill flex gap-2 text-gray-900 bg-[#e0b15e] py-2 px-4 rounded-full text-sm font-semibold hover:text-white">
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="1.5"
-                                d="M3.464 16.828C2 15.657 2 14.771 2 11s0-5.657 1.464-6.828C4.93 3 7.286 3 12 3s7.071 0 8.535 1.172S22 7.229 22 11s0 4.657-1.465 5.828C19.072 18 16.714 18 12 18c-2.51 0-3.8 1.738-6 3v-3.212c-1.094-.163-1.899-.45-2.536-.96" />
-                        </svg>
-                    </span>
-                    <span>{{ __("Contact Us") }}</span>
-                </a>
-            </div>
-        </div>
     </div>
-</nav>
+</div>
