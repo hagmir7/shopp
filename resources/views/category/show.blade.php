@@ -2,15 +2,20 @@
 
 @section('content')
 <div class="max-w-6xl mx-auto mt-3 px-2 mb-9">
-    <h2 class="text-lg md:text-xl py-4 font-bold">{{ __("Collection") }} {{ $category->name }}</h2>
+    <h2 class="text-lg md:text-xl py-4 font-bold">{{ __("Collection") }} {{ $title }}</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        @foreach ($category->products as $product)
+        @foreach ($products as $product)
         <div class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
             <!-- Image Container -->
             <div class="relative overflow-hidden">
                 <a href="{{ route('product.show', $product->slug) }}" class="block">
+                    @if ($product->images->isNotEmpty())
                     <img src="{{ Storage::url($product->images->first()->path) }}" alt="{{ $product->name }}"
                         class="w-full h-72 object-cover object-center transform group-hover:scale-105 transition-transform duration-300">
+                    @else
+                    <img src="{{ asset('images/default-placeholder.png') }}" alt="Default Image"
+                        class="w-full h-72 object-cover object-center">
+                    @endif
                 </a>
 
                 <!-- Discount Badge -->
@@ -59,7 +64,8 @@
                             {{ app("site")->currency }} {{ number_format($product->price, 2) }}
                         </span>
                         <span class="text-xl font-bold text-gray-900">
-                            {{ app("site")->currency }} {{ number_format($product->price * (1 - $product->discount/100), 2) }}
+                            {{ app("site")->currency }} {{ number_format($product->price * (1 - $product->discount/100),
+                            2) }}
                         </span>
                         @else
                         <span class="text-xl font-bold text-gray-900">
