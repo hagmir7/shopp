@@ -55,6 +55,11 @@
             </div>
             <!-- Menu Items -->
             <nav class="divide-y">
+                @auth
+                <x-nav.mobile-link href="{{ route('profile') }}" :active="request()->routeIs('profile')">
+                    {{ __('Profile') }}
+                </x-nav.mobile-link>
+                @endauth
                 <x-nav.mobile-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                     {{ __('Home') }}
                 </x-nav.mobile-link>
@@ -64,14 +69,22 @@
                     {{ $item->name }}
                 </x-nav.mobile-link>
                 @endforeach
-            </nav>
-        </div>
 
-        <!-- Menu Footer -->
-        <div class="absolute bottom-0 left-0 right-0 p-4 border-t bg-white">
-            <a href="{{ route("auth.login") }}" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors">
-                {{ __("Login / Register") }}
-            </a>
+                @guest
+                <x-nav.mobile-link href="{{ route('auth.login') }}" :active="request()->routeIs('login')">
+                    {{ __('Login') }}
+                </x-nav.mobile-link>
+                <x-nav.mobile-link href="{{ route('auth.register') }}" :active="request()->routeIs('register')">
+                    {{ __('Register') }}
+                </x-nav.mobile-link>
+                @endguest
+
+                @auth
+                <x-nav.mobile-link href="{{ route('auth.logout') }}" :active="request()->routeIs('auth.logout')">
+                    {{ __('Logout') }}
+                </x-nav.mobile-link>
+                @endauth
+            </nav>
         </div>
     </div>
 </div>
