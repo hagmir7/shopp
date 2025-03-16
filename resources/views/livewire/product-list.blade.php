@@ -8,14 +8,13 @@
                 <x-image
                     image="{{ Storage::url($product->images->first()->path) }}"
                     alt="{{ $product->name }}"
-                   class="w-full h-72 md:h-60 object-cover md:object-center transform group-hover:scale-105 transition-transform duration-300"
+                    class="w-full h-72 md:h-60 object-cover md:object-center transform group-hover:scale-105 transition-transform duration-300"
                 />
             </a>
             <!-- Discount Badge -->
             @if ($product->discount && ($product->discount > 0))
-            <span
-                class="absolute top-4 left-4 bg-red-500 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md">
-                %{{ $product->discount }}-
+            <span class="absolute top-4 left-4 bg-red-700 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md">
+                -{{ $product->discount }}%
             </span>
             @endif
         </div>

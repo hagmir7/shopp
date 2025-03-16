@@ -19,9 +19,8 @@
                 </a>
 
                 <!-- Discount Badge -->
-                @if ($product->discount && ($product->discount > 0))
-                <span
-                    class="absolute top-4 left-4 bg-red-500 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md">
+               @if ($product->discount && ($product->discount > 0))
+                <span class="absolute top-4 left-4 bg-red-700 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md">
                     -{{ $product->discount }}%
                 </span>
                 @endif

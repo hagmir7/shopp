@@ -1,6 +1,6 @@
 <div class="flex-1 max-w-xl mx-4 hidden lg:block">
     <div class="relative">
-        <button class="absolute left-3 top-1/2 -translate-y-1/2">
+        <p class="absolute left-3 top-1/2 -translate-y-1/2">
             <svg wire:loading.remove class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
                 viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -19,7 +19,7 @@
                 </svg>
                 <span class="sr-only">Loading...</span>
             </div>
-        </button>
+        </p>
         <input type="text" wire:model.live="search" placeholder="{{ __('Search for products') }}"
             class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-200">
         @if (count($results) > 0)
