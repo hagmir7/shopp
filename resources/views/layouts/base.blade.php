@@ -12,6 +12,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     {!! app('site')->header !!}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
 
     @if (app()->getLocale() == 'ar')
     <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap" rel="stylesheet">
@@ -28,7 +29,6 @@
     </style>
     @else
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     @endif
 
@@ -82,7 +82,8 @@
     @yield('content')
     <x-mobile-footer />
     <x-footer />
-    {!! app('site')->footer !!}
-</body>
 
+    {!! app('site')->footer !!}
+    @livewireScripts
+</body>
 </html>

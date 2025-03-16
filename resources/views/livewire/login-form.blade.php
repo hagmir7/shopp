@@ -1,14 +1,21 @@
 <form class="" wire:submit.prevent='login()'>
     <div>
         <label for="email" class="block mb-2 text-sm font-medium text-gray-900">{{ __("Votre email") }}</label>
-        <input type="email" wire:model='email' class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5  " placeholder="nom@exemple.com" required="">
+        <x-forms.input
+            type="email"
+            wire:model='email'
+            placeholder="nom@exemple.com"
+            required autocomplete="new-password"
+        />
         @error('email') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
     <div>
         <label for="password" class="block my-2 text-sm font-medium text-gray-900">{{ __("Mot de passe") }}</label>
-        <input type="password" wire:model='password' placeholder="••••••••"
-            class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5  "
-            required="">
+        <x-forms.input
+            type="password"
+            wire:model='password'
+            placeholder="••••••••"
+            required autocomplete="new-password"/>
         @error('password') <span class="text-danger mb-2">{{ $message }}</span> @enderror
     </div>
     <div class="flex items-center justify-between">

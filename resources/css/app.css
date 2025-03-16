@@ -27,25 +27,96 @@
     /* Adjust height as needed */
     object-fit: contain;
 }
-.attachment__caption{
-    display: none!important;
+
+.attachment__caption {
+    display: none !important;
 }
 
 
 @layer components {
     .btn {
-        @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold transition-colors duration-200  focus:outline-none focus:ring-2 focus:ring-offset-2;
+        @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
     }
 
-    .btn-primary{
-        @apply  text-gray-900 bg-amber-400 hover:bg-amber-500 hover:text-white focus:ring-amber-500;
+    .btn-primary {
+        @apply text-gray-900 bg-amber-400 hover:bg-amber-500 hover:text-white focus:ring-amber-500;
     }
 
-    .text-primary{
+    .text-primary {
         @apply text-amber-600;
     }
 
-    .input-primary{
+    .input-primary {
         @apply border border-gray-900 w-full py-3 px-2 rounded-lg focus:border-amber-800
+    }
+}
+
+
+/* Lazy loading */
+
+.lazy-image {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.lazy-image.loaded {
+    opacity: 1;
+}
+
+/* Image wrapper styles */
+.image-wrapper {
+    position: relative;
+}
+
+/* Loading spinner */
+.loading::after {
+    content: '';
+    position: absolute;
+    background-image: url('https://inter.facepy.com/assets/imgs/placeholder-image.webp');
+    background-size: cover;
+    /* Ensure the image covers the element */
+    background-position: center;
+    /* Center the image */
+    width: 100%;
+    /* Adjust width as needed */
+    height: 100%;
+    /* Adjust height as needed */
+    display: block;
+    /* Ensure it displays as a block */
+}
+
+
+/* @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        } */
+
+/* Image styles */
+.lazy-image {
+    height: auto;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: block;
+}
+
+.lazy-image.loaded {
+    opacity: 1;
+}
+
+/* Error message styles */
+.error-message {
+    color: #e74c3c;
+    text-align: center;
+    padding: 20px;
+    display: none;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
     }
 }

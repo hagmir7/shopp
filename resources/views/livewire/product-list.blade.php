@@ -4,10 +4,13 @@
     <div class="group bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
         <!-- Image Container -->
         <div class="relative overflow-hidden">
-            <a href="{{ route('product.show', $product->slug) }}" class="block">
-                <img src="{{ Storage::url($product->images->first()->path) }}" alt="{{ $product->name }}" class="w-full h-72 md:h-60 object-cover md:object-center transform group-hover:scale-105 transition-transform duration-300">
+            <a href="{{ route('product.show', $product->slug) }}" class="block image-wrapper loading">
+                <x-image
+                    image="{{ Storage::url($product->images->first()->path) }}"
+                    alt="{{ $product->name }}"
+                   class="w-full h-72 md:h-60 object-cover md:object-center transform group-hover:scale-105 transition-transform duration-300"
+                />
             </a>
-
             <!-- Discount Badge -->
             @if ($product->discount && ($product->discount > 0))
             <span
