@@ -80,7 +80,9 @@ class ProductResource extends Resource
                                     ->minValue(0)
                                     ->numeric(),
                                 Forms\Components\Select::make('category_id')
-                                    ->relationship('category', 'name')
+                                    ->relationship('category', 'name', function ($query) {
+                                        $query->where('site_id', app('site')->id);
+                                    })
                                     ->searchable()
                                     ->preload(),
 

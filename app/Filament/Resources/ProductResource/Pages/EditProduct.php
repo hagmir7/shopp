@@ -13,7 +13,20 @@ class EditProduct extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
+             Actions\DeleteAction::make()
+                ->color('danger')
+                ->icon('heroicon-o-trash'),
+
+            Actions\CreateAction::make()
+                ->color('success')
+                ->url('/admin/products/create')
+                ->icon('heroicon-o-plus-circle'),
+            Actions\Action::make('view')
+                ->label(__("Voir"))
+                ->color('info')
+                ->url(route('product.show', $this->record->slug))
+                ->openUrlInNewTab()
+                ->icon('heroicon-o-rocket-launch'),
         ];
     }
 }
