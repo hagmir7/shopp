@@ -8,9 +8,17 @@
             {{ __('We are happy to hear from you! Whether you have questions about our store, want to suggest a topic, or need help with a request, we are here to assist you.') }}
         </p>
         <ul class="space-y-2 mb-4">
+            @if (app("site")->phone)
+                <li>
+                    <strong>{{ __('Phone') }}:</strong>
+                    <a href="tel:{{ app("site")->phone }}" class="text-blue-600 hover:underline">
+                        {{ app("site")->phone }}
+                    </a>
+                </li>
+            @endif
             <li>
                 <strong>{{ __('Email') }}:</strong>
-                <a href="mailto:contact@norkitab.com" class="text-blue-600 hover:underline">
+                <a href="mailto:{{ app("site")->email }}" class="text-blue-600 hover:underline">
                     {{ app("site")->email }}
                 </a>
             </li>

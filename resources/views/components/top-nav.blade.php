@@ -9,12 +9,11 @@
                     <a href="/contact" class="hover:text-gray-600">{{ __("Contact Us") }}</a>
             </div>
             <div class="flex items-center gap-4">
-                @if (app('site')->phone)
-                    <a href="tel:{{ app('site')->phone }}">{{ app('site')->phone }}</a>
+                @if (app("site")->phone)
+                    <a href="tel:{{ app("site")->phone }}">{{ app("site")->phone }}</a>
                 @endif
-
-                @if (app('site')->mail)
-                <a href="tel:{{ app('site')->mail }}">{{ app('site')->mail }}</a>
+                @if (app("site")->email)
+                <a href="mailto:{{ app("site")->email }}">{{ app("site")->email }}</a>
                 @endif
             </div>
         </div>
