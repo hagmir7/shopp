@@ -50,32 +50,32 @@ class MediaSeeder extends Seeder
 
 
         SiteMedia::create([
-            'site_id' => 1,
+            'site_id' => 5,
             'media_id' => 1,
             'url' => 'https://facebook.com/hassan_agmir'
         ]);
 
         SiteMedia::create([
-            'site_id' => 1,
+            'site_id' => 5,
             'media_id' => 2,
             'url' => 'https://instagram.com/hassan_agmir'
         ]);
 
 
         SiteMedia::create([
-            'site_id' => 1,
+            'site_id' => 5,
             'media_id' => 3,
             'url' => 'https://linkdin.com/hassan_agmir'
         ]);
 
         SiteMedia::create([
-            'site_id' => 1,
+            'site_id' => 5,
             'media_id' => 4,
             'url' => 'https://pinterest.com/hassan_agmir'
         ]);
 
         SiteMedia::create([
-            'site_id' => 1,
+            'site_id' => 5,
             'media_id' => 5,
             'url' => 'https://youtube.com/hassan_agmir'
         ]);
