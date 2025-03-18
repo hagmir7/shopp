@@ -4,6 +4,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryConroller;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+
+use App\Http\Controllers\PageController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
@@ -82,6 +84,8 @@ Route::controller(AuthController::class)->prefix('auth')->group(function () {
     Route::get('reset-password/{token}', 'reset')->middleware('guest')->name('password.reset');
 });
 
+
+Route::get('page/{slug}', [PageController::class, 'show'])->name('page.show');
 
 
 Route::get('checkout', function(){
