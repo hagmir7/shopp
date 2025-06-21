@@ -47,7 +47,7 @@ class RegisterForm extends Component
         // $user->assignRole('client');
 
         Auth::login($user);
-        $this->dispatch("reloadPage");
+        return redirect('profile');
     }
 
 

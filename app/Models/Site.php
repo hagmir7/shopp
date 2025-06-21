@@ -12,7 +12,7 @@ class Site extends Model
         'logo', 'image', 'tags', 'description', 'email',
         'phone', 'currency', 'dark_logo',
         'language_id', 'country_id', 'options',
-        'header', 'footer'
+        'header', 'footer', 'user_id'
     ];
 
     protected $casts = [

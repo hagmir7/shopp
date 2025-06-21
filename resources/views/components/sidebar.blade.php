@@ -14,7 +14,7 @@
                     <span class="ms-3 text-md">{{ __("Profile") }}</span>
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a href="#!"
                     class="flex items-center p-2 text-primary rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
@@ -23,7 +23,7 @@
                     </svg>
                     <span class="ms-3 text-md">{{ __("Your orders") }}</span>
                 </a>
-            </li>
+            </li> --}}
 
             <li>
                 <a href="{{ route('auth.logout') }}"

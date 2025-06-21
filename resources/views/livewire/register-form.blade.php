@@ -22,7 +22,7 @@
                     </div>
                     <div class="w-full">
                         <label for="name" class="block mb-1 text-sm font-medium text-gray-900">{{ __("Email") }}</label>
-                        <input type="text" wire:model='email' class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5" placeholder="{{ __("Your email") }}">
+                        <input type="email" wire:model='email' class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5" placeholder="{{ __("Your email") }}">
                         @error('email') <span class="text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>

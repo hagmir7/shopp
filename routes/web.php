@@ -54,7 +54,7 @@ Route::get('products-1', function(){
 
 Route::get('menu', function(){
     $title = __("Menu");
-    return view('menu');
+    return view('menu', compact('title'));
 })->name('menu');
 
 

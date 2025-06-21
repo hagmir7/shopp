@@ -28,6 +28,12 @@ class SiteResource extends Resource
         return __("Store");
     }
 
+    public static function getEloquentQuery(): Builder
+    {
+        return static::getModel()::query()
+            ->where('user_id', auth()->id());
+    }
+
 
     public static function getPluralLabel(): ?string
     {
