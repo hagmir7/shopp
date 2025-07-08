@@ -17,7 +17,7 @@ class SiteMediaResource extends Resource
 {
     protected static ?string $model = SiteMedia::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-link';
+    protected static ?string $navigationIcon = 'heroicon-o-paper-clip';
 
     public static function getModelLabel(): string
     {

@@ -34,6 +34,17 @@ class OrderResource extends Resource
         return parent::getEloquentQuery()->where('site_id', app('site')->id);
     }
 
+    public static function canCreate(): bool
+    {
+        return false;
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        $count = static::getModel()::where('status', 1)->where('site_id', app("site")->id)->count();
+        return $count > 0 ? (string) $count : null;
+    }
+
     public static function form(Form $form): Form
     {
         return $form

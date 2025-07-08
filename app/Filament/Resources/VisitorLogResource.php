@@ -17,7 +17,7 @@ class VisitorLogResource extends Resource
 {
     protected static ?string $model = VisitorLog::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-cursor-arrow-rays';
 
 
     public static function getModelLabel(): string
