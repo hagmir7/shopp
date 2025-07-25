@@ -37,8 +37,16 @@ class ContactResource extends Resource
 
     public static function getModelLabel(): string
     {
+        return __("Message");
+    }
+
+
+    public static function getPluralLabel(): ?string
+    {
         return __("Messages");
     }
+
+
 
 
     public static function form(Form $form): Form

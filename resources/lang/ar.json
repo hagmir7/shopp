@@ -126,7 +126,7 @@
     "Latest Orders": "آخر الطلبات",
     "Load More": "تحميل المزيد",
     "Login": "تسجيل الدخول",
-    "Login \/ Register": "تسجيل الدخول \/ التسجيل",
+    "Login / Register": "تسجيل الدخول / التسجيل",
     "Login To Your Account": "تسجيل الدخول إلى حسابك",
     "Login to your account": "تسجيل الدخول إلى حسابك",
     "Logo": "الشعار",
@@ -291,5 +291,14 @@
     "click the “Confirm your subscription”": "إضغط على “تأكيد اشتراكك”",
     "collection": "مجموعة",
     "products": "منتجات",
-    "reloadPage": "reloadPage"
+    "reloadPage": "reloadPage",
+    "Social Media": "مواقع التواصل",
+    "Platform": "منصة",
+    "Visitor Log": "سجل الزائر",
+    "Visitor Logs": "سجلات الزوار",
+    "IP Address": "عنوان IP",
+    "User Agent": "وكيل المستخدم",
+    "Referrer": "المرجع",
+    "Visited At": "تاريخ الزيارة",
+    "URLs" : "روابط"
 }

@@ -23,6 +23,12 @@ class SiteMediaResource extends Resource
     {
         return __("Social Media");
     }
+
+    public static function getPluralLabel(): ?string
+    {
+        return __("Social Media");
+    }
+
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()->where('site_id', app("site")->id)->latest();
@@ -33,12 +39,12 @@ class SiteMediaResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('media_id')
-                    ->label(__("Media"))
+                    ->label(__("Platform"))
                     ->relationship('media', 'name')
                     ->native(false)
                     ->required(),
                 Forms\Components\TextInput::make('url')
-                    ->label(__("Media URL"))
+                    ->label(__("URL"))
                     ->url()
                     ->suffixIcon('heroicon-m-check-circle')
                     ->suffixIconColor('success')
@@ -52,10 +58,10 @@ class SiteMediaResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('media.name')
-                    ->label(__("Media"))
+                    ->label(__("Platform"))
                     ->sortable(),
                 Tables\Columns\TextColumn::make('url')
-                    ->label(__("Media URL"))
+                    ->label(__("URL"))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__("Created At"))

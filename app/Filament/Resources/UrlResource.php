@@ -21,6 +21,16 @@ class UrlResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-link';
 
+    public static function getModelLabel(): string
+    {
+        return __("URL");
+    }
+
+    public static function getPluralLabel(): ?string
+    {
+        return __("URLs");
+    }
+
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()
