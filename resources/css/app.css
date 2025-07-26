@@ -111,6 +111,12 @@
     display: none;
 }
 
+
+.text-border{
+    text-shadow: 2px 0 #cca358, -2px 0 #cca358, 0 2px #cca358, 0 -2px #cca358,
+            1px 1px #cca358, -1px -1px #cca358, 1px -1px #cca358, -1px 1px #cca358;
+}
+
 @keyframes slide {
     0% {
         transform: translateX(0);

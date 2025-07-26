@@ -7,8 +7,8 @@
                     class="absolute w-full h-full object-cover">
                 <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
                     <div class="slide-content max-w-4xl">
-                        <h2 class="text-5xl md:text-6xl font-bold mb-4 opacity-0 translate-y-10">{{ $slide->title }}</h2>
-                        <p class="text-xl md:text-2xl mb-8 opacity-0 translate-y-10">{{ $slide->description }}</p>
+                        <h2 class="text-5xl md:text-6xl font-bold mb-4 opacity-0 translate-y-10 text-border">{{ $slide->title }}</h2>
+                        <p class="text-xl md:text-2xl mb-8 opacity-0 translate-y-10 text-border">{{ $slide->description }}</p>
                         <a href="{{ $slide->url }}" class="opacity-0 translate-y-10 bg-[#cba155] text-white px-8 py-2  rounded-full text-lg font-semibold transform transition-transform duration-300 hover:scale-105">
                             {{ $slide->text_button }}
                         </a>

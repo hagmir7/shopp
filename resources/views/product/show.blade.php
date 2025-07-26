@@ -20,12 +20,15 @@
             @livewire('buy-now', ['product' => $product], key($product->id))
         </div> --}}
         {{-- Product Description and Options --}}
+        @if ($product->content || $product->options)
         <div class="bg-white rounded-xl shadow-sm border p-4 sm:p-6 lg:p-8 mt-6 mb-0">
+
             <h2 class="text-2xl mb-3">{{ __("Product description") }}</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
+            <div class="{{ $product->content && $product->options ? 'grid grid-cols-1 lg:grid-cols-2 gap-8' : '' }} ">
                 <div class="flex flex-col space-y-6">
                     {!! $product->content !!}
                 </div>
+
                 <div class="w-full">
                     <table class="w-full text-sm text-left rtl:text-right border-2">
                         <tbody>
@@ -58,6 +61,7 @@
                 {{ __("Buy Now") }}
             </a>
         </div>
+        @endif
 
 
     </div>
