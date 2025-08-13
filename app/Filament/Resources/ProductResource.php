@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Enums\ProductStatusEnum;
 use App\Filament\Resources\ProductResource\Pages;
 use App\Filament\Resources\ProductResource\RelationManagers;
+use App\Models\Color;
 use App\Models\Product;
 use App\Models\UnitType;
 use Doctrine\DBAL\Query\From;
@@ -49,20 +50,23 @@ class ProductResource extends Resource
                     ->tabs([
                         Forms\Components\Tabs\Tab::make('product')
                             ->icon('heroicon-o-squares-2x2')
-                            ->label('Product')
+                            ->label(__("Product"))
                             ->schema([
                                 Forms\Components\TextInput::make('name')
+                                    ->label(__("Product name"))
                                     ->required()
                                     ->maxLength(255),
                                 Forms\Components\Select::make('status')
                                     ->required()
                                     ->options(ProductStatusEnum::toArray())
                                     ->native(false)
+                                    ->label(__("Status"))
                                     ->default(1),
                                 Forms\Components\TextInput::make('sku')
                                     ->label('SKU')
                                     ->maxLength(255),
                                 Forms\Components\TextInput::make('price')
+                                    ->label(__("Price"))
                                     ->minValue(0)
                                     ->required()
                                     ->numeric()
@@ -84,6 +88,7 @@ class ProductResource extends Resource
                                         $query->where('site_id', app('site')->id);
                                     })
                                     ->searchable()
+                                    ->label(__("Category"))
                                     ->preload(),
 
                                 Forms\Components\Toggle::make('buy_now')
@@ -111,6 +116,16 @@ class ProductResource extends Resource
                                     ->label(__("Colors"))
                                     ->columnSpan(1)
                                     ->searchable()
+                                    ->createOptionForm(self::ColorForm())
+                                    ->createOptionModalHeading(__("Create new color"))
+                                    ->createOptionUsing(function (array $data): int {
+                                        $category = Color::create($data);
+                                        Notification::make()
+                                            ->success()
+                                            ->title(__("Color created successfully"))
+                                            ->send();
+                                        return $category->getKey();
+                                    })
                                     ->preload(),
 
                             ])->columns(3),
@@ -119,6 +134,7 @@ class ProductResource extends Resource
                             ->icon('heroicon-o-photo')
                             ->schema([
                                 Forms\Components\Repeater::make("images")
+                                    ->label(__("Images"))
                                     ->relationship()
                                     ->schema([
                                         Forms\Components\FileUpload::make('path')
@@ -142,6 +158,7 @@ class ProductResource extends Resource
                             ->icon('heroicon-o-adjustments-vertical')
                             ->schema([
                                 Forms\Components\Repeater::make('dimensions')
+                                    ->label(__("Variants"))
                                     ->relationship()
                                     ->schema([
                                          Forms\Components\Select::make('unit_type')
@@ -187,6 +204,21 @@ class ProductResource extends Resource
 
 
             ]);
+    }
+
+    public static function ColorForm(): array
+    {
+        return [
+            Forms\Components\TextInput::make('name')
+                ->label(__("Color"))
+                ->maxLength(255),
+            Forms\Components\ColorPicker::make('code')
+                ->label(__("Code"))
+                ->regex('/^#([a-f0-9]{6}|[a-f0-9]{3})\b$/'),
+            Forms\Components\FileUpload::make('image')
+                ->label(__("Image"))
+                ->image(),
+        ];
     }
 
     public static function table(Table $table): Table

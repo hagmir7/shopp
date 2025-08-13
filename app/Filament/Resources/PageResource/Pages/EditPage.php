@@ -22,7 +22,7 @@ class EditPage extends EditRecord
                 ->url('/admin/pages/create')
                 ->icon('heroicon-o-plus-circle'),
             Actions\Action::make('view')
-                ->label(__("Voir"))
+                ->label(__("View"))
                 ->color('info')
                 ->url(route('page.show', $this->record->slug))
                 ->openUrlInNewTab()

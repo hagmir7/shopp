@@ -302,5 +302,10 @@
     "Visited At": "تاريخ الزيارة",
     "URLs": "روابط",
     "No Products Found": "لم يتم العثور على أي منتجات",
-    "We couldn't find any products matching your criteria. Try adjusting your filters or check back later.": "لم نتمكن من العثور على أي منتجات تطابق معاييرك. حاول تعديل الفلاتر أو عد لاحقًا."
+    "We couldn't find any products matching your criteria. Try adjusting your filters or check back later.": "لم نتمكن من العثور على أي منتجات تطابق معاييرك. حاول تعديل الفلاتر أو عد لاحقًا.",
+    "Create new color" : "إنشاء لون جديد",
+    "Buy now" : "اشتري الآن",
+    "Product name" : "إسم المنتج",
+    "View" : "عرض"
+
 }

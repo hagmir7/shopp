@@ -22,7 +22,7 @@ class EditProduct extends EditRecord
                 ->url('/admin/products/create')
                 ->icon('heroicon-o-plus-circle'),
             Actions\Action::make('view')
-                ->label(__("Voir"))
+                ->label(__("View"))
                 ->color('info')
                 ->url(route('product.show', $this->record->slug))
                 ->openUrlInNewTab()
