@@ -6,7 +6,7 @@
             <a href="{{ route('category.show', $product->category->slug) }}" class="text-gray-600">{{ $product->category->name }}</a>
         </div>
         @endif
-        @if (auth()->user())
+        @if (auth()->user() == app('site')->user_id)
         <a class="top-0 end-0 absolute" href="/admin/products/{{ $product->id }}/edit">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="text-green-500" viewBox="0 0 24 24">
                 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">

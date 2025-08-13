@@ -1,38 +1,48 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<div class="relative h-96 overflow-hidden">
-        <!-- Slide 1 -->
-        @foreach (app('site')->slides->where('status', true) as $slide)
-            <div class="slide absolute w-full h-full opacity-0">
-                <img src="{{ Storage::url($slide->image) }}" alt="Slide 1"
-                    class="absolute w-full h-full object-cover">
-                <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
-                    <div class="slide-content max-w-4xl">
-                        <h2 class="text-5xl md:text-6xl font-bold mb-4 opacity-0 translate-y-10 text-border">{{ $slide->title }}</h2>
-                        <p class="text-xl md:text-2xl mb-8 opacity-0 translate-y-10 text-border">{{ $slide->description }}</p>
-                        <a href="{{ $slide->url }}" class="opacity-0 translate-y-10 bg-[#cba155] text-white px-8 py-2  rounded-full text-lg font-semibold transform transition-transform duration-300 hover:scale-105">
-                            {{ $slide->text_button }}
-                        </a>
-                    </div>
-                </div>
+<div class="relative h-96 overflow-hidden hidden lg:block">
+    <!-- Slide 1 -->
+    @foreach (app('site')->slides->where('status', true) as $slide)
+    <div class="slide absolute w-full h-full opacity-0">
+        <img src="{{ Storage::url($slide->image) }}" alt="Slide 1" class="absolute w-full h-full object-cover">
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
+            <div class="slide-content max-w-4xl">
+                @if ($slide->title)
+                <h2 class="text-5xl md:text-6xl font-bold mb-4 opacity-0 translate-y-10 text-border">{{ $slide->title }}
+                </h2>
+                @endif
+                @if ($slide->description)
+                <p class="text-xl md:text-2xl mb-8 opacity-0 translate-y-10 text-border">{{ $slide->description }}</p>
+                @endif
+                @if ($slide->text_button)
+                <a href="{{ $slide->url }}"
+                    class="opacity-0 translate-y-10 bg-[#cba155] text-white px-8 py-2  rounded-full text-lg font-semibold transform transition-transform duration-300 hover:scale-105">
+                    {{ $slide->text_button }}
+                </a>
+                @endif
+
             </div>
-        @endforeach
-
-        <!-- Navigation Buttons -->
-        <button id="left" class="absolute hidden lg:block left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-30 hover:bg-opacity-50 text-white p-4 rounded-full z-20 transition-all duration-300">
-            ❮
-        </button>
-        <button id="right" class="absolute hidden lg:block right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-30 hover:bg-opacity-50 text-white p-4 rounded-full z-20 transition-all duration-300">
-            ❯
-        </button>
-
-        <!-- Navigation Dots -->
-
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-3 z-20">
-            @foreach (app('site')->slides->where('status', true) as $slide)
-           <div class="w-3 h-3 dots rounded-full bg-white bg-opacity-50 cursor-pointer transition-all duration-300"></div>
-            @endforeach
         </div>
     </div>
+    @endforeach
+
+    <!-- Navigation Buttons -->
+    <button id="left"
+        class="absolute hidden lg:block left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-30 hover:bg-opacity-50 text-white p-4 rounded-full z-20 transition-all duration-300">
+        ❮
+    </button>
+    <button id="right"
+        class="absolute hidden lg:block right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-30 hover:bg-opacity-50 text-white p-4 rounded-full z-20 transition-all duration-300">
+        ❯
+    </button>
+
+    <!-- Navigation Dots -->
+
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-3 z-20">
+        @foreach (app('site')->slides->where('status', true) as $slide)
+        <div class="w-3 h-3 dots rounded-full bg-white bg-opacity-50 cursor-pointer transition-all duration-300"></div>
+        @endforeach
+    </div>
+</div>
 <script>
     let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');

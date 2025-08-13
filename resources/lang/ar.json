@@ -300,5 +300,7 @@
     "User Agent": "وكيل المستخدم",
     "Referrer": "المرجع",
     "Visited At": "تاريخ الزيارة",
-    "URLs" : "روابط"
+    "URLs": "روابط",
+    "No Products Found": "لم يتم العثور على أي منتجات",
+    "We couldn't find any products matching your criteria. Try adjusting your filters or check back later.": "لم نتمكن من العثور على أي منتجات تطابق معاييرك. حاول تعديل الفلاتر أو عد لاحقًا."
 }

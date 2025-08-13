@@ -46,14 +46,12 @@ class SlideResource extends Resource
                             ->schema([
                                 Forms\Components\TextInput::make('title')
                                     ->label(__("Title"))
-                                    ->required()
                                     ->maxLength(255),
                                 Forms\Components\TextInput::make('text_button')
                                     ->label(__("Text Button"))
                                     ->maxLength(255),
                                 Forms\Components\Textarea::make('description')
                                     ->label(__("Description"))
-                                    ->required()
                                     ->columnSpanFull(),
                             ])->columns(2)
                             ->columnSpan(2),
@@ -61,9 +59,11 @@ class SlideResource extends Resource
                             ->schema([
                                 Forms\Components\TextInput::make('url')
                                     ->label(__("Slide URL"))
+
                                     ->maxLength(255),
                                 Forms\Components\FileUpload::make('image')
                                     ->label(__("Image"))
+                                    ->required()
                                     ->image(),
                                 Forms\Components\Toggle::make('status')
                                     ->label(__("Status"))

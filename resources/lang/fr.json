@@ -300,5 +300,7 @@
     "User Agent": "Agent utilisateur",
     "Referrer": "Référent",
     "Visited At": "Visité le",
-    "URLs": "URLs"
+    "URLs": "URLs",
+    "No Products Found": "Aucun produit trouvé",
+    "We couldn't find any products matching your criteria. Try adjusting your filters or check back later.": "Nous n'avons trouvé aucun produit correspondant à vos critères. Essayez de modifier vos filtres ou revenez plus tard."
 }

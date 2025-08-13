@@ -35,8 +35,7 @@
                         {{ number_format($product->price, 2) }} {{ app("site")->currency }}
                     </span>
                     <span class="text-xl font-bold">
-                        {{ number_format($product->price * (1 - $product->discount/100), 2) }} {{ app("site")->currency
-                        }}
+                        {{ number_format($product->price * (1 - $product->discount/100), 2) }} {{ app("site")->currency}}
                     </span>
                     @else
                     <span class="text-xl font-bold">
@@ -60,9 +59,9 @@
                 d="M16 11V7a4 4 0 00-8 0v4M5 9h14l-1 12H6L5 9z"></path>
         </svg>
     </div>
-    <h3 class="text-xl font-semibold text-gray-600 mb-2">No Products Found</h3>
+    <h3 class="text-xl font-semibold text-gray-600 mb-2">{{ __("No Products Found") }}</h3>
     <p class="text-gray-500 text-center max-w-md mb-6">
-        We couldn't find any products matching your criteria. Try adjusting your filters or check back later.
+        {{ __("We couldn't find any products matching your criteria. Try adjusting your filters or check back later.") }}
     </p>
 </div>
 @endif
