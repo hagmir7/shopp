@@ -4,10 +4,9 @@
         <!-- Added splide class -->
         <div class="splide__track">
             <ul class="splide__list">
-                @foreach ($images as $image)
+                @foreach ($images->sortBy('order') as $image)
                 <li class="splide__slide">
-                    <img class="h-auto" src="{{ Storage::url($image->path) }}"
-                        alt="{{ $name }} - Image {{ $loop->iteration }}">
+                    <img class="h-auto" src="{{ Storage::url($image->path) }}" alt="{{ $name }} - Image {{ $loop->iteration }}">
                 </li>
                 @endforeach
             </ul>
