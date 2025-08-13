@@ -19,9 +19,22 @@
         </a>
         @endif
         <div class="py-1">
-            <span class="text-primary text-2xl font-bold">
+            {{-- <span class="text-primary text-2xl font-bold">
                  {{ $product->price}} {{ app("site")->currency }}
-            </span>
+            </span> --}}
+            <div class="flex flex-col text-primary">
+                @if ($product->discount && ($product->discount > 0))
+                <span class="text-md line-through text-gray-500">
+                    {{ number_format($product->price, 2) }} {{ app("site")->currency }}
+                </span>
+                <span class="text-2xl font-bold">
+                    {{ number_format($product->price * (1 - $product->discount/100), 2) }} {{ app("site")->currency}}
+                </span>
+                @else
+                <span class="text-2xl font-bold">
+                    {{ number_format($product->price, 2) }} {{ app("site")->currency }}
+                </span>
+                @endif
         </div>
         <p class="mt-2 text-gray-600">{{ $product->description }}</p>
     </div>

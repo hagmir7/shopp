@@ -11,7 +11,7 @@ use Livewire\Component;
 class BuyNow extends Component
 {
 
-    #[Validate('required|min:2|max:150', as:"Full name")]
+    #[Validate('required|min:2|max:150', as: "Full name")]
     public $full_name;
     #[Validate('required|min:2|max:100', as: "Phone")]
     public $phone;
@@ -23,13 +23,49 @@ class BuyNow extends Component
     public $address;
     #[Validate('nullable|min:3|max:100', as: "Zip Code")]
     public $zip_code;
-    public $quantity = 1;
-    public $price;
 
+    #[Validate('required|integer|min:1|max:999', as: "Quantity")]
+    public $quantity = 1;
+
+    public $price;
     public $color;
     public $dimension;
 
     public Product $product;
+
+    public function mount()
+    {
+        $this->quantity = 1; // Ensure default value
+    }
+
+    public function incrementQuantity()
+    {
+        $this->quantity = intval($this->quantity) + 1;
+    }
+
+    public function decrementQuantity()
+    {
+        if (intval($this->quantity) > 1) {
+            $this->quantity = intval($this->quantity) - 1;
+        }
+    }
+
+    // This method runs whenever quantity is updated
+    public function updatedQuantity($value)
+    {
+        // Ensure quantity is always at least 1
+        if (!is_numeric($value) || intval($value) < 1) {
+            $this->quantity = 1;
+        } else {
+            $this->quantity = intval($value);
+        }
+    }
+
+    // Calculate total price in real-time
+    public function getTotalPriceProperty()
+    {
+        return $this->product->price * intval($this->quantity);
+    }
 
     public function save()
     {
@@ -54,7 +90,6 @@ class BuyNow extends Component
             'color_id' => $this->color,
             'total' => intval($this->quantity) * $this->product->price
         ]);
-
 
         return redirect(route('thanks'));
     }
