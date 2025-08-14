@@ -12,7 +12,8 @@ class CreateSiteMedia extends CreateRecord
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
-        $data['site_id'] = app('site')->id;
+
+        $data['site_id'] = app('site')?->id ?? null;
         return $data;
     }
 }
