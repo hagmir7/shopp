@@ -67,6 +67,11 @@ class CategoryResource extends Resource
                                 Forms\Components\FileUpload::make('image')
                                     ->label(__("Image"))
                                     ->image(),
+
+                                Forms\Components\Toggle::make('status')
+                                    ->inline(false)
+                                    ->default(true)
+                                    ->label(__("Status")),
                             ])->columnSpan(1)
                     ]),
 
