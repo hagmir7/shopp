@@ -1,5 +1,5 @@
 @if($products->count() > 0)
-<div class="{{ app('site')?->options['card_grid'] ?? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4' }}">    <!-- Product Card 1 -->
+<div class="{{ app('site')?->options['card_grid'] ?? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4' }}">    <!-- Product Card 1 -->
     @foreach ($products as $product)
     <div class="group bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
         <!-- Image Container -->
@@ -25,7 +25,7 @@
             </a>
 
             <!-- Price and Add to Cart -->
-            <div class="mt-4 flex items-center justify-between ">
+            <div class="mt-2 md:mt-4 flex items-center justify-between ">
                 <div class="flex flex-col text-primary">
                     @if ($product->discount && ($product->discount > 0))
                     <span class="text-sm md:text-base line-through text-gray-500">
