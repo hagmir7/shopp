@@ -10,8 +10,7 @@
             </a>
             <!-- Discount Badge -->
             @if ($product->discount && ($product->discount > 0))
-            <span
-                class="absolute top-4 left-4 bg-red-700 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md">
+            <span class="absolute top-4 left-4 bg-red-700 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md">
                 -{{ $product->discount }}%
             </span>
             @endif
@@ -19,9 +18,8 @@
 
         <!-- Product Info -->
         <div class="p-4">
-            <a href="{{ route('product.show', $product->slug) }}" class="block">
-                <h3
-                    class="text-md font-bold text-gray-900 hover:text-gray-700 transition-colors duration-200 line-clamp-2">
+         <a href="{{ route('product.show', $product->slug) }}" class="block">
+                <h3 class="text-sm md:text-base font-semibold md:font-bold text-gray-900 hover:text-gray-700 transition-colors duration-200 line-clamp-1">
                     {{ $product->name }}
                 </h3>
             </a>
@@ -30,14 +28,14 @@
             <div class="mt-4 flex items-center justify-between ">
                 <div class="flex flex-col text-primary">
                     @if ($product->discount && ($product->discount > 0))
-                    <span class="text-md line-through text-gray-500">
+                    <span class="text-sm md:text-base line-through text-gray-500">
                         {{ number_format($product->price, 2) }} {{ app("site")->currency }}
                     </span>
-                    <span class="text-xl font-bold">
+                    <span class="text-base md:text-xl font-bold">
                         {{ number_format($product->price * (1 - $product->discount/100), 2) }} {{ app("site")->currency}}
                     </span>
                     @else
-                    <span class="text-xl font-bold">
+                    <span class="text-base md:text-xl font-bold">
                         {{ number_format($product->price, 2) }} {{ app("site")->currency }}
                     </span>
                     @endif
