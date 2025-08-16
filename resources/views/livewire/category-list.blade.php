@@ -1,4 +1,4 @@
-<section class="max-w-6xl mx-auto px-4">
+<section class="max-w-6xl mx-auto px-4 {{ $categories->count() == 0 ?? 'hidden' }}">
     @switch(app('site')->options['category_layout'])
         @case(1)
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">

@@ -3,7 +3,7 @@
 @section('content')
 <div class="max-w-6xl mx-auto mt-3 px-2 mb-9">
     <h2 class="text-lg md:text-xl py-4 font-bold">{{ __("Collection") }} {{ $title }}</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="{{ app('site')?->options['card_grid'] ?? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4' }}">
         @foreach ($products as $product)
         <div class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
             <!-- Image Container -->
