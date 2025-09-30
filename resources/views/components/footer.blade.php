@@ -49,7 +49,7 @@
 
         <!-- Payment Methods -->
         <div class="flex space-x-2">
-            <img src="https://floorwarehouse.co.uk/wp-content/themes/woodmart/images/payments.png" alt="Payment methods"
+            <img src="{{ asset('assets/images/payments.png') }}" alt="Payment methods"
                 class="h-6 opacity-90">
         </div>
     </div>

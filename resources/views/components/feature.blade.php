@@ -4,8 +4,7 @@
             <!-- Delivery Info Box -->
             <div class="flex flex-col items-center p-6 bg-white rounded-lg shadow-sm">
                 <div class="w-12 h-12 mb-4">
-                    <img src="https://floorwarehouse.co.uk/wp-content/uploads/2024/02/product-delivery.svg"
-                        alt="Delivery icon" class="w-full h-full object-contain">
+                    <img src="{{ asset('assets/images/delivery.svg') }}" alt="Delivery icon" class="w-full h-full object-contain">
                 </div>
                 <h2 class="text-lg font-semibold mb-2">{{ __("Superfast Delivery") }}</h2>
                 <p class="text-gray-600 text-center">{{ __("Free 48-hour delivery") }}</p>
@@ -14,8 +13,7 @@
             <!-- Warehouse Info Box -->
             <div class="flex flex-col items-center p-6 bg-white rounded-lg shadow-sm">
                 <div class="w-12 h-12 mb-4">
-                    <img src="https://floorwarehouse.co.uk/wp-content/uploads/2024/02/product-meny-products.svg"
-                        alt="Warehouse icon" class="w-full h-full object-contain">
+                    <img src="{{ asset('assets/images/products.svg') }}"  alt="Warehouse icon" class="w-full h-full object-contain">
                 </div>
                 <h2 class="text-lg font-semibold mb-2">{{ __("Warehouse to Door") }}</h2>
                 <p class="text-gray-600 text-center">{{ __("Direct Savings Guaranteed") }}</p>
@@ -24,7 +22,8 @@
             <!-- Support Info Box -->
             <div class="flex flex-col items-center p-6 bg-white rounded-lg shadow-sm">
                 <div class="w-12 h-12 mb-4">
-                    <img src="https://floorwarehouse.co.uk/wp-content/uploads/2024/02/product-support.svg"
+                    <img
+                    src="{{ asset('assets/images/support.svg') }}"
                         alt="Support icon" class="w-full h-full object-contain">
                 </div>
                 <h2 class="text-lg font-semibold mb-2">{{ __("Instant Live Support") }}</h2>
@@ -34,8 +33,7 @@
             <!-- Returns Info Box -->
             <div class="flex flex-col items-center p-6 bg-white rounded-lg shadow-sm">
                 <div class="w-12 h-12 mb-4">
-                    <img src="https://floorwarehouse.co.uk/wp-content/uploads/2023/04/Floor-Warehouse-Hassle-free-Returns.svg"
-                        alt="Returns icon" class="w-full h-full object-contain">
+                    <img src="{{ asset('assets/images/return.svg') }}" alt="Returns icon" class="w-full h-full object-contain">
                 </div>
                 <h2 class="text-lg font-semibold mb-2">{{ __("Hassle-Free Returns") }}</h2>
                 <p class="text-gray-600 text-center">{{ __("Return items within 2 days!") }}</p>
