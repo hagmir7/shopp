@@ -76,7 +76,7 @@
     </style>
 </head>
 
-<body class="font-sans antialiased" style="background-image: url('https://floorwarehouse.co.uk/wp-content/uploads/2024/04/wd-furniture-background.jpg');background-repeat: repeat;">
+<body class="font-sans antialiased" style="background-image: url('{{ asset('assets/images/wd-furniture-background.jpg') }}');background-repeat: repeat;">
     <x-top-nav />
     <x-nav />
     @yield('content')
