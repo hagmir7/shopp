@@ -162,14 +162,14 @@
     background-color: var(--color-bg) !important;
     border: 2px solid var(--color-border) !important;
     opacity: 0.9 !important;
-    transition: all var(--transition-base) !important;
+    /* transition: all var(--transition-base) !important; */
 }
 
 .splide__arrow:hover:not(:disabled) {
     background-color: var(--color-primary) !important;
     border-color: var(--color-primary) !important;
     opacity: 1 !important;
-    transform: scale(1.1) !important;
+    /* transform: scale(1.1) !important; */
 }
 
 .splide__arrow svg {
