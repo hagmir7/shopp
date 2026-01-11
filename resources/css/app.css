@@ -341,7 +341,7 @@
         line-height: 1.5;
         color: var(--color-text-primary);
         background-color: var(--color-bg);
-        border: 2px solid var(--color-primary);
+        border: 1.5px solid var(--color-primary);
         border-radius: var(--radius-lg);
         transition: all var(--transition-base);
         outline: none;
@@ -360,7 +360,7 @@
     }
 
     .input-primary:focus {
-        border-color: var(--color-primary);
+        border: 1.5px solid var(--color-primary);
         /* box-shadow: 0 0 0 3px var(--color-primary-light); */
     }
 
