@@ -121,11 +121,11 @@
            <div class="w-full">
                 @if(\Cart::isEmpty())
                 <button disabled
-                    class="opacity-50 cursor-not-allowed text-center w-full bg-blue-500 text-white py-2 px-4 rounded-lg transition-colors">
+                    class="opacity-50 cursor-not-allowed text-center w-full btn btn-primary rounded-lg transition-colors">
                     {{ __("Checkout") }}
                 </button>
                 @else
-                <a href="{{ route('checkout') }}" class="inline-block text-center w-full bg-blue-500 text-white py-2 px-4 rounded-lg transition-colors hover:bg-blue-600">
+                <a href="{{ route('checkout') }}" class="inline-block text-center w-full btn btn-primary rounded-lg transition-colors">
                     {{ __("Checkout") }}
                 </a>
             @endif

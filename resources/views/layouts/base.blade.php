@@ -93,6 +93,7 @@
     <x-footer />
 
     {!! app('site')->footer !!}
+    <x-whatsapp-btn />
     @livewireScripts
 </body>
 </html>
