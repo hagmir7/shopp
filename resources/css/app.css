@@ -72,7 +72,7 @@
 }
 
 /* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     :root {
         --color-bg: #111827;
         --color-bg-secondary: #1f2937;
@@ -83,7 +83,7 @@
         --color-text-secondary: #d1d5db;
         --color-text-muted: #9ca3af;
     }
-}
+} */
 
 /* ========================================
    SLIDER COMPONENTS
