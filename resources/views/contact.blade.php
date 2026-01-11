@@ -11,7 +11,7 @@
             @if (app("site")->phone)
                 <li>
                     <strong>{{ __('Phone') }}:</strong>
-                    <a href="tel:{{ app("site")->phone }}" class="text-blue-600 hover:underline">
+                    <a dir="auto" href="tel:{{ app("site")->phone }}" class="text-blue-600 hover:underline">
                         {{ app("site")->phone }}
                     </a>
                 </li>

@@ -497,7 +497,6 @@
 .image-wrapper {
     position: relative;
     background-color: var(--color-bg-secondary);
-    border-radius: var(--radius-md);
     overflow: hidden;
 }
 
