@@ -5,7 +5,7 @@
     <div class="max-w-7xl mx-auto">
         {{-- Product  --}}
         <div class="bg-white md:rounded-xl md:shadow-sm border py-2 px-0 md:p-6 lg:p-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-8">
                 <div class="w-full md:sticky top-5">
                     <div class="rounded-lg overflow-hidden">
                         <x-product-showcase :images="$product->images" :name="$product->name" />
@@ -24,7 +24,7 @@
         <div class="bg-white rounded-xl shadow-sm border p-4 sm:p-6 lg:p-8 mt-6 mb-0">
 
             <h2 class="text-2xl mb-3">{{ __("Product description") }}</h2>
-            <div class="{{ $product->content && $product->options ? 'grid grid-cols-1 lg:grid-cols-2 gap-8' : '' }} ">
+            <div class="{{ $product->content && $product->options ? 'grid grid-cols-1 lg:grid-cols-2 gap-0 md:gap-8' : '' }} ">
                 <div class="flex flex-col space-y-6">
                     {!! $product->content !!}
                 </div>

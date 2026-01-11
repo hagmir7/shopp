@@ -1,6 +1,6 @@
-<div class="flex flex-col space-y-6 relative py-2 md:py-0">
+<div class="flex flex-col space-y-6 relative px-2.5 md:px-0">
     <div>
-        <h1 class="text-2xl sm:text-3xl font-bold text-gray-900">{{ $product->name }}</h1>
+        <h1 class="text-xl md:text-3xl font-bold text-gray-900">{{ $product->name }}</h1>
         @if ($product->category)
         <div class="flex items-center space-x-2">
             <a href="{{ route('category.show', $product->category->slug) }}" class="text-gray-600">{{ $product->category->name }}</a>
