@@ -1,4 +1,4 @@
-<div class="flex flex-col space-y-6 relative">
+<div class="flex flex-col space-y-6 relative py-2 md:py-0">
     <div>
         <h1 class="text-2xl sm:text-3xl font-bold text-gray-900">{{ $product->name }}</h1>
         @if ($product->category)
