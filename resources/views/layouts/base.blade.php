@@ -16,8 +16,15 @@
 
     @if (app()->getLocale() == 'ar')
     <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap" rel="stylesheet">
-
+    @php
+    $colors = json_decode(app('site')->theme_color, true);
+    @endphp
     <style>
+    :root {
+        --color-primary: {{ $colors['primary'] ?? '#fbbf24' }};
+        --color-primary-hover: {{ $colors['hover'] ?? '#f59e0b' }};
+        --color-primary-text: {{ $colors['text'] ?? '#111827' }};
+    }
         * {
             text-align: right;
             font-family: "Readex Pro", serif !important;
@@ -26,7 +33,9 @@
             font-style: normal;
             font-variation-settings: "HEXP" 0;
         }
+
     </style>
+
     @else
     <!-- Fonts -->
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />

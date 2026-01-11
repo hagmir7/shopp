@@ -12,12 +12,14 @@ class Site extends Model
         'logo', 'image', 'tags', 'description', 'email',
         'phone', 'currency', 'dark_logo',
         'language_id', 'country_id', 'options',
-        'header', 'footer', 'user_id'
+        'header', 'footer', 'user_id',
+        'theme_color'
     ];
 
     protected $casts = [
         'tags' => 'array',
-        'options' => 'array'
+        'options' => 'array',
+        'theme_color' => 'array',
     ];
 
     public function users()

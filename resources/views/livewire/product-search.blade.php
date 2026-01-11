@@ -20,7 +20,8 @@
                 <span class="sr-only">Loading...</span>
             </div>
         </p>
-        <input type="text" wire:model.live.debounce.300ms="query" placeholder="{{ __('Search for products') }}" class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-200">        @if (count($results) > 0)
+        <input type="text" wire:model.live.debounce.300ms="query" placeholder="{{ __('Search for products') }}" class="input-primary w-full pl-10 pr-4 py-2 rounded-full">
+        @if (count($results) > 0)
         <div class="absolute z-50 w-full mt-1 bg-white rounded-lg shadow-lg border border-gray-200 max-h-96 overflow-y-auto">
             @foreach($results as $result)
             <a href="{{ route('product.show', $result->slug) }}"

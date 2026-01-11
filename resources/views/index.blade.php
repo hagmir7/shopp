@@ -10,5 +10,6 @@
         <h2 class="text-lg md:text-xl py-4 font-bold">{{ __("Top Weekly Picks") }}</h2>
        @livewire('product-list')
     </div>
+    <x-feature />
 </body>
 @endsection

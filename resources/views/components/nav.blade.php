@@ -1,5 +1,5 @@
 <!-- Main Navigation -->
-<nav class="bg-[#fbfaf7] border-b-2 border-[#e0b15e]">
+<nav class="bg-[#fbfaf7] border-b-2 border-primary">
     <div class="container mx-auto flex flex-wrap items-center justify-between px-4 py-4" x-data="{}">
         <!-- Mobile menu button -->
         <x-mobile-menu />
@@ -16,8 +16,8 @@
         <livewire:product-search />
         <!-- Icons -->
         <div class="items-center space-x-4 hidden lg:flex">
-            <button class="hover:text-gray-600 p-2 rounded-full bg-[#efeeeb] me-3" aria-label="Open love items">
-                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+            <button class="hover:text-gray-600 border-primary border-2 p-2 rounded-full bg-[#efeeeb] me-3" aria-label="Open love items">
+                <svg class="w-6 h-6 text-primary" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="1.5"
                         d="M7.75 3.5C5.127 3.5 3 5.76 3 8.547C3 14.125 12 20.5 12 20.5s9-6.375 9-11.953C21 5.094 18.873 3.5 16.25 3.5c-1.86 0-3.47 1.136-4.25 2.79c-.78-1.654-2.39-2.79-4.25-2.79" />
@@ -25,8 +25,8 @@
             </button>
 
             @auth
-                <a href="/profile" class="hover:text-gray-600 p-2 rounded-full bg-[#efeeeb]">
-                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                <a href="/profile" class="hover:text-gray-600 p-2 rounded-full bg-[#efeeeb] border-primary border-2">
+                    <svg class="w-6 h-6 text-primary" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                         <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                             d="M15 7.5a3 3 0 1 1-6 0a3 3 0 0 1 6 0m4.5 13c-.475-9.333-14.525-9.333-15 0" />
                     </svg>
@@ -44,7 +44,7 @@
         <div>
             <!-- Added x-data here -->
             <div class="items-center space-x-4 flex lg:hidden">
-                <a href="{{ route("cart") }}" class="hover:bg-amber-800 bg-amber-950 p-2 rounded-full relative text-white duration-200">
+                <a href="{{ route("cart") }}" class="btn btn-primary rounded-full relative duration-200">
                     <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                         <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                             stroke-width="1.5"
@@ -65,14 +65,14 @@
             <ul class="flex flex-col lg:flex-row gap-5 py-2 text-sm font-medium">
                 <li>
                     <a href="/"
-                        class="inline-flex cursor-pointer py-2 hover:text-gray-600 gap-2 items-center text-[17px] text-neutral-600">
+                        class="inline-flex cursor-pointer py-2 hover:text-gray-600 gap-2 items-center text-[17px] text-secondary">
                         {{ __("Home") }}
                     </a>
                 </li>
                 @foreach (app('site')->urls->where('header', true)->load('children')->sortBy('order')->all() as $item)
                     @if (count($item->children) == 0)
                     <li>
-                        <a href="{{ $item->path }}" class="inline-flex cursor-pointer py-2 hover:text-gray-600 gap-2 items-center text-[17px] text-neutral-600">
+                        <a href="{{ $item->path }}" class="inline-flex cursor-pointer py-2 hover:text-gray-600 gap-2 items-center text-[17px] text-secondary">
                             {{ $item->name }}
                         </a>
                     </li>
@@ -88,7 +88,7 @@
 
             </ul>
             <div>
-                <a href="{{ route('contact') }}" class="rounded-pill flex gap-2 text-gray-900 bg-[#e0b15e] py-2 px-4 rounded-full text-sm font-semibold hover:text-white">
+                <a href="{{ route('contact') }}" class="btn btn-primary rounded-full btn-sm">
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
