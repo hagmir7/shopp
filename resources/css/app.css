@@ -360,7 +360,7 @@
     }
 
     .input-primary:focus {
-        border: 1.5px solid var(--color-primary);
+        border: 1px solid var(--color-primary);
         /* box-shadow: 0 0 0 3px var(--color-primary-light); */
     }
 
