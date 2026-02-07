@@ -19,7 +19,9 @@ class UserSeeder extends Seeder
             "last_name" => "Agmir",
             "name" => "agmir",
             "email" => "admin@admin.com",
-            "password" => Hash::make('password')
+            "password" => Hash::make('password'),
+            "email_verified_at" => now(),
+            'is_admin' => 1
         ]);
     }
 }

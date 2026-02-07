@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
         // Prevent lazy loading in dev
         Model::preventLazyLoading(!app()->isProduction());
 
-        // Detect current site by domain
+        // // Detect current site by domain
         try {
             $domain = str_replace('www.', '', request()->getHost());
             $site = Site::where('domain', $domain)->firstOrFail();
