@@ -9,7 +9,7 @@
         <!-- Toggle Button -->
         <button type="button" @mouseover="isOpen = true" @keydown.space.prevent="openedWithKeyboard = true"
             @keydown.enter.prevent="openedWithKeyboard = true" @keydown.down.prevent="openedWithKeyboard = true"
-            class="inline-flex cursor-pointer py-2 gap-2 items-center text-[17px]"
+            class="inline-flex cursor-pointer py-2 items-center text-[17px]"
             :class="isOpen || openedWithKeyboard ? 'text-secondary' : 'text-secondary'"
             :aria-expanded="isOpen || openedWithKeyboard" aria-haspopup="true">
             {{ $name }}

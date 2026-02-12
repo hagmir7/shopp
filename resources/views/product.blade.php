@@ -109,7 +109,7 @@
                         </button>
                     </div>
 
-                    <button class="group border-2 border-red-400 py-3 px-5 rounded-full bg-red-50 text-red-600 font-semibold text-lg w-full flex items-center justify-center gap-2 shadow-sm shadow-transparent transition-all duration-500 hover:shadow-red-300 hover:bg-red-100">
+                    <button class="group border-2 border-red-400 py-3 px-5 rounded-full bg-red-50 text-red-600 font-semibold text-lg w-full flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500 hover:shadow-red-300 hover:bg-red-100">
                         <div role="status" >
                             <svg
                                 class="stroke-red-600 transition-all duration-500 group-hover:red-red-600" width="22" height="22"

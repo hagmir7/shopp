@@ -27,7 +27,7 @@
         <!-- Button with enhanced hover effect -->
         <a href="{{ $url }}" class="inline-block group/btn mt-4">
             <button
-                class="btn btn-primary flex items-center gap-2 rounded-md transition-all duration-300 transform group-hover/btn:translate-x-2">
+                class="btn btn-primary flex items-center rounded-md transition-all duration-300 transform group-hover/btn:translate-x-2">
                 {{ __("Shop Now") }}
 
                 @if (app()->getLocale() === "ar")

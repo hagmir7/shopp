@@ -185,7 +185,7 @@
    ======================================== */
 @layer components {
     .btn {
-        @apply inline-flex items-center justify-center gap-2;
+        @apply inline-flex items-center justify-center;
         padding: 0.625rem 1.25rem;
         font-weight: 600;
         font-size: 0.875rem;

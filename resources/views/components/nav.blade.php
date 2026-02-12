@@ -65,14 +65,14 @@
             <ul class="flex flex-col lg:flex-row gap-5 py-2 text-sm font-medium">
                 <li>
                     <a href="/"
-                        class="inline-flex cursor-pointer py-2 hover:text-gray-600 gap-2 items-center text-[17px] text-secondary">
+                        class="inline-flex cursor-pointer py-2 hover:text-gray-600 items-center text-[17px] text-secondary">
                         {{ __("Home") }}
                     </a>
                 </li>
                 @foreach (app('site')->urls->where('header', true)->load('children')->sortBy('order')->all() as $item)
                     @if (count($item->children) == 0)
                     <li>
-                        <a href="{{ $item->path }}" class="inline-flex cursor-pointer py-2 hover:text-gray-600 gap-2 items-center text-[17px] text-secondary">
+                        <a href="{{ $item->path }}" class="inline-flex cursor-pointer py-2 hover:text-gray-600 items-center text-[17px] text-secondary">
                             {{ $item->name }}
                         </a>
                     </li>
