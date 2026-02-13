@@ -10,6 +10,7 @@ use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable implements FilamentUser
 {
@@ -36,6 +37,18 @@ class User extends Authenticatable implements FilamentUser
     {
         return $this->belongsTo(Site::class);
     }
+
+
+    public function sites()
+    {
+        return $this->belongsToMany(Site::class);
+    }
+
+    public function getTenants(): iterable
+    {
+        return $this->sites;
+    }
+
 
     public function addresses()
     {
@@ -74,6 +87,11 @@ class User extends Authenticatable implements FilamentUser
     {
         return $this->is_admin == true && $this->hasVerifiedEmail();
     }
+
+    // public function canAccessTenant(Model $tenant): bool
+    // {
+    //     return $this->sites()->whereKey($tenant)->exists();
+    // }
 
 
     public function getSlugOptions(): SlugOptions

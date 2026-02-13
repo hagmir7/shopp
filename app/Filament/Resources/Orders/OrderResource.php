@@ -18,12 +18,18 @@ use Filament\Tables;
 use Filament\Schemas\Components\Grid;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use UnitEnum;
 
 class OrderResource extends Resource
 {
     protected static ?string $model = Order::class;
 
     protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-shopping-bag';
+
+    public static function getNavigationGroup(): string|UnitEnum|null
+    {
+        return __("Sell");
+    }
 
     public static function getLabel(): string
     {

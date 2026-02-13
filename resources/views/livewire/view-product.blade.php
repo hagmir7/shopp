@@ -2,7 +2,7 @@
     <div>
         <h1 class="text-xl md:text-3xl font-bold text-gray-900">{{ $product->name }}</h1>
         @if ($product->category)
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-2 mt-3">
             <a href="{{ route('category.show', $product->category->slug) }}" class="text-gray-600">{{ $product->category->name }}</a>
         </div>
         @endif

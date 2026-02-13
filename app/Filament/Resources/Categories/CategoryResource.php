@@ -10,12 +10,19 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use UnitEnum;
 
 class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
     protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-user-group';
+
+
+    public static function getNavigationGroup(): string|UnitEnum|null
+    {
+        return __("Sell");
+    }
 
     public static function getModelLabel(): string
     {

@@ -30,12 +30,19 @@ use Filament\Tables\Table;
 use Filament\Forms\Get;
 use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Tabs\Tab;
+use UnitEnum;
 
 class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
 
     protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-squares-2x2';
+
+
+    public static function getNavigationGroup(): string|UnitEnum|null
+    {
+        return __("Sell");
+    }
 
     public static function getLabel(): string
     {

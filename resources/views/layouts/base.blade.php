@@ -14,6 +14,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 
+
     @php
     $colors = json_decode(app('site')->theme_color, true);
     @endphp
@@ -101,8 +102,11 @@
     <x-mobile-footer />
     <x-footer />
 
+
+    @livewireScriptConfig
     {!! app('site')->footer !!}
     <x-whatsapp-btn />
-    @livewireScripts
+    {{-- @livewireScripts --}}
+
 </body>
 </html>

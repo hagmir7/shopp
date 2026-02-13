@@ -15,6 +15,10 @@ class LoginForm extends Component
     public $password;
 
 
+    public $remember;
+
+
+
     public function login()
     {
         $this->validate();

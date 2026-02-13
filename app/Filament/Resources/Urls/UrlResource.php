@@ -15,6 +15,8 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Schemas\Components\Section;
 use Illuminate\Database\Eloquent\Builder;
+use UnitEnum;
+
 // use Icetalker\FilamentTableRepeater\Forms\Components\TableRepeater;
 
 class UrlResource extends Resource
@@ -26,6 +28,11 @@ class UrlResource extends Resource
     public static function getLabel(): string
     {
         return __("URL");
+    }
+
+    public static function getNavigationGroup(): string|UnitEnum|null
+    {
+        return __("More options");
     }
 
     public static function getPluralLabel(): ?string

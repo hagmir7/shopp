@@ -14,6 +14,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use UnitEnum;
 
 class SiteMediaResource extends Resource
 {
@@ -24,6 +25,12 @@ class SiteMediaResource extends Resource
     public static function getLabel(): string
     {
         return __("Social Media");
+    }
+
+
+    public static function getNavigationGroup(): string|UnitEnum|null
+    {
+        return __("More options");
     }
 
     public static function getPluralLabel(): string

@@ -12,6 +12,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use UnitEnum;
 
 class ContactResource extends Resource
 {
@@ -23,6 +24,13 @@ class ContactResource extends Resource
     {
         return __("Message");
     }
+
+
+    public static function getNavigationGroup(): string|UnitEnum|null
+    {
+        return __("More options");
+    }
+
 
     public static function getPluralLabel(): string
     {

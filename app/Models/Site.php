@@ -22,10 +22,17 @@ class Site extends Model
         'theme_color' => 'array',
     ];
 
+
     public function users()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsToMany(User::class);
     }
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
 
     public function products()
     {

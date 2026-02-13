@@ -15,6 +15,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use UnitEnum;
 
 class PageResource extends Resource
 {
@@ -25,6 +26,11 @@ class PageResource extends Resource
     public static function getLabel(): string
     {
         return __("Page");
+    }
+
+    public static function getNavigationGroup(): string|UnitEnum|null
+    {
+        return __("More options");
     }
 
     public static function getPluralLabel(): string

@@ -26,13 +26,14 @@
 
             <!-- Price and Add to Cart -->
             <div class="mt-2 md:mt-4 flex items-center justify-between ">
-                <div class="flex flex-col text-primary">
+                <div class="flex gap-2 text-primary items-center">
                     @if ($product->discount && ($product->discount > 0))
-                    <span class="text-sm md:text-base line-through text-gray-500">
-                        {{ number_format($product->price, 2) }} {{ app("site")->currency }}
-                    </span>
                     <span class="text-base md:text-xl font-bold">
                         {{ number_format($product->price * (1 - $product->discount/100), 2) }} {{ app("site")->currency}}
+                    </span>
+
+                    <span class="text-sm md:text-base line-through text-gray-500">
+                        {{ number_format($product->price, 2) }} {{ app("site")->currency }}
                     </span>
                     @else
                     <span class="text-base md:text-xl font-bold">

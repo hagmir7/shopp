@@ -88,7 +88,7 @@
 
             </ul>
             <div>
-                <a href="{{ route('contact') }}" class="btn btn-primary rounded-full btn-sm">
+                <a href="{{ route('contact') }}" class="btn btn-primary rounded-full btn-sm flex gap-2">
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"

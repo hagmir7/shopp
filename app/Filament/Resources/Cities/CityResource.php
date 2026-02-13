@@ -12,6 +12,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class CityResource extends Resource
 {
@@ -22,6 +23,11 @@ class CityResource extends Resource
     public static function getLabel(): string
     {
         return __("City");
+    }
+
+    public static function getNavigationGroup(): string|UnitEnum|null
+    {
+        return __("More options");
     }
 
     public static function getPluralLabel(): string
