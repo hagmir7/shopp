@@ -1,19 +1,23 @@
 <?php
 
-namespace App\Filament\Resources\Category\Schemas;
+namespace App\Filament\Resources\Categories\Schemas;
 
 use Filament\Schemas\Schema;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
 
 
 class CategoryForm
 {
-    public static function form(Schema $schema): Schema
+    public static function configure(Schema $schema): Schema
     {
         return $schema->components([
-            Forms\Components\Grid::make(3)
+            Grid::make(3)
                 ->schema([
-                    Forms\Components\Section::make()
+                    Section::make()
                         ->schema([
                             Forms\Components\TextInput::make('name')
                                 ->label(__("Category"))
@@ -30,19 +34,19 @@ class CategoryForm
                         ])
                         ->columnSpan(2)
                         ->columns(2),
-                    Forms\Components\Section::make()
+                    Section::make()
                         ->schema([
 
-                            Forms\Components\FileUpload::make('image')
+                            FileUpload::make('image')
                                 ->label(__("Image"))
                                 ->image(),
 
-                            Forms\Components\Toggle::make('status')
+                            Toggle::make('status')
                                 ->inline(false)
                                 ->default(true)
                                 ->label(__("Status")),
                         ])->columnSpan(1)
-                ]),
+                ])->columnSpanFull(),
         ]);
     }
 }

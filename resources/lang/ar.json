@@ -311,6 +311,12 @@
     "Sell": "بيع",
     "Buy": "شراء",
     "More options": "خيارات إضافية",
-    "No products found.": "لم يتم العثور على أي منتجات."
+    "No products found.": "لم يتم العثور على أي منتجات.",
+    "Users and Visitor": "المستخدمون والزائر",
+    "Email Address" : "البريد الإلكتروني",
+    "Email Verified At": "تم التحقق من البريد الإلكتروني في",
+    "Theme": "سمة",
+    "Theme Color": "لون السمة",
+    "Is Admin": "مدير"
 
 }

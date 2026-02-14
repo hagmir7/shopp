@@ -37,20 +37,7 @@ class ColorResource extends Resource
 
     public static function form(Schema $schema): Schema
     {
-        return $schema
-            ->components([
-                Forms\Components\TextInput::make('name')
-                    ->label(__("Color"))
-                    ->maxLength(255),
-
-                Forms\Components\ColorPicker::make('code')
-                    ->label(__("Code"))
-                    ->regex('/^#([a-f0-9]{6}|[a-f0-9]{3})\b$/'),
-
-                Forms\Components\FileUpload::make('image')
-                    ->label(__("Image"))
-                    ->image(),
-            ]);
+        return ColorForm::configure($schema);
     }
 
     public static function table(Table $table): Table

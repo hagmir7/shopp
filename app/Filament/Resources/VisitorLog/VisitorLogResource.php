@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class VisitorLogResource extends Resource
 {
@@ -23,6 +24,11 @@ class VisitorLogResource extends Resource
     public static function getModelLabel(): string
     {
         return __("Visitor Log");
+    }
+
+    public static function getNavigationGroup(): string|UnitEnum|null
+    {
+        return __("Users and Visitor");
     }
 
     public static function getPluralLabel(): ?string

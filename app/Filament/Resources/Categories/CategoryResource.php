@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources\Categories;
 
-use App\Filament\Resources\Category\Schemas\CategoryForm;
-use App\Filament\Resources\Category\Tables\CategoryTable;
+use App\Filament\Resources\Categories\Schemas\CategoryForm;
+use App\Filament\Resources\Categories\Table\CategoryTable;
 use App\Models\Category;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -16,7 +16,7 @@ class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
-    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-user-group';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-folder';
 
 
     public static function getNavigationGroup(): string|UnitEnum|null
