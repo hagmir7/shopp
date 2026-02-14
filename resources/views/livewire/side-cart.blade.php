@@ -9,14 +9,13 @@
         <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2">
             @livewire('cart-counter')
         </div>
-
     </button>
 
     <!-- Backdrop -->
     <div x-show="isOpen" x-transition:enter="transition-opacity ease-linear duration-300"
         x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-        x-transition:leave="transition-opacity ease-linear duration-300" x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0" class="fixed inset-0 bg-black bg-opacity-50" @click="isOpen = false"
+        x-transition:leave="transition-opacity ease-linear duration-300" x-transition:leave-start="opacity-50"
+        x-transition:leave-end="opacity-1" class="fixed inset-0 bg-black/30 backdrop-blur-sm" @click="isOpen = false"
         style="display: none;">
     </div>
 

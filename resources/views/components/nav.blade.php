@@ -36,7 +36,7 @@
             @guest
                 <x-nav-profile-icon />
             @endguest
-            <livewire:side-cart>
+         @livewire('side-cart')
         </div>
 
 

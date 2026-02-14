@@ -128,13 +128,14 @@ class ProductResource extends Resource
                                 ->label(__("Images"))
                                 ->relationship()
                                 ->schema([
-                                    FileUpload::make('path')->image()->required()->label(false),
+                                    FileUpload::make('path')
+                                    ->image()->required()->label(__("Image")),
                                     Select::make('color_id')
                                         ->relationship("color", "name")
                                         ->placeholder(__("Select color"))
                                         ->searchable()
                                         ->preload()
-                                        ->label(false)
+                                        ->label(__('Color'))
                                 ])
                                 ->orderColumn('order')
                                 ->reorderable(true)
@@ -177,15 +178,15 @@ class ProductResource extends Resource
                         ]),
                 ])->columnSpanFull(),
 
-            Section::make('Content')
+            Section::make()
                 ->schema([
                     RichEditor::make('content')->label(__("Content"))->columnSpanFull(),
-                ]),
+                ])->columnSpanFull(),
 
-            Section::make('Options')
+            Section::make()
                 ->schema([
                     KeyValue::make('options')->label(__("Product options"))->columnSpanFull(),
-                ]),
+                ])->columnSpanFull(),
         ]);
     }
 

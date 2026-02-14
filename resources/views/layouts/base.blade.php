@@ -101,12 +101,9 @@
     @yield('content')
     <x-mobile-footer />
     <x-footer />
-
-
     @livewireScriptConfig
     {!! app('site')->footer !!}
     <x-whatsapp-btn />
-    {{-- @livewireScripts --}}
 
 </body>
 </html>

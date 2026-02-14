@@ -1,5 +1,5 @@
 <!-- Top Bar -->
-<div class="hidden lg:block bg-[#f3f3f3] border-b-2">
+<div class="hidden lg:block bg-[#f3f3f3] border-b-2 border-primary">
     <div class="container mx-auto px-4">
         <div class="flex items-center justify-between py-2 text-sm w-full">
             <div class="flex gap-3">
