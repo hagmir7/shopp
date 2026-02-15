@@ -19,6 +19,7 @@ use Filament\Actions\EditAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\BulkActionGroup;
 use Illuminate\Database\Eloquent\Builder;
+use UnitEnum;
 
 class SlideResource extends Resource
 {
@@ -29,6 +30,11 @@ class SlideResource extends Resource
     public static function getLabel(): string
     {
         return __("Slide");
+    }
+
+    public static function getNavigationGroup(): string|UnitEnum|null
+    {
+        return __("More options");
     }
 
     public static function getPluralLabel(): string

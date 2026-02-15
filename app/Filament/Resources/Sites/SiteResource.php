@@ -19,6 +19,7 @@ use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
 use App\Models\Site;
 use BackedEnum;
+use UnitEnum;
 
 class SiteResource extends Resource
 {
@@ -35,6 +36,13 @@ class SiteResource extends Resource
     {
         return __("Store");
     }
+
+    public static function getNavigationGroup(): string|UnitEnum|null
+    {
+        return __("Store");
+    }
+
+
 
 
     public static function getPluralLabel(): ?string

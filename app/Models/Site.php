@@ -13,7 +13,8 @@ class Site extends Model
         'phone', 'currency', 'dark_logo',
         'language_id', 'country_id', 'options',
         'header', 'footer', 'user_id',
-        'theme_color'
+        'theme_color',
+        'balance'
     ];
 
     protected $casts = [
@@ -31,6 +32,11 @@ class Site extends Model
     public function owner()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+
+    public function colors(){
+        return $this->hasMany(Color::class);
     }
 
 

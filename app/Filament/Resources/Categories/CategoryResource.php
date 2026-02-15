@@ -21,7 +21,7 @@ class CategoryResource extends Resource
 
     public static function getNavigationGroup(): string|UnitEnum|null
     {
-        return __("Sell");
+        return __("Store");
     }
 
     public static function getModelLabel(): string

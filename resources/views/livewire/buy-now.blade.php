@@ -1,6 +1,5 @@
 <div class="space-y-4" id="buy-now">
     <p class="text-md bg-orange-200 rounded-md p-2">{{ __("Please enter your information to complete the order.") }}</p>
-
     @if ($product->colors->count() > 0)
     <div>
         <h2 class="font-semibold text-gray-900 mb-3">{{ __("Select Color") }}</h2>

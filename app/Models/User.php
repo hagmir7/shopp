@@ -11,11 +11,12 @@ use Spatie\Sluggable\SlugOptions;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, HasSlug;
+    use HasFactory, Notifiable, HasSlug, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.

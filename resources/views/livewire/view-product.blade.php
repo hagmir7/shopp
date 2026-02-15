@@ -3,10 +3,11 @@
         <h1 class="text-xl md:text-3xl font-bold text-gray-900">{{ $product->name }}</h1>
         @if ($product->category)
         <div class="flex items-center space-x-2 mt-3">
-            <a href="{{ route('category.show', $product->category->slug) }}" class="text-gray-600">{{ $product->category->name }}</a>
+            <a href="{{ route('category.show', $product->category->slug) }}" class="text-gray-600">{{
+                $product->category->name }}</a>
         </div>
         @endif
-      @if (auth()->check() && auth()->id() === app('site')->user_id)
+        @if (auth()->check() && auth()->id() === app('site')->user_id)
         <a class="top-0 end-0 absolute" href="/admin/products/{{ $product->id }}/edit">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="text-green-500" viewBox="0 0 24 24">
                 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
@@ -20,7 +21,7 @@
         @endif
         <div class="py-1">
             {{-- <span class="text-primary text-2xl font-bold">
-                 {{ $product->price}} {{ app("site")->currency }}
+                {{ $product->price}} {{ app("site")->currency }}
             </span> --}}
             <div class="flex flex-col text-primary">
                 @if ($product->discount && ($product->discount > 0))
@@ -35,12 +36,11 @@
                     {{ number_format($product->price, 2) }} {{ app("site")->currency }}
                 </span>
                 @endif
+            </div>
+            <p class="mt-2 text-gray-600">{{ $product->description }}</p>
         </div>
-        <p class="mt-2 text-gray-600">{{ $product->description }}</p>
-    </div>
 
-    @if ($product->buy_now)
+        @if ($product->buy_now)
         @livewire('buy-now', ['product' => $product], key($product->id))
-    @endif
-</div>
-
+        @endif
+    </div>

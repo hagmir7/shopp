@@ -34,7 +34,10 @@ class ProductForm
                         ->icon('heroicon-o-squares-2x2')
                         ->label(__("Product"))
                         ->schema([
-                            TextInput::make('name')->label(__("Product name"))->required()->maxLength(255),
+                            TextInput::make('name')
+                            ->label(__("Product name"))
+                            ->required()
+                            ->maxLength(255),
                             Select::make('status')
                                 ->required()
                                 ->options(ProductStatusEnum::toArray())
@@ -65,8 +68,14 @@ class ProductForm
                                 ->searchable()
                                 ->label(__("Category"))
                                 ->preload(),
-                            Toggle::make('buy_now')->label(__("Buy now"))->inline(false)->default(0),
-                            Textarea::make('description')->label(__("Description"))->required()->columnSpanFull(),
+                            Toggle::make('buy_now')
+                                ->label(__("Buy now"))
+                                ->inline(false)
+                                ->default(0),
+                            Textarea::make('description')
+                                ->label(__("Description"))
+                                ->required()
+                                ->columnSpanFull(),
                             TagsInput::make('tags')
                                 ->label(__("Keywords"))
                                 ->separator(',')
@@ -120,15 +129,17 @@ class ProductForm
                         ->label(__("Variants"))
                         ->icon('heroicon-o-adjustments-vertical')
                         ->schema([
+
                             Repeater::make('dimensions')
                                 ->label(__("Variants"))
                                 ->relationship()
                                 ->schema([
-                                    Select::make('unit_type')
-                                        ->options(UnitType::pluck('name', 'id')->toArray())
+                                    Select::make('unit_type_id')
+                                        ->relationship('unitType', 'name')
                                         ->searchable()
                                         ->preload()
                                         ->label(__("Unit type")),
+
                                     Select::make('unit_id')
                                         ->relationship('unit', 'abbreviation', function ($query, Get $get) {
                                             $query->where('unit_type_id', $get('unit_type'));
@@ -137,7 +148,15 @@ class ProductForm
                                         ->live()
                                         ->preload()
                                         ->label(__("Unit")),
-                                    TextInput::make('value')->label(__("Value")),
+
+                                    Select::make('color_id')
+                                        ->relationship('color', 'name')
+                                        ->searchable()
+                                        ->preload()
+                                        ->label(__("Color")),
+                                    TextInput::make('value')
+                                        ->required()
+                                        ->label(__("Value")),
                                     TextInput::make('price')
                                         ->label(__("Price"))
                                         ->required()
@@ -147,7 +166,7 @@ class ProductForm
                                 ])
                                 ->reorderable(true)
                                 ->defaultItems(1)
-                                ->columns(5),
+                                ->columns(6),
                         ]),
                 ])->columnSpanFull(),
 

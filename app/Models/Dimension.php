@@ -6,7 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dimension extends Model
 {
-    protected $fillable = ['product_id', 'unit_id', 'value', 'code', 'price', 'stock'];
+    protected $fillable = [
+        'product_id',
+        'unit_id',
+        'value',
+        'code',
+        'price',
+        'stock',
+        'unit_type_id',
+        'color_id'
+    ];
 
 
     public function product(){
@@ -16,5 +25,14 @@ class Dimension extends Model
 
     public function unit(){
         return $this->belongsTo(Unit::class);
+    }
+
+    public function unitType()
+    {
+        return $this->belongsTo(UnitType::class);
+    }
+
+    public function color(){
+        return $this->belongsTo(Color::class);
     }
 }
