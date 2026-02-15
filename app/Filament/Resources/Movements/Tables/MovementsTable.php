@@ -40,6 +40,12 @@ class MovementsTable
                 TextColumn::make('quantity')
                     ->label(__('Quantity'))
                     ->badge()
+                    ->color(fn($record): string => match ($record->type) {
+                        1 => 'success',
+                        2 => 'danger',
+                        3 => 'warning',
+                        default => 'gray',
+                    })
                     ->sortable(),
 
                 TextColumn::make('user.name')

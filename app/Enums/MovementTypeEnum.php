@@ -16,8 +16,8 @@ enum MovementTypeEnum: int implements HasLabel, HasColor
     public function getLabel(): ?string
     {
         return match ($this) {
-            self::IN => __("In stock"),
-            self::OUT => __("Out stock"),
+            self::IN => __("In"),
+            self::OUT => __("Out"),
             self::RETURN => __("Return"),
         };
     }
@@ -27,8 +27,8 @@ enum MovementTypeEnum: int implements HasLabel, HasColor
     public static function toArray()
     {
         return [
-            1 => __("In stock"),
-            2 => __("Out stock"),
+            1 => __("In"),
+            2 => __("Out"),
             3 => __("Return"),
         ];
     }
