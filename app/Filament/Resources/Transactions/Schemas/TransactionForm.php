@@ -2,6 +2,9 @@
 
 namespace App\Filament\Resources\Transactions\Schemas;
 
+use App\Enums\TransactionStatusEnum;
+use App\Enums\TransactionTypeEnum;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
@@ -18,47 +21,37 @@ class TransactionForm
                     ->numeric()
                     ->default(0.0),
 
-                TextInput::make('type')
+                Select::make('type')
+                    ->options(TransactionTypeEnum::toArray())
                     ->label(__('Type'))
-                    ->required()
-                    ->numeric(),
+                    ->required(),
 
-                Textarea::make('reference')
+                TextInput::make('reference')
                     ->label(__('Reference'))
-                    ->required()
-                    ->columnSpanFull(),
+                    ->required(),
 
-                Textarea::make('code')
-                    ->label(__('Code'))
-                    ->required()
-                    ->columnSpanFull(),
 
-                TextInput::make('status')
+                Select::make('status')
                     ->label(__('Status'))
                     ->required()
-                    ->numeric()
-                    ->default(0),
+                    ->options(TransactionStatusEnum::toArray())
+                    ->default(1),
 
                 TextInput::make('payment_method')
                     ->label(__('Payment Method')),
 
-                TextInput::make('site_id')
-                    ->label(__('Site ID'))
-                    ->required()
-                    ->numeric(),
 
-                TextInput::make('user_id')
-                    ->label(__('User ID'))
-                    ->required()
-                    ->numeric(),
+                Select::make('article_id')
+                    ->relationship('article', 'name')
+                    ->label(__('Article'))
+                    ->searchable()
+                    ->preload(),
 
-                TextInput::make('article_id')
-                    ->label(__('Article ID'))
-                    ->numeric(),
-
-                TextInput::make('package_id')
-                    ->label(__('Package ID'))
-                    ->numeric(),
+                Select::make('package_id')
+                    ->relationship('package', 'code')
+                    ->label(__('Package'))
+                    ->preload()
+                    ->searchable(),
             ]);
     }
 }

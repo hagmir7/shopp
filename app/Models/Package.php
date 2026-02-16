@@ -14,7 +14,6 @@ class Package extends Model
     protected $fillable = [
         'code',
         'costumer_name',
-        'product_name',
         'phone',
         'city',
         'price',
@@ -48,9 +47,20 @@ class Package extends Model
         return $this->belongsTo(Shipping::class);
     }
 
+
+    public function articles()
+    {
+        return $this->hasMany(ArticlePackage::class);
+    }
+
     public function site()
     {
         return $this->belongsTo(Site::class);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(ArticlePackage::class);
     }
 
     /**

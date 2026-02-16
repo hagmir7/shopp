@@ -13,27 +13,34 @@ class ShippingForm
     {
         return $schema
             ->components([
+
+                FileUpload::make('image')
+                    ->label(__('Image'))
+                    ->avatar()
+                    ->alignCenter()
+                    ->columnSpanFull()
+                    ->image(),
+
                 TextInput::make('name')
                     ->label(__('Name'))
                     ->required(),
 
-                FileUpload::make('image')
-                    ->label(__('Image'))
-                    ->image(),
-
+                TextInput::make('email')
+                    ->label(__('Email Address'))
+                    ->email(),
                 Textarea::make('description')
                     ->label(__('Description'))
                     ->columnSpanFull(),
 
                 TextInput::make('api_key')
+                    ->password()
+                    ->revealable()
                     ->label(__('API Key')),
 
-                TextInput::make('email')
-                    ->label(__('Email Address'))
-                    ->email(),
-
                 TextInput::make('password')
+                    ->password()
                     ->label(__('Password'))
+                    ->revealable()
                     ->password(),
             ]);
     }

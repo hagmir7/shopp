@@ -56,7 +56,7 @@ class Transaction extends Model
         return $this->belongsTo(Article::class);
     }
 
-    public function packages()
+    public function package()
     {
         return $this->belongsTo(Package::class);
     }

@@ -17,7 +17,7 @@ class TransactionsTable
             ->columns([
                 TextColumn::make('amount')
                     ->label(__('Amount'))
-                    ->numeric()
+                    ->suffix(" ". app('site')->currency_code . " ")
                     ->sortable(),
 
                 TextColumn::make('type')
@@ -34,34 +34,26 @@ class TransactionsTable
                     ->label(__('Payment Method'))
                     ->searchable(),
 
-                TextColumn::make('site_id')
-                    ->label(__('Site ID'))
-                    ->numeric()
+                TextColumn::make('user.name')
+                    ->label(__('User'))
                     ->sortable(),
 
-                TextColumn::make('user_id')
-                    ->label(__('User ID'))
-                    ->numeric()
+                TextColumn::make('article.name')
+                    ->label(__('Article'))
                     ->sortable(),
 
-                TextColumn::make('article_id')
-                    ->label(__('Article ID'))
-                    ->numeric()
-                    ->sortable(),
-
-                TextColumn::make('package_id')
-                    ->label(__('Package ID'))
-                    ->numeric()
+                TextColumn::make('package.name')
+                    ->label(__('Package'))
                     ->sortable(),
 
                 TextColumn::make('created_at')
-                    ->label(__('Created At'))
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('updated_at')
-                    ->label(__('Updated At'))
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

@@ -59,8 +59,8 @@ class ShippingResource extends Resource
     {
         return [
             'index' => ListShippings::route('/'),
-            'create' => CreateShipping::route('/create'),
-            'edit' => EditShipping::route('/{record}/edit'),
+            // 'create' => CreateShipping::route('/create'),
+            // 'edit' => EditShipping::route('/{record}/edit'),
         ];
     }
 }
