@@ -356,5 +356,10 @@
     "Min Quantity": "الحد الأدنى للكمية",
     "Articles": "منتجات",
     "Stock management": "إدارة المخزون",
-    "Add Articles": "إضافة منتج"
+    "Add Articles": "إضافة منتج",
+    "Confirmed": "مكتمل",
+    "Shipped": "تم الشحن",
+    "Delivered": "تم التوصيل",
+    "Cancelled": "ملغى",
+    "Returned": "تم الإرجاع"
 }

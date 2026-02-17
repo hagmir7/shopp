@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Package\Schemas;
 
+use App\Enums\PackageStatusEnum;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
@@ -39,11 +40,11 @@ class PackageForm
                             ->default(0.0)
                             ->prefix(app('site')->currency),
 
-                        TextInput::make('status')
+                        Select::make('status')
                             ->label(__('Status'))
                             ->required()
-                            ->numeric()
-                            ->default(0),
+                            ->options(PackageStatusEnum::toArray())
+                            ->default(1),
 
 
 

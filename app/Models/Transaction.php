@@ -87,4 +87,33 @@ class Transaction extends Model
             default => 'Unknown',
         };
     }
+
+    protected static function booted()
+    {
+        static::creating(function ($transaction) {
+
+            if (empty($transaction->site_id) && app()->bound('site')) {
+                $transaction->site_id = app('site')->id;
+            }
+
+
+            if (empty($transaction->user_id) && auth()->check()) {
+                $transaction->user_id = auth()->id();
+            }
+
+            if (empty($transaction->code)) {
+                $lastTransaction = self::latest('id')->first();
+                $nextNumber = $lastTransaction ? $lastTransaction->id + 1 : 1;
+                $transaction->code = 'TR' . str_pad($nextNumber, 6, '0', STR_PAD_LEFT);
+            }
+
+            if (is_null($transaction->status)) {
+                $transaction->status = 0;
+            }
+
+            if (empty($transaction->reference)) {
+                $transaction->reference = uniqid('REF-');
+            }
+        });
+    }
 }

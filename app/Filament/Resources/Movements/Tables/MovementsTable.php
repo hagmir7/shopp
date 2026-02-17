@@ -19,8 +19,9 @@ class MovementsTable
             ->columns([
             TextColumn::make('type')
                 ->label(__('Type'))
-                ->badge()
+
                 ->formatStateUsing(fn($record) => MovementTypeEnum::from($record->type)->getLabel())
+                ->badge()
                 ->color(fn($record): string => match ($record->type) {
                     1 => 'success',
                     2 => 'danger',

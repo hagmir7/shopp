@@ -2,11 +2,14 @@
 
 namespace App\Filament\Resources\Package\Tables;
 
+use App\Enums\PackageStatusEnum;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
+use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
 class PackageTable
@@ -33,18 +36,17 @@ class PackageTable
 
                 TextColumn::make('price')
                     ->label(__('Price'))
-                    ->prefix(app("site")->currency_code ." ")
+                    ->prefix(app("site")->currency_code . " ")
                     ->sortable(),
 
-                TextColumn::make('status')
+                SelectColumn::make('status')
                     ->label(__('Status'))
-                    ->numeric()
+                    ->options(PackageStatusEnum::toArray())
                     ->sortable(),
 
-            TextColumn::make('tracking_number')
-                ->label(__('Tracking Number'))
-                ->searchable(),
-
+                TextColumn::make('tracking_number')
+                    ->label(__('Tracking Number'))
+                    ->searchable(),
 
                 TextColumn::make('shipping.name')
                     ->label(__('Shipping'))
@@ -60,12 +62,11 @@ class PackageTable
                     ->label(__('Shipped At'))
                     ->dateTime()
                     ->sortable(),
+
                 TextColumn::make('delivered_at')
                     ->label(__('Delivered At'))
                     ->dateTime()
                     ->sortable(),
-
-
 
                 TextColumn::make('created_at')
                     ->label(__('Created at'))
@@ -80,7 +81,9 @@ class PackageTable
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                SelectFilter::make('status')
+                    ->label(__('Status'))
+                    ->options(PackageStatusEnum::toArray()),
             ])
             ->recordActions([
                 ViewAction::make(),

@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Transactions\Tables;
 
+use App\Enums\TransactionStatusEnum;
+use App\Enums\TransactionTypeEnum;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -14,20 +16,43 @@ class TransactionsTable
     public static function configure(Table $table): Table
     {
         return $table
+            ->defaultSort('created_at', 'desc')
             ->columns([
+
+                TextColumn::make('code')
+                    ->label(__('Code'))
+                    ->sortable(),
+
+                TextColumn::make('reference')
+                    ->label(__('Reference'))
+                    ->sortable(),
+
                 TextColumn::make('amount')
                     ->label(__('Amount'))
-                    ->suffix(" ". app('site')->currency_code . " ")
+                    ->suffix(" " . app('site')->currency_code . " ")
                     ->sortable(),
 
                 TextColumn::make('type')
                     ->label(__('Type'))
-                    ->numeric()
+                    ->formatStateUsing(fn($record) => TransactionTypeEnum::from($record->type)->getLabel())
+                    ->badge()
+                    ->color(fn($record): string => match ($record->type) {
+                        1 => 'success',
+                        2 => 'danger',
+                        default => 'gray',
+                    })
                     ->sortable(),
 
                 TextColumn::make('status')
                     ->label(__('Status'))
-                    ->numeric()
+                    ->formatStateUsing(fn($record) => TransactionStatusEnum::from($record->status)->getLabel())
+                    ->badge()
+                    ->color(fn($record): string => match ($record->status) {
+                        1 => 'warning',
+                        2 => 'success',
+                        3 => 'danger',
+                        default => 'gray',
+                    })
                     ->sortable(),
 
                 TextColumn::make('payment_method')
