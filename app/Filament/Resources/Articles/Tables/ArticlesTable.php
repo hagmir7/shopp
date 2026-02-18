@@ -86,19 +86,19 @@ class ArticlesTable
                     ->tooltip(__("Delete"))
                     ->label(false)
                     ->size(Size::Large),
-            ReplicateAction::make()
-                ->tooltip(__('Duplicate'))
-                ->size(Size::Large)
-                ->label(false)
-                ->beforeReplicaSaved(function (array $data, $record): array {
-                    // Reset quantity
-                    $data['quantity'] = 0;
+                ReplicateAction::make()
+                    ->tooltip(__('Duplicate'))
+                    ->size(Size::Large)
+                    ->label(false)
+                    ->beforeReplicaSaved(function (array $data, $record): array {
+                        // Reset quantity
+                        $data['quantity'] = 0;
 
-                    // Use the original model to get the name
-                    $data['name'] = $record->name . ' (Copy)';
+                        // Use the original model to get the name
+                        $data['name'] = $record->name . ' (Copy)';
 
-                    return $data;
-                }),
+                        return $data;
+                    }),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
