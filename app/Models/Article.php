@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Article extends Model
 {
@@ -79,5 +80,19 @@ class Article extends Model
     public function getAttributesArrayAttribute()
     {
         return $this->attributes['attributes'] ?? [];
+    }
+
+
+
+    protected static function booted()
+    {
+        static::created(function ($article) {
+            DB::transaction(function () use ($article) {
+
+                $article->code = 'ART' . str_pad($article->id, 6, '0', STR_PAD_LEFT);
+                $article->quantity = 0;
+                $article->save();
+            });
+        });
     }
 }

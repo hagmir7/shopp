@@ -38,6 +38,11 @@ class MovementsTable
                     ->label(__('Article Code'))
                     ->searchable(),
 
+            TextColumn::make('article.name')
+                ->label(__('Article'))
+                ->numeric()
+                ->sortable(),
+
                 TextColumn::make('quantity')
                     ->label(__('Quantity'))
                     ->badge()
@@ -49,14 +54,8 @@ class MovementsTable
                     })
                     ->sortable(),
 
-                TextColumn::make('user.name')
-                    ->label(__('User'))
-                    ->sortable(),
 
-                TextColumn::make('article.name')
-                    ->label(__('Article'))
-                    ->numeric()
-                    ->sortable(),
+
 
                 TextColumn::make('created_at')
                     ->label(__('Created at'))

@@ -19,9 +19,16 @@ class MovementForm
                     ->required(),
 
                 Select::make('article_id')
-                    ->relationship('article', 'name')
                     ->label(__('Article'))
-                    ->searchable()
+                    ->relationship(
+                        name: 'article',
+                        titleAttribute: 'name',
+                        modifyQueryUsing: fn($query) => $query->orderByDesc('created_at')
+                    )
+                    ->getOptionLabelFromRecordUsing(
+                        fn($record) => "{$record->code} - {$record->name}"
+                    )
+                    ->searchable(['code', 'name'])
                     ->preload()
                     ->required(),
 
