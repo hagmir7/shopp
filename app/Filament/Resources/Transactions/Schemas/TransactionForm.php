@@ -23,6 +23,7 @@ class TransactionForm
 
                 Select::make('type')
                     ->options(TransactionTypeEnum::toArray())
+                    ->native(false)
                     ->label(__('Type'))
                     ->required(),
 
@@ -33,6 +34,7 @@ class TransactionForm
 
                 Select::make('status')
                     ->label(__('Status'))
+                    ->native(false)
                     ->required()
                     ->options(TransactionStatusEnum::toArray())
                     ->default(1),

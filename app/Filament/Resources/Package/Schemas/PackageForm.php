@@ -34,15 +34,17 @@ class PackageForm
                             ->required(),
 
                         TextInput::make('price')
+                            ->minValue(0)
                             ->label(__('Price'))
                             ->required()
                             ->numeric()
-                            ->default(0.0)
+                            // ->default()
                             ->prefix(app('site')->currency),
 
                         Select::make('status')
                             ->label(__('Status'))
                             ->required()
+                            ->native(false)
                             ->options(PackageStatusEnum::toArray())
                             ->default(1),
 
@@ -63,9 +65,11 @@ class PackageForm
                             ->searchable(),
 
                         DateTimePicker::make('delivered_at')
+                            ->native(false)
                             ->label(__('Delivered At')),
 
                         DateTimePicker::make('shipped_at')
+                            ->native(false)
                             ->label(__('Shipped At')),
 
 

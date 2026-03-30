@@ -34,18 +34,17 @@ class ArticleForm
                                     ->required()
                                     ->columnSpanFull(),
 
-
-
-
-
-
                                 Select::make('product_id')
                                     ->relationship('product', 'name')
+                                    ->searchable()
+                                    ->preload()
                                     ->label(__('Product')),
 
 
                                 Select::make('color_id')
                                     ->relationship('color', 'name')
+                                    ->searchable()
+                                    ->preload()
                                     ->label(__('Color')),
 
 

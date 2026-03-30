@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
+use App\Enums\MovementTypeEnum;
+use Filament\Notifications\Notification;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Movement extends Model
 {
@@ -23,29 +26,27 @@ class Movement extends Model
 
     // Casts
     protected $casts = [
-        'type' => 'integer',
+        'type' => MovementTypeEnum::class,
         'quantity' => 'integer',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
 
+
     /**
      * Relationships
      */
 
-    // Movement belongs to a Site
     public function site()
     {
         return $this->belongsTo(Site::class);
     }
 
-    // Movement belongs to a User
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    // Movement belongs to an Article
     public function article()
     {
         return $this->belongsTo(Article::class);
@@ -54,8 +55,6 @@ class Movement extends Model
     /**
      * Helper Methods
      */
-
-    // Get human-readable type
     public function getTypeTextAttribute(): string
     {
         return match ($this->type) {
@@ -66,10 +65,17 @@ class Movement extends Model
         };
     }
 
-
+    /**
+     * Model Events
+     */
     protected static function booted()
     {
+        /**
+         * BEFORE CREATE
+         */
         static::creating(function (Movement $movement) {
+
+            // Auto-fill fields
             if (!$movement->article_code && $movement->article) {
                 $movement->article_code = $movement->article->code;
                 $movement->site_id = app('site')->id;
@@ -79,23 +85,55 @@ class Movement extends Model
                 $nextNumber = $lastMovement ? $lastMovement->id + 1 : 1;
                 $movement->reference = 'MO' . str_pad($nextNumber, 6, '0', STR_PAD_LEFT);
             }
-        });
 
+            // 🚨 Prevent negative stock BEFORE saving
+            if ($movement->article && $movement->type == 2) {
+                $article = $movement->article()->lockForUpdate()->first();
 
-        static::created(function (Movement $movement) {
-            if ($movement->article) {
-                switch ($movement->type) {
-                    case 1:
-                        $movement->article->increment('quantity', $movement->quantity);
-                        break;
-                    case 2:
-                        $movement->article->decrement('quantity', $movement->quantity);
-                        break;
-                    case 3:
-                        $movement->article->increment(['quantity' => $movement->quantity]);
-                        break;
+                if ($article->quantity < $movement->quantity) {
+                    Notification::make()
+                        ->title('Error')
+                        ->body(__('Insufficient quantity in stock.'))
+                        ->danger()
+                        ->send();
+
+                    return false; // stop creation
+                    // throw new \Exception('Insufficient quantity in stock.');
                 }
             }
+        });
+
+        /**
+         * AFTER CREATE
+         */
+        static::created(function (Movement $movement) {
+
+            DB::transaction(function () use ($movement) {
+
+                $article = $movement->article()->lockForUpdate()->first();
+
+                if (!$article) {
+                    return;
+                }
+
+                switch ($movement->type) {
+
+                    // Stock IN
+                    case 1:
+                        $article->increment('quantity', $movement->quantity);
+                        break;
+
+                    // Stock OUT
+                    case 2:
+                        $article->decrement('quantity', $movement->quantity);
+                        break;
+
+                    // Adjustment
+                    case 3:
+                        $article->increment('quantity', $movement->quantity);
+                        break;
+                }
+            });
         });
     }
 }

@@ -38,9 +38,15 @@ class ArticlesTable
                     ->label(__('Quantity'))
                     ->badge()
                     ->color(function ($record) {
-                        return $record->quantity_min >= $record->quantity
-                            ? 'danger'
-                            : 'success';
+                        if ($record->quantity < 0) {
+                            return 'danger';
+                        }
+
+                        if ($record->quantity <= $record->quantity_min) {
+                            return 'danger';
+                        }
+
+                        return 'success';
                     })
                     ->sortable(),
                 TextColumn::make('cost_price')

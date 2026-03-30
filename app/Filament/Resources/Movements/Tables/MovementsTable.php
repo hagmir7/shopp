@@ -17,45 +17,32 @@ class MovementsTable
         return $table
             ->defaultSort('created_at', 'desc')
             ->columns([
-            TextColumn::make('type')
-                ->label(__('Type'))
 
-                ->formatStateUsing(fn($record) => MovementTypeEnum::from($record->type)->getLabel())
-                ->badge()
-                ->color(fn($record): string => match ($record->type) {
-                    1 => 'success',
-                    2 => 'danger',
-                    3 => 'warning',
-                    default => 'gray',
-                })
-                ->sortable(),
+                TextColumn::make('type')
+                    ->label(__('Type'))
+                    ->badge()
+                    ->formatStateUsing(fn($state) => self::resolveEnum($state)->getLabel())
+                    ->color(fn($state) => self::resolveEnum($state)->getColor())
+                    ->sortable(),
 
                 TextColumn::make('reference')
                     ->label(__('Reference'))
+                    ->placeholder('—')
                     ->searchable(),
 
                 TextColumn::make('article_code')
                     ->label(__('Article Code'))
                     ->searchable(),
 
-            TextColumn::make('article.name')
-                ->label(__('Article'))
-                ->numeric()
-                ->sortable(),
+                TextColumn::make('article.name')
+                    ->label(__('Article'))
+                    ->sortable(),
 
                 TextColumn::make('quantity')
                     ->label(__('Quantity'))
                     ->badge()
-                    ->color(fn($record): string => match ($record->type) {
-                        1 => 'success',
-                        2 => 'danger',
-                        3 => 'warning',
-                        default => 'gray',
-                    })
+                    ->color(fn($state, $record) => self::resolveEnum($record->type)->getColor())
                     ->sortable(),
-
-
-
 
                 TextColumn::make('created_at')
                     ->label(__('Created at'))
@@ -67,6 +54,7 @@ class MovementsTable
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
             ])
             ->filters([
                 //
@@ -80,5 +68,12 @@ class MovementsTable
                     DeleteBulkAction::make(),
                 ]),
             ]);
+    }
+
+    private static function resolveEnum(mixed $state): MovementTypeEnum
+    {
+        return $state instanceof MovementTypeEnum
+            ? $state
+            : MovementTypeEnum::from($state);
     }
 }
