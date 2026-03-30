@@ -15,29 +15,30 @@ class ShippingsTable
     {
         return $table
             ->columns([
-                TextColumn::make('name')
-                    ->label(__('Name'))
-                    ->searchable(),
 
                 ImageColumn::make('image')
                     ->label(__('Image')),
 
-                TextColumn::make('api_key')
-                    ->label(__('API Key'))
+
+                TextColumn::make('name')
+                    ->label(__('Name'))
                     ->searchable(),
+
+
+
 
                 TextColumn::make('email')
                     ->label(__('Email Address'))
                     ->searchable(),
 
                 TextColumn::make('created_at')
-                    ->label(__('Created At'))
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('updated_at')
-                    ->label(__('Updated At'))
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

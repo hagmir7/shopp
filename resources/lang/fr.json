@@ -340,7 +340,7 @@
     "Stock In": "Entrée en stock",
     "Stock Out": "Sortie de stock",
     "Unknown": "Inconnu",
-    "Article Code": "Code produit",
+    "Article Code": "Réf Article",
     "In": "Entrée",
     "Out": "Sortie",
     "Return": "Retour",
@@ -355,5 +355,7 @@
     "Attributes": "Attributs",
     "Min Quantity": "Quantité minimale",
     "Articles": "Articles",
-    "Stock management": "Gestion des stocks"
+    "Stock management": "Gestion des stocks",
+    "Created by": "Created By",
+    "Movement Type": "Movement Type"
 }

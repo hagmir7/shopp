@@ -77,7 +77,7 @@ class SiteMediaResource extends Resource
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make('created_at')
-                    ->label(__("Created At"))
+                    ->label(__("Created at"))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

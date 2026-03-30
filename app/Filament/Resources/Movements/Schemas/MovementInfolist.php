@@ -44,12 +44,12 @@ class MovementInfolist
 
 
                 TextEntry::make('user.name')
-                    ->label(__("Created By"))
+                    ->label(__("Created by"))
                     ->icon(Heroicon::OutlinedUser)
                     ->placeholder('—'),
 
                 TextEntry::make('created_at')
-                    ->label(__("Created At"))
+                    ->label(__("Created at"))
                     ->icon(Heroicon::OutlinedUser)
                     ->placeholder('—'),
 

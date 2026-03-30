@@ -39,18 +39,40 @@ class TransactionForm
                     ->options(TransactionStatusEnum::toArray())
                     ->default(1),
 
-                TextInput::make('payment_method')
+                Select::make('payment_method')
+                    ->options([
+                        'Espèces' => 'Espèces',
+                        'Virement bancaire' => 'Virement bancaire',
+                        'Chèque' => 'Chèque',
+                        'PayPal' => 'PayPal',
+                        'Carte bancaire' => 'Carte bancaire',
+                    ])
                     ->label(__('Payment Method')),
 
 
                 Select::make('article_id')
-                    ->relationship('article', 'name')
                     ->label(__('Article'))
-                    ->searchable()
-                    ->preload(),
+                    ->relationship(
+                        name: 'article',
+                        titleAttribute: 'name',
+                        modifyQueryUsing: fn($query) => $query->orderByDesc('created_at')
+                    )
+                    ->getOptionLabelFromRecordUsing(
+                        fn($record) => "{$record->code} - {$record->name}"
+                    )
+                    ->searchable(['code', 'name'])
+                    ->preload()
+                    ->required(),
 
                 Select::make('package_id')
-                    ->relationship('package', 'code')
+                    ->relationship(
+                        name: 'package',
+                        titleAttribute: 'code',
+                        modifyQueryUsing: fn($query) => $query->orderByDesc('created_at')
+                    )
+                    ->getOptionLabelFromRecordUsing(
+                        fn($record) => "{$record->code} - {$record->costumer_name}"
+                    )
                     ->label(__('Package'))
                     ->preload()
                     ->searchable(),
