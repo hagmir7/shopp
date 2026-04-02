@@ -21,6 +21,6 @@
         "@alpinejs/focus": "^3.14.3",
         "@splidejs/splide": "^4.1.4",
         "alpinejs": "^3.14.3",
-        "swiper": "^11.1.14"
+        "swiper": "^12.1.2"
     }
 }
