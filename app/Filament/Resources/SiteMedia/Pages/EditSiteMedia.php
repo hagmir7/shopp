@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\SiteMediaResource\Pages;
+namespace App\Filament\Resources\SiteMedia\Pages;
 
 use App\Filament\Resources\SiteMedia\SiteMediaResource;
 use Filament\Actions;

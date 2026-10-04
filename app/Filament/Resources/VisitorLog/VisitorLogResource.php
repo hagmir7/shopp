@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\VisitorLog;
 
-use App\Filament\Resources\VisitorLogResource\Pages;
+use App\Filament\Resources\VisitorLog\Pages;
 use App\Models\VisitorLog;
 use BackedEnum;
 use Filament\Actions\DeleteAction;

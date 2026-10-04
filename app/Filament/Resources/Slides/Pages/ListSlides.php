@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\SlideResource\Pages;
+namespace App\Filament\Resources\Slides\Pages;
 
 use App\Filament\Resources\Slides\SlideResource;
 use Filament\Actions;

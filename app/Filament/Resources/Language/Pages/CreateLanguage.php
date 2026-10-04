@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\LanguageResource\Pages;
+namespace App\Filament\Resources\Language\Pages;
 
 use App\Filament\Resources\Language\LanguageResource;
 use Filament\Actions;

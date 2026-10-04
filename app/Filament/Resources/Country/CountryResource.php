@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\Country;
 
-use App\Filament\Resources\CountryResource\Pages;
+use App\Filament\Resources\Country\Pages;
 use App\Models\Country;
 use BackedEnum;
 use Filament\Actions\DeleteBulkAction;

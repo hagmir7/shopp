@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\CountryResource\Pages;
+namespace App\Filament\Resources\Country\Pages;
 
 use App\Filament\Resources\Country\CountryResource;
 use Filament\Actions;

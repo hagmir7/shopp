@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Colors;
+namespace App\Filament\Resources\Colors\Schema;
 
 use Filament\Schemas\Schema;
 use Filament\Forms;

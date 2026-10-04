@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\Urls;
 
-use App\Filament\Resources\UrlResource\Pages;
+use App\Filament\Resources\Urls\Pages;
 use App\Models\Url;
 use BackedEnum;
 use Filament\Forms;

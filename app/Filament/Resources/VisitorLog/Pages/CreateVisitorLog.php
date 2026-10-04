@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\VisitorLogResource\Pages;
+namespace App\Filament\Resources\VisitorLog\Pages;
 
 use App\Filament\Resources\VisitorLog\VisitorLogResource;
 use Filament\Actions;

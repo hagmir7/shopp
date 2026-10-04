@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\Colors;
 
-use App\Filament\Resources\ColorResource\Pages;
+use App\Filament\Resources\Colors\Pages;
 use App\Models\Color;
 use BackedEnum;
 use Filament\Actions\DeleteBulkAction;

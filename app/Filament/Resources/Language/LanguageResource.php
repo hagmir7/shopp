@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\Language;
 
-use App\Filament\Resources\LanguageResource\Pages;
+use App\Filament\Resources\Language\Pages;
 use App\Models\Language;
 use BackedEnum;
 use Filament\Actions\DeleteBulkAction;

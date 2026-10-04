@@ -4,7 +4,7 @@ namespace App\Filament\Resources\Sites;
 
 use App\Filament\Resources\Sites\Pages;
 use App\Filament\Resources\Sites\Schemas\SiteForm;
-use App\Filament\Resources\UrlResource\RelationManagers\UrlsRelationManager;
+use App\Filament\Resources\Urls\RelationManagers\UrlsRelationManager;
 use Filament\Resources\Resource;
 use Filament\Tables\Table;
 use Filament\Actions\EditAction;

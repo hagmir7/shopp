@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\SiteMedia;
 
-use App\Filament\Resources\SiteMediaResource\Pages;
+use App\Filament\Resources\SiteMedia\Pages;
 use App\Models\SiteMedia;
 use BackedEnum;
 use Filament\Actions\DeleteBulkAction;

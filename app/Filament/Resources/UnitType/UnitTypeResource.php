@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\UnitType;
 
-use App\Filament\Resources\UnitTypeResource\Pages;
+use App\Filament\Resources\UnitType\Pages;
 use App\Filament\Resources\UnitTypeResource\RelationManagers;
 use App\Models\UnitType;
 use BackedEnum;

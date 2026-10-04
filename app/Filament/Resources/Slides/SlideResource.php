@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\Slides;
 
-use App\Filament\Resources\SlideResource\Pages;
+use App\Filament\Resources\Slides\Pages;
 use App\Models\Slide;
 use BackedEnum;
 use Filament\Schemas\Components\Grid;

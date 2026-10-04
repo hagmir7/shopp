@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\UrlResource\Pages;
+namespace App\Filament\Resources\Urls\Pages;
 
 use App\Filament\Resources\Urls\UrlResource;
 use Filament\Actions;

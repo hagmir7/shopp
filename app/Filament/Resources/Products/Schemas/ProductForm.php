@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\Products\Schemas;
 
 use App\Enums\ProductStatusEnum;
-use App\Filament\Resources\Colors\ColorForm;
+use App\Filament\Resources\Colors\Schema\ColorForm;
 use App\Models\Color;
 use App\Models\UnitType;
 use Filament\Forms\Components\FileUpload;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\ColorResource\Pages;
+namespace App\Filament\Resources\Colors\Pages;
 
 use App\Filament\Resources\Colors\ColorResource;
 use Filament\Actions;

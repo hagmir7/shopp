@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\Contact;
 
-use App\Filament\Resources\ContactResource\Pages;
+use App\Filament\Resources\Contact\Pages;
 use App\Models\Contact;
 use BackedEnum;
 use Filament\Actions\DeleteBulkAction;

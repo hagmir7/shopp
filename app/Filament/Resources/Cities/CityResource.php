@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\Cities;
 
-use App\Filament\Resources\CityResource\Pages;
+use App\Filament\Resources\Cities\Pages;
 use App\Models\City;
 use BackedEnum;
 use Filament\Actions\DeleteBulkAction;
